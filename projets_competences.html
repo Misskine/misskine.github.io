@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets et Compétences | Nour MESBAHI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5722;
+            --secondary: #212121;
+            --light: #F5F5F5;
+            --dark: #121212;
+            --gray: #888;
+            --beige: #EFEFDF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: sans-serif;
+            background-color: var(--beige);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .vt323-regular {
+            font-family: "VT323", monospace;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .custom-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--beige);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .navbar-brand {
+            font-family: "VT323", monospace;
+            font-weight: 400;
+            font-size: 1.5rem;
+            color: var(--dark);
+            letter-spacing: 1px;
+        }
+        
+        .nav-link {
+            color: var(--dark);
+            font-weight: 500;
+            margin-left: 1.5rem;
+            position: relative;
+            transition: color 0.3s ease;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link-active {
+            color: var(--primary);
+            font-weight: 600;
+            margin-left: 1.5rem;
+            position: relative;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .welcome-text {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--gray);
+            letter-spacing: 1px;
+        }
+        
+        .contact-info {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        /* Header Section */
+        .header {
+            position: relative;
+            padding: 8rem 0 4rem;
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .section-title {
+            font-family: "VT323", monospace;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .header h2 {
+            font-family: "VT323", monospace;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            padding: 5rem 0;
+        }
+        
+        .content-section.alt {
+            background-color: white;
+        }
+        
+        .content-heading {
+            font-family: "VT323", monospace;
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+        
+        .content-text {
+            font-family: monospace;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            color: var(--gray);
+        }
+        
+        /* Project Cards */
+        .project-card {
+            position: relative;
+            background-color: var(--beige);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .project-card h3 {
+            font-family: "VT323", monospace;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .project-card p {
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .project-counter {
+            position: absolute;
+            top: 0;
+            right: 1rem;
+            font-family: "VT323", monospace;
+            font-size: 6rem;
+            color: rgba(0,0,0,0.05);
+            line-height: 1;
+            pointer-events: none;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tags span {
+            background-color: rgba(255, 87, 34, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: monospace;
+        }
+        
+        .project-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+            font-family: "VT323", monospace;
+            font-size: 1.1rem;
+        }
+        
+        .project-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .skill-item {
+            position: relative;
+        }
+        
+        .skill-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-item h3 {
+            font-family: "VT323", monospace;
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-item p {
+            font-family: monospace;
+            color: var(--gray);
+        }
+        
+        /* Soft Skills Cards */
+        .soft-skill-card {
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .soft-skill-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .soft-skill-card i {
+            color: var(--primary);
+        }
+        
+        .soft-skill-card h4 {
+            font-family: "VT323", monospace;
+            font-weight: 400;
+        }
+        
+        .soft-skill-card p {
+            font-family: monospace;
+            color: var(--gray);
+        }
+        
+        /* Certification Cards */
+        .certification-card {
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .certification-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .certification-card i {
+            color: var(--primary);
+        }
+        
+        .certification-card h4 {
+            font-family: "VT323", monospace;
+            font-weight: 400;
+            margin-top: 1rem;
+        }
+        
+        .certification-card p {
+            font-family: monospace;
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links a {
+            color: white;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Button Styles */
+        .btn {
+            font-family: "VT323", monospace;
+            padding: 0.6rem 1.5rem;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border: none;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .header h2 {
+                font-size: 2.8rem;
+            }
+            
+            .content-heading {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 6rem 0 3rem;
+            }
+            
+            .header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .content-heading {
+                font-size: 1.8rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="custom-container">
+        <div class="d-flex justify-content-between align-items-center w-100">
+            <div class="welcome-text">BIENVENUE SUR MON PORTFOLIO</div>
+            <a href="index.html" class="navbar-brand vt323-regular">NOUR_</a>
+            <div class="contact-info d-none d-md-block">CONTACT@MAIL.COM</div>
+        </div>
+    </div>
+</nav>
+
+<!-- Secondary Navigation -->
+<nav class="navbar navbar-expand-lg" style="padding-top: 0;">
+    <div class="custom-container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">ACCUEIL</a></li>
+                <li class="nav-item"><a class="nav-link-active" href="#">PROJETS</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">COMPÉTENCES</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
+                <li class="nav-item"><a class="nav-link" href="CV.html">CV</a></li>
+                <li class="nav-item"><a class="nav-link" href="veille.html">VEILLE</a></li>
+                <li class="nav-item"><a class="nav-link" href="e5.html">E5</a></li>
+                <li class="nav-item"><a class="nav-link" href="e6.html">E6</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<section class="header">
+    <div class="custom-container">
+        <div class="section-title">PORTFOLIO</div>
+        <h2>Projets et Compétences</h2>
+    </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="content-section">
+    <div class="custom-container">
+        <div class="section-title">PRÉSENTATION</div>
+        <h2 class="content-heading">Mon portfolio de projets</h2>
+        <div class="row">
+            <div class="col-lg-8">
+                <p class="content-text">
+                    Découvrez les différents projets professionnels et personnels que j'ai réalisés au cours de ma formation en BTS SIO SLAM et de mon alternance chez EDF en tant qu'appui SI. Chaque projet illustre mes compétences en développement informatique, en infrastructure réseau et en cybersécurité.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="content-section alt">
+    <div class="custom-container">
+        <div class="section-title">RÉALISATIONS</div>
+        <h2 class="content-heading">Projets réalisés</h2>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="project-card">
+                    <div class="project-counter">01</div>
+                    <h3>Application de suivi Power Platform</h3>
+                    <p>Conception et développement d'une application de suivi pour EDF utilisant Microsoft Power Apps et Power Automate, permettant de centraliser la gestion des interventions techniques et d'améliorer la productivité des équipes.</p>
+                    <div class="tags">
+                        <span>Power Apps</span>
+                        <span>Power Automate</span>
+                        <span>SharePoint</span>
+                    </div>
+                    <a href="projet1-details.html" class="project-link">Voir le détail <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="project-card">
+                    <div class="project-counter">02</div>
+                    <h3>Intranet SharePoint pour EDF</h3>
+                    <p>Mise en place et personnalisation d'un site SharePoint pour faciliter la collaboration entre équipes, organiser les documents et centraliser les informations importantes au sein du service SI d'EDF.</p>
+                    <div class="tags">
+                        <span>SharePoint</span>
+                        <span>Power BI</span>
+                        <span>Microsoft 365</span>
+                    </div>
+                    <a href="projet2-details.html" class="project-link">Voir le détail <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="project-card">
+                    <div class="project-counter">03</div>
+                    <h3>Déploiement de serveur</h3>
+                    <p>Mise en place d'une architecture réseau pour une petite entreprise comprenant un serveur de fichiers, un serveur DNS et une gestion des utilisateurs via Active Directory.</p>
+                    <div class="tags">
+                        <span>Windows Server</span>
+                        <span>Active Directory</span>
+                        <span>DNS</span>
+                    </div>
+                    <a href="projet3-details.html" class="project-link">Voir le détail <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="project-card">
+                    <div class="project-counter">04</div>
+                    <h3>Virtualisation</h3>
+                    <p>Configuration d'une infrastructure virtualisée à l'aide de VMware Workstation, incluant plusieurs machines virtuelles interconnectées pour tester divers scénarios réseau.</p>
+                    <div class="tags">
+                        <span>VMware</span>
+                        <span>Virtualisation</span>
+                        <span>Réseau</span>
+                    </div>
+                    <a href="projet4-details.html" class="project-link">Voir le détail <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="project-card">
+                    <div class="project-counter">05</div>
+                    <h3>Sécurisation réseau</h3>
+                    <p>Implémentation de politiques de sécurité sur un réseau d'entreprise, avec des pare-feux, des VLAN et la gestion des règles d'accès.</p>
+                    <div class="tags">
+                        <span>Sécurité</span>
+                        <span>VLAN</span>
+                        <span>Pare-feu</span>
+                    </div>
+                    <a href="projet5-details.html" class="project-link">Voir le détail <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technical Skills Section -->
+<section class="content-section" id="skills">
+    <div class="custom-container">
+        <div class="section-title">EXPERTISE</div>
+        <h2 class="content-heading">Compétences techniques</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fas fa-code"></i>
+                <h3>Développement</h3>
+                <p>Python, HTML/CSS, JavaScript, SQL et bases de Java. Développement de solutions pour automatiser des tâches et améliorer les processus.</p>
+            </div>
+            
+            <div class="skill-item">
+                <i class="fas fa-th"></i>
+                <h3>Microsoft Power Platform</h3>
+                <p>Création d'applications avec Power Apps, automatisation de flux de travail avec Power Automate, et visualisation de données avec Power BI.</p>
+            </div>
+            
+            <div class="skill-item">
+                <i class="fas fa-network-wired"></i>
+                <h3>Infrastructure Réseau</h3>
+                <p>Configuration de systèmes réseau, VLAN, et maintenance de serveurs. Mise en place et gestion d'environnements Windows Server.</p>
+            </div>
+            
+            <div class="skill-item">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Cybersécurité</h3>
+                <p>Bases approfondies des principes de sécurité informatique. Gestion des accès et protection des données sensibles.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Soft Skills Section -->
+<section class="content-section alt">
+    <div class="custom-container">
+        <div class="section-title">SAVOIR-ÊTRE</div>
+        <h2 class="content-heading">Compétences humaines</h2>
+        
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card soft-skill-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-tasks fa-2x me-3"></i>
+                            <h4>Gestion de projet</h4>
+                        </div>
+                        <p>Planification et suivi des étapes clés, définition des objectifs et gestion des priorités. Organisation et coordination efficace des ressources.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card soft-skill-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-lightbulb fa-2x me-3"></i>
+                            <h4>Résolution de problèmes</h4>
+                        </div>
+                        <p>Analyse méthodique des problèmes complexes et élaboration de solutions adaptées et efficaces. Approche pragmatique et orientée résultats.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card soft-skill-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-comments fa-2x me-3"></i>
+                            <h4>Communication</h4>
+                        </div>
+                        <p>Capacité à présenter clairement des solutions techniques à différents publics et à adapter mon discours. Écoute active et empathie.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6 mb-4">
+                <div class="card soft-skill-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-users fa-2x me-3"></i>
+                            <h4>Travail en équipe</h4>
+                        </div>
+                        <p>Collaboration efficace avec divers acteurs, partage des connaissances et atteinte des objectifs communs. Esprit d'initiative et autonomie.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section class="content-section" style="background-color: var(--secondary); color: white;">
+    <div class="custom-container">
+        <div class="section-title">QUALIFICATIONS</div>
+        <h2 class="content-heading" style="color: white;">Certifications et formations</h2>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card certification-card text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-certificate fa-3x"></i>
+                        <h4>BTS SIO option SLAM</h4>
+                        <p>EFREI Paris, 2023-2025</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card certification-card text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-award fa-3x"></i>
+                        <h4>Microsoft Power Platform</h4>
+                        <p>Formation Power Apps et Power Automate, 2023</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card certification-card text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-shield-alt fa-3x"></i>
+                        <h4>Initiation Cybersécurité</h4>
+                        <p>MOOC ANSSI, 2023</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Return Button -->
+<section class="content-section" style="padding-top: 3rem; padding-bottom: 3rem;">
+    <div class="custom-container">
+        <a href="index.html" class="btn btn-primary"><i class="fas fa-arrow-left me-2"></i>Retour à l'accueil</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-md-6">
+                <p>&copy; 2025 Nour MESBAHI. Tous droits réservés.</p>
+            </div>
+            <div class="col-md-6 d-flex justify-content-md-end">
+                <div class="footer-links me-4">
+                    <a href="index.html">Accueil</a>
+                    <a href="#">Projets</a>
+                    <a href="CV.html">CV</a>
+                    <a href="veille.html">Veille</a>
+                    <a href="e5.html">E5</a>
+                    <a href="e6.html">E6</a>
+                </div>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Navbar styling on scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+        } else {
+            navbar.style.boxShadow = 'none';
+        }
+    });
+</script>
+</body>
+</html>
