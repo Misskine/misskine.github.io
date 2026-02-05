@@ -435,27 +435,48 @@
                 <p class="content-text">
                     Découvrez les différents projets professionnels et personnels que j'ai réalisés au cours de ma formation en BTS SIO SLAM et de mon alternance chez EDF en tant qu'appui SI. Chaque projet illustre mes compétences en développement informatique, en infrastructure réseau et en cybersécurité.
                 </p>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#referentielModal">
+                    <i class="fas fa-book me-2"></i>Voir le référentiel
+                </button>
             </div>
         </div>
     </div>
 </section>
 
+<!-- Referentiel Modal -->
+<div class="modal fade" id="referentielModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Référentiel BTS SIO SLAM</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <embed src="https://docs.google.com/spreadsheets/d/1fVePOd1FXvEWMHg3asZVZy5RolJMHNPx/edit?usp=sharing&ouid=105316844518584664976&rtpof=true&sd=true" width="100%" height="600px" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Projects Section -->
 <section class="content-section alt">
     <div class="custom-container">
         <div class="section-title">RÉALISATIONS</div>
-        <h2 class="content-heading">Projets réalisés</h2>
+        <h2 class="content-heading">Blocs de compétences BTS SIO SLAM</h2>
         
         <div class="row">
             <div class="col-md-6">
                 <div class="project-card">
                     <div class="project-counter">01</div>
-                    <h3>Application de suivi Power Platform</h3>
-                    <p>Conception et développement d'une application de suivi pour EDF utilisant Microsoft Power Apps et Power Automate, permettant de centraliser la gestion des interventions techniques et d'améliorer la productivité des équipes.</p>
+                    <h3>Gérer le parc informatique</h3>
+                    <p>Assurer la maintenance et l'évolution du parc informatique. Répondre aux incidents et aux demandes d'assistance en support technique et en assistance utilisateur.</p>
                     <div class="tags">
-                        <span>Power Apps</span>
-                        <span>Power Automate</span>
-                        <span>SharePoint</span>
+                        <span>Maintenance</span>
+                        <span>Support</span>
+                        <span>Infrastructure</span>
                     </div>
                     <a href="projet1-details.html" class="project-link">Voir le détail <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -464,12 +485,12 @@
             <div class="col-md-6">
                 <div class="project-card">
                     <div class="project-counter">02</div>
-                    <h3>Intranet SharePoint pour EDF</h3>
-                    <p>Mise en place et personnalisation d'un site SharePoint pour faciliter la collaboration entre équipes, organiser les documents et centraliser les informations importantes au sein du service SI d'EDF.</p>
+                    <h3>Répondre aux incidents et demandes</h3>
+                    <p>Gérer les incidents et les demandes d'assistance technique. Assurer la continuité de service et la satisfaction des utilisateurs avec des solutions appropriées.</p>
                     <div class="tags">
-                        <span>SharePoint</span>
-                        <span>Power BI</span>
-                        <span>Microsoft 365</span>
+                        <span>Incidents</span>
+                        <span>Assistance</span>
+                        <span>Support</span>
                     </div>
                     <a href="projet2-details.html" class="project-link">Voir le détail <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -478,12 +499,12 @@
             <div class="col-md-6">
                 <div class="project-card">
                     <div class="project-counter">03</div>
-                    <h3>Déploiement de serveur</h3>
-                    <p>Mise en place d'une architecture réseau pour une petite entreprise comprenant un serveur de fichiers, un serveur DNS et une gestion des utilisateurs via Active Directory.</p>
+                    <h3>Développer la présence en ligne</h3>
+                    <p>Développer et maintenir la présence numérique de l'organisation. Gérer les sites web et les plateformes digitales pour améliorer l'image et la communication.</p>
                     <div class="tags">
-                        <span>Windows Server</span>
-                        <span>Active Directory</span>
-                        <span>DNS</span>
+                        <span>Web</span>
+                        <span>Digital</span>
+                        <span>Communication</span>
                     </div>
                     <a href="projet3-details.html" class="project-link">Voir le détail <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -492,12 +513,12 @@
             <div class="col-md-6">
                 <div class="project-card">
                     <div class="project-counter">04</div>
-                    <h3>Virtualisation</h3>
-                    <p>Configuration d'une infrastructure virtualisée à l'aide de VMware Workstation, incluant plusieurs machines virtuelles interconnectées pour tester divers scénarios réseau.</p>
+                    <h3>Travailler en mode projet</h3>
+                    <p>Participer à la gestion et à la réalisation de projets informatiques. Planifier, organiser et coordonner les ressources pour atteindre les objectifs définis.</p>
                     <div class="tags">
-                        <span>VMware</span>
-                        <span>Virtualisation</span>
-                        <span>Réseau</span>
+                        <span>Gestion projet</span>
+                        <span>Organisation</span>
+                        <span>Coordination</span>
                     </div>
                     <a href="projet4-details.html" class="project-link">Voir le détail <i class="fas fa-arrow-right"></i></a>
                 </div>
@@ -506,14 +527,28 @@
             <div class="col-md-6">
                 <div class="project-card">
                     <div class="project-counter">05</div>
-                    <h3>Sécurisation réseau</h3>
-                    <p>Implémentation de politiques de sécurité sur un réseau d'entreprise, avec des pare-feux, des VLAN et la gestion des règles d'accès.</p>
+                    <h3>Mettre à disposition des services</h3>
+                    <p>Déployer et configurer des services informatiques pour les utilisateurs. Assurer la disponibilité, la performance et la sécurité des ressources informatiques.</p>
                     <div class="tags">
-                        <span>Sécurité</span>
-                        <span>VLAN</span>
-                        <span>Pare-feu</span>
+                        <span>Déploiement</span>
+                        <span>Configuration</span>
+                        <span>Services</span>
                     </div>
                     <a href="projet5-details.html" class="project-link">Voir le détail <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="project-card">
+                    <div class="project-counter">06</div>
+                    <h3>Organiser son développement professionnel</h3>
+                    <p>Planifier et développer ses compétences professionnelles. Mettre en place une stratégie d'apprentissage continu et d'amélioration personnelle.</p>
+                    <div class="tags">
+                        <span>Formation</span>
+                        <span>Développement</span>
+                        <span>Apprentissage</span>
+                    </div>
+                    <a href="projet6-details.html" class="project-link">Voir le détail <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>

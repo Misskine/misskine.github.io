@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloc 1 - Incidents et Assistance | Nour MESBAHI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5722;
+            --secondary: #212121;
+            --light: #F5F5F5;
+            --dark: #121212;
+            --gray: #888;
+            --beige: #EFEFDF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: sans-serif;
+            background-color: var(--beige);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .vt323-regular {
+            font-family: "VT323", monospace;
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        .custom-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--beige);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .navbar-brand {
+            font-family: "VT323", monospace;
+            font-weight: 400;
+            font-size: 1.5rem;
+            color: var(--dark);
+            letter-spacing: 1px;
+        }
+        
+        .nav-link {
+            color: var(--dark);
+            font-weight: 500;
+            margin-left: 1.5rem;
+            position: relative;
+            transition: color 0.3s ease;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link-active {
+            color: var(--primary);
+            font-weight: 600;
+            margin-left: 1.5rem;
+            position: relative;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .welcome-text {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--gray);
+            letter-spacing: 1px;
+        }
+        
+        .contact-info {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        /* Header Section */
+        .header {
+            position: relative;
+            padding: 8rem 0 4rem;
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .section-title {
+            font-family: "VT323", monospace;
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .header h2 {
+            font-family: "VT323", monospace;
+            font-size: 3.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            padding: 5rem 0;
+        }
+        
+        .content-section.alt {
+            background-color: white;
+        }
+        
+        .content-heading {
+            font-family: "VT323", monospace;
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+        
+        .content-text {
+            font-family: monospace;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            color: var(--gray);
+        }
+        
+        /* Competence Cards */
+        .competence-card {
+            position: relative;
+            background-color: var(--beige);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .competence-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .competence-card h3 {
+            font-family: "VT323", monospace;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .competence-card p {
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .competence-counter {
+            position: absolute;
+            top: 0;
+            right: 1rem;
+            font-family: "VT323", monospace;
+            font-size: 6rem;
+            color: rgba(0,0,0,0.05);
+            line-height: 1;
+            pointer-events: none;
+        }
+        
+        .criterias {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .criterias span {
+            background-color: rgba(255, 87, 34, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: monospace;
+        }
+        
+        .competence-link {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+            font-family: "VT323", monospace;
+            font-size: 1.1rem;
+        }
+        
+        .competence-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+        
+        .skill-item {
+            position: relative;
+        }
+        
+        .skill-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .skill-item h3 {
+            font-family: "VT323", monospace;
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-item p {
+            font-family: monospace;
+            color: var(--gray);
+        }
+        
+        /* Evidence/Proof Cards */
+        .evidence-card {
+            border: none;
+            border-radius: 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .evidence-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .evidence-card i {
+            color: var(--primary);
+        }
+        
+        .evidence-card h4 {
+            font-family: "VT323", monospace;
+            font-weight: 400;
+        }
+        
+        .evidence-card p {
+            font-family: monospace;
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .social-links a {
+            color: white;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Button Styles */
+        .btn {
+            font-family: "VT323", monospace;
+            padding: 0.6rem 1.5rem;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border: none;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .header h2 {
+                font-size: 2.8rem;
+            }
+            
+            .content-heading {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 6rem 0 3rem;
+            }
+            
+            .header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .content-heading {
+                font-size: 1.8rem;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="custom-container">
+        <div class="d-flex justify-content-between align-items-center w-100">
+            <div class="welcome-text">BIENVENUE SUR MON PORTFOLIO</div>
+            <a href="index.html" class="navbar-brand vt323-regular">NOUR_</a>
+            <div class="contact-info d-none d-md-block">CONTACT@MAIL.COM</div>
+        </div>
+    </div>
+</nav>
+
+<!-- Secondary Navigation -->
+<nav class="navbar navbar-expand-lg" style="padding-top: 0;">
+    <div class="custom-container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">ACCUEIL</a></li>
+                <li class="nav-item"><a class="nav-link-active" href="#">BLOC 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="#competences">COMPÉTENCES</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
+                <li class="nav-item"><a class="nav-link" href="CV.html">CV</a></li>
+                <li class="nav-item"><a class="nav-link" href="veille.html">VEILLE</a></li>
+                <li class="nav-item"><a class="nav-link" href="e5.html">E5</a></li>
+                <li class="nav-item"><a class="nav-link" href="e6.html">E6</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<section class="header">
+    <div class="custom-container">
+        <div class="section-title">BLOC 2 - BTS SIO</div>
+        <h2 style="color: whitesmoke;">Répondre aux incidents et aux demandes d'assistance et d'évolution</h2>
+    </div>
+</section>
+
+<!-- Introduction Section -->
+<section class="content-section">
+    <div class="custom-container">
+        <div class="section-title">PRÉSENTATION</div>
+        <h2 class="content-heading">Bloc 2 du BTS SIO</h2>
+        <div class="row">
+            <div class="col-lg-8">
+                <p class="content-text">
+                    Ce bloc de compétences regroupe les trois compétences fondamentales pour assurer le support technique et l'assistance aux utilisateurs. Il s'agit de collecter et suivre les demandes, traiter les incidents réseau et système, ainsi que les problèmes applicatifs. Chaque situation rencontrée lors de mon alternance chez EDF m'a permis de développer et consolider ces compétences.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Competences Section -->
+<section class="content-section alt">
+    <div class="custom-container">
+        <div class="section-title">COMPÉTENCES</div>
+        <h2 class="content-heading">Les trois compétences du Bloc 2</h2>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="competence-card">
+                    <div class="competence-counter">01</div>
+                    <h3>Collecter, suivre et orienter des demandes</h3>
+                    <p>Gestion complète du cycle de vie des demandes : réception des demandes utilisateurs, enregistrement dans le système de ticketing, suivi du traitement et orientation vers les bonnes équipes.</p>
+                    <div class="criterias">
+                        <span>Ticketing</span>
+                        <span>Suivi</span>
+                        <span>Communication</span>
+                    </div>
+                    <a href="#" class="competence-link">Voir les preuves <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="competence-card">
+                    <div class="competence-counter">02</div>
+                    <h3>Traiter des demandes réseau et système</h3>
+                    <p>Diagnostic et résolution des problèmes liés à l'infrastructure réseau, aux serveurs et aux services système. Gestion des accès utilisateurs, configuration des postes de travail et maintenance des services.</p>
+                    <div class="criterias">
+                        <span>Windows Server</span>
+                        <span>Active Directory</span>
+                        <span>Réseau</span>
+                    </div>
+                    <a href="#" class="competence-link">Voir les preuves <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="competence-card">
+                    <div class="competence-counter">03</div>
+                    <h3>Traiter des demandes concernant les applications</h3>
+                    <p>Support technique pour les applications métier, diagnostic des dysfonctionnements applicatifs, gestion des droits d'accès aux ressources et coordination avec les équipes développement.</p>
+                    <div class="criterias">
+                        <span>Troubleshooting</span>
+                        <span>Droits d'accès</span>
+                        <span>SharePoint</span>
+                    </div>
+                    <a href="#" class="competence-link">Voir les preuves <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contexte et Réalisations -->
+<section class="content-section">
+    <div class="custom-container">
+        <div class="section-title">CONTEXTE PROFESSIONNEL</div>
+        <h2 class="content-heading">Mise en pratique en alternance</h2>
+        
+        <div class="skills-grid">
+            <div class="skill-item">
+                <i class="fas fa-ticket-alt"></i>
+                <h3>Système de Ticketing</h3>
+                <p>Utilisation quotidienne d'outils de ticketing pour enregistrer, suivre et fermer les demandes utilisateurs. Documentation des interventions et résolution apportée.</p>
+            </div>
+            
+            <div class="skill-item">
+                <i class="fas fa-headset"></i>
+                <h3>Support Utilisateur</h3>
+                <p>Assistance de premier niveau pour les utilisateurs EDF, avec une écoute active et une prise en charge rapide des problèmes signalés.</p>
+            </div>
+            
+            <div class="skill-item">
+                <i class="fas fa-tools"></i>
+                <h3>Diagnostic Technique</h3>
+                <p>Analyse méthodique des problèmes techniques, identification des causes racines et mise en place de solutions durables.</p>
+            </div>
+            
+            <div class="skill-item">
+                <i class="fas fa-clipboard-check"></i>
+                <h3>Documentation</h3>
+                <p>Rédaction de procédures et guides d'utilisation pour les utilisateurs et documentation technique pour les interventions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Evidence/Preuves Section -->
+<section class="content-section alt">
+    <div class="custom-container">
+        <div class="section-title">PREUVES</div>
+        <h2 class="content-heading">Situations rencontrées</h2>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card evidence-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-envelope fa-2x me-3"></i>
+                        </div>
+                        <h4>Gestion des demandes</h4>
+                        <p>Traitement de 50+ demandes mensuelles via le système de ticketing, avec priorités et planification adaptées.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card evidence-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-network-wired fa-2x me-3"></i>
+                        </div>
+                        <h4>Support Réseau/Système</h4>
+                        <p>Résolution de problèmes de connectivité, gestion des comptes utilisateurs et maintenance des serveurs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <div class="card evidence-card">
+                    <div class="card-body p-4">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-database fa-2x me-3"></i>
+                        </div>
+                        <h4>Support Applicatif</h4>
+                        <p>Support sur les applications métier EDF, assistance SharePoint et gestion des permissions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Return Button -->
+<section class="content-section" style="padding-top: 3rem; padding-bottom: 3rem;">
+    <div class="custom-container">
+        <a href="projets_competences.html" class="btn btn-primary"><i class="fas fa-arrow-left me-2"></i>Retour à l'accueil</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="custom-container">
+        <div class="row">
+            <div class="col-md-6">
+                <p>&copy; 2025 Nour MESBAHI. Tous droits réservés.</p>
+            </div>
+            <div class="col-md-6 d-flex justify-content-md-end">
+                <div class="footer-links me-4">
+                    <a href="index.html">Accueil</a>
+                    <a href="#">Bloc 1</a>
+                    <a href="CV.html">CV</a>
+                    <a href="veille.html">Veille</a>
+                    <a href="e5.html">E5</a>
+                    <a href="e6.html">E6</a>
+                </div>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+        } else {
+            navbar.style.boxShadow = 'none';
+        }
+    });
+</script>
+</body>
+</html>
