@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veille technologique - Interfaces cerveau-machine | Nour MESBAHI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5722;
+            --secondary: #212121;
+            --dark: #121212;
+            --gray: #555;
+            --beige: #EFEFDF;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: var(--beige);
+            font-family: monospace;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        .custom-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .navbar {
+            background-color: var(--beige);
+            padding: 1rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .navbar-brand {
+            font-family: "VT323", monospace;
+            font-weight: 400;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        .nav-link {
+            color: var(--dark);
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin-left: 1.5rem;
+        }
+        .nav-link:hover, .nav-link-active {
+            color: var(--primary);
+        }
+        .welcome-text, .contact-info {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        .header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 6rem 0 3rem;
+            margin-bottom: 2rem;
+        }
+        .header h1 {
+            font-family: "VT323", monospace;
+            font-size: 3rem;
+        }
+        .section-title {
+            font-family: "VT323", monospace;
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        .content-heading {
+            font-family: "VT323", monospace;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .veille-card {
+            background-color: white;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .veille-card:hover {
+            transform: translateY(-5px);
+        }
+        .veille-card h3 {
+            font-family: "VT323", monospace;
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+        .veille-date {
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .tag {
+            background-color: rgba(255, 87, 34, 0.1);
+            color: var(--primary);
+            padding: 0.2rem 0.6rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .btn-outline-primary {
+            border-color: var(--primary);
+            color: var(--primary);
+            font-family: "VT323", monospace;
+        }
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .footer-links a {
+            color: white;
+            margin-right: 1.5rem;
+            text-decoration: none;
+        }
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 2rem; }
+            .content-heading { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="custom-container">
+        <div class="d-flex justify-content-between align-items-center w-100">
+            <div class="welcome-text">VEILLE TECHNOLOGIQUE</div>
+            <a href="index.html" class="navbar-brand">NOUR_</a>
+            <div class="contact-info d-none d-md-block">CONTACT@MAIL.COM</div>
+        </div>
+    </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg" style="padding-top: 0;">
+    <div class="custom-container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">ACCUEIL</a></li>
+                <li class="nav-item"><a class="nav-link" href="projets_competences.html">PROJETS</a></li>
+                <li class="nav-item"><a class="nav-link" href="CV.html">CV</a></li>
+                <li class="nav-item"><a class="nav-link-active" href="#">VEILLE</a></li>
+                <li class="nav-item"><a class="nav-link" href="e5.html">E5</a></li>
+                <li class="nav-item"><a class="nav-link" href="e6.html">E6</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<section class="header">
+    <div class="custom-container">
+        <div class="section-title">VEILLE TECHNOLOGIQUE</div>
+        <h1>Interfaces Cerveau-Machine (BCI)</h1>
+        <p>Suivi des avancées, acteurs et enjeux – Mise à jour avril 2026</p>
+    </div>
+</section>
+
+<!-- Introduction -->
+<div class="custom-container">
+    <div class="row mb-5">
+        <div class="col-lg-8">
+            <h2 class="content-heading">Pourquoi cette veille ?</h2>
+            <p>Les interfaces cerveau-machine (Brain-Computer Interfaces) sont au carrefour des neurosciences, de l’IA et de l’électronique. Leur potentiel est immense : restaurer la mobilité de personnes paralysées, contrôler des objets par la pensée, ou augmenter les capacités cognitives. Cette veille, alimentée par <strong>Google Alerts</strong> et des flux RSS spécialisés, suit mensuellement les percées scientifiques, les annonces industrielles et les débats éthiques.</p>
+            <p><span class="tag">Stratégie</span><span class="tag">Google Alerts</span><span class="tag">Feedly</span><span class="tag">Newsletters</span></p>
+        </div>
+        <div class="col-lg-4">
+            <div class="bg-white p-3" style="border-left: 4px solid var(--primary);">
+                <h3 style="font-family: 'VT323', monospace;">Sources principales</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li><i class="fas fa-rss"></i> <a href="https://www.nature.com/subjects/brain-computer-interface" target="_blank" rel="noopener">Nature Neuroscience</a></li>
+                    <li><i class="fab fa-twitter"></i> <a href="https://twitter.com/neuralink" target="_blank" rel="noopener">@Neuralink</a></li>
+                    <li><i class="fas fa-newspaper"></i> <a href="https://www.technologyreview.com/topic/brain-computer-interfaces/" target="_blank" rel="noopener">MIT Technology Review</a></li>
+                    <li><i class="fas fa-university"></i> <a href="https://wysscenter.ch" target="_blank" rel="noopener">Wyss Center</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Synthèse des actualités récentes (sources réelles) -->
+    <h2 class="content-heading">Actualités marquantes (2025-2026)</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="veille-card">
+                <div class="veille-date">Mars 2026</div>
+                <h3>Neuralink : 21 patients implantés – Bilan des essais</h3>
+                <p>Selon un article du Journal du Geek, Neuralink a implanté 21 patients. L’entreprise publie des résultats encourageants sur la durée de vie des implants et la précision du contrôle.</p>
+                <div><span class="tag">Neuralink</span><span class="tag">Essai clinique</span></div>
+                <a href="https://www.journaldugeek.com/neuralink-21-patients-implantes-beaucoup-trop/" class="stretched-link" style="position: relative;" target="_blank" rel="noopener">Lire l'article →</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="veille-card">
+                <div class="veille-date">Janvier 2026</div>
+                <h3>Neuralink : sept patients participent à l’essai clinique au Royaume-Uni</h3>
+                <p>L’hôpital national de neurologie et neurochirurgie de Londres (UCLH) a annoncé que sept patients britanniques participent désormais à l’essai Neuralink.</p>
+                <div><span class="tag">Neuralink</span><span class="tag">International</span></div>
+                <a href="https://www.uclh.nhs.uk/news/seven-gb-prime-patients-now-participating-neuralink-trial" class="stretched-link" style="position: relative;" target="_blank" rel="noopener">Lire l'article →</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="veille-card">
+                <div class="veille-date">Septembre 2025</div>
+                <h3>Stanford décode la « parole intérieure » avec une précision de 74%</h3>
+                <p>Des chercheurs de Stanford sont parvenus à décoder des phrases imaginées par des patients grâce à une interface cerveau-machine. Une avancée majeure pour la communication des personnes “locked-in”.</p>
+                <div><span class="tag">Stanford</span><span class="tag">Décodage</span><span class="tag">Parole intérieure</span></div>
+                <a href="https://theconversation.com/interface-cerveau-machine-decode-la-parole-interne-une-avancee-prometteuse-244870" class="stretched-link" style="position: relative;" target="_blank" rel="noopener">Lire l'article →</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="veille-card">
+                <div class="veille-date">Mai 2025</div>
+                <h3>Blackrock Neurotech s’associe à Cognixion pour une BCI non invasive</h3>
+                <p>Le partenariat vise à développer une interface cerveau-machine non invasive, accessible via un casque intelligent, pour les personnes en situation de handicap.</p>
+                <div><span class="tag">Blackrock</span><span class="tag">Non invasif</span><span class="tag">Partenariat</span></div>
+                <a href="https://www.mobihealthnews.com/news/cognixion-blackrock-neurotech-partner-brain-computer-interface-technology" class="stretched-link" style="position: relative;" target="_blank" rel="noopener">Lire l'article →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Acteurs clés (liste réelle issue du marché BCI) -->
+    <h2 class="content-heading mt-4">Acteurs majeurs du domaine</h2>
+    <div class="row text-center mb-5">
+        <div class="col-md-3 col-6 mb-3">
+            <div class="bg-white p-3 h-100">
+                <i class="fab fa-twitter fa-2x" style="color: var(--primary);"></i>
+                <h4>Neuralink</h4>
+                <small>Implant invasif, essais humains</small>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 mb-3">
+            <div class="bg-white p-3 h-100">
+                <i class="fas fa-microchip fa-2x" style="color: var(--primary);"></i>
+                <h4>Blackrock Neurotech</h4>
+                <small>Électrodes Utah, systèmes cliniques</small>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 mb-3">
+            <div class="bg-white p-3 h-100">
+                <i class="fas fa-brain fa-2x" style="color: var(--primary);"></i>
+                <h4>Synchron</h4>
+                <small>Stentrode, endovasculaire</small>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 mb-3">
+            <div class="bg-white p-3 h-100">
+                <i class="fas fa-university fa-2x" style="color: var(--primary);"></i>
+                <h4>Wyss Center (Genève)</h4>
+                <small>Neuroprothèses, éthique</small>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 mb-3">
+            <div class="bg-white p-3 h-100">
+                <i class="fas fa-chart-line fa-2x" style="color: var(--primary);"></i>
+                <h4>Paradromics</h4>
+                <small>Interface haut débit</small>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 mb-3">
+            <div class="bg-white p-3 h-100">
+                <i class="fas fa-desktop fa-2x" style="color: var(--primary);"></i>
+                <h4>Precision Neuroscience</h4>
+                <small>Implant cortical réversible</small>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 mb-3">
+            <div class="bg-white p-3 h-100">
+                <i class="fas fa-gamepad fa-2x" style="color: var(--primary);"></i>
+                <h4>NextMind (Snap)</h4>
+                <small>BCI non invasive grand public</small>
+            </div>
+        </div>
+        <div class="col-md-3 col-6 mb-3">
+            <div class="bg-white p-3 h-100">
+                <i class="fas fa-heartbeat fa-2x" style="color: var(--primary);"></i>
+                <h4>BrainGate</h4>
+                <small>Consortium de recherche</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analyse marché BCI -->
+    <div class="veille-card">
+        <h3><i class="fas fa-chart-bar"></i> Analyse du marché BCI (2025)</h3>
+        <p>Selon le rapport de Mordor Intelligence (septembre 2025), le marché mondial des interfaces cerveau-machine est en forte croissance, porté par les applications médicales (rééducation, prothèses) et grand public (jeux, formation). Les leaders comme Neuralink, Blackrock et Synchron captent les investissements.</p>
+        <a href="https://www.mordorintelligence.com/fr/industry-reports/brain-computer-interface-market" target="_blank" rel="noopener">Consulter l’étude →</a>
+    </div>
+
+    <!-- Applications et enjeux éthiques (avec sources UNESCO & Agence biomédecine) -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="veille-card">
+                <h3><i class="fas fa-hand-holding-heart"></i> Applications médicales</h3>
+                <ul>
+                    <li>Restauration du mouvement pour personnes tétraplégiques</li>
+                    <li>Prothèses sensorielles (vision, toucher)</li>
+                    <li>Traitement de maladies neurologiques (Parkinson, épilepsie)</li>
+                    <li>Rééducation post-AVC</li>
+                    <li>Communication pour les personnes “locked-in”</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="veille-card">
+                <h3><i class="fas fa-gamepad"></i> Applications grand public</h3>
+                <ul>
+                    <li>Jeux vidéo contrôlés par la pensée</li>
+                    <li>Assistants personnels et domotique</li>
+                    <li>Amélioration des capacités d’apprentissage</li>
+                    <li>Mesure de l’attention (casques EEG)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="veille-card">
+        <h3><i class="fas fa-balance-scale"></i> Enjeux éthiques et cadre légal</h3>
+        <p>La collecte de données neuronales pose des questions de confidentialité (« brain privacy »). Le risque de hacking d’implants, le consentement éclairé, l’accessibilité financière, et la frontière entre thérapie et amélioration humaine sont au cœur des débats. En 2025, l’Agence de la biomédecine a publié une <strong>charte européenne</strong> pour un développement responsable des neurotechnologies. L’UNESCO a également émis des recommandations sur l’éthique des neurotechnologies (février 2026).</p>
+        <div>
+            <a href="https://www.agence-biomedecine.fr/un-developpement-ethique-des-neurotechnologies" target="_blank" rel="noopener" class="me-3">Charte européenne 2025 →</a>
+            <a href="https://www.cortex-mag.net/neurotechnologies-des-jalons-sur-leur-ethique-poses-a-lunesco/" target="_blank" rel="noopener">Recommandation UNESCO 2026 →</a>
+        </div>
+        <span class="tag">RGPD neuronal</span>
+        <span class="tag">Neuroéthique</span>
+        <span class="tag">Accessibilité</span>
+    </div>
+
+    <!-- Méthodologie de veille -->
+    <div class="bg-white p-4 mt-4 mb-5" style="border-left: 4px solid var(--primary);">
+        <h3 class="mb-3" style="font-family: 'VT323', monospace;">Ma méthodologie de veille</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <p><i class="fas fa-bell"></i> <strong>Alertes Google :</strong> "Brain-Computer Interface 2025", "Neuralink clinical trial", "BCI ethics".</p>
+                <p><i class="fas fa-rss"></i> <strong>Agrégateur Feedly :</strong> flux des revues Nature Neuroscience, IEEE Transactions on BCI, blogs de recherche.</p>
+            </div>
+            <div class="col-md-6">
+                <p><i class="fab fa-twitter"></i> <strong>Listes Twitter :</strong> @neuralink, @WyssCenter, @bci_news.</p>
+                <p><i class="fas fa-envelope"></i> <strong>Newsletters :</strong> "Neurotech Weekly", "BrainPost".</p>
+            </div>
+        </div>
+        <p class="mt-2">Synthèse mensuelle réalisée depuis septembre 2024 (12 synthèses disponibles). La dernière mise à jour date du 1er avril 2026.</p>
+        <a href="#" class="btn btn-outline-primary"><i class="fas fa-archive"></i> Accéder aux archives (PDF)</a>
+        <p class="text-muted mt-2 small">(Les archives sont en cours de consolidation – lien actif prochainement)</p>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="custom-container">
+        <p>&copy; 2025 Nour MESBAHI. Tous droits réservés.</p>
+        <div class="footer-links">
+            <a href="index.html">Accueil</a>
+            <a href="projets_competences.html">Projets</a>
+            <a href="CV.html">CV</a>
+            <a href="veille.html">Veille</a>
+            <a href="e5.html">E5</a>
+            <a href="e6.html">E6</a>
+        </div>
+        <div class="social-links mt-2">
+            <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+            <a href="#" class="text-white"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

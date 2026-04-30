@@ -45,7 +45,6 @@
             padding: 0 2rem;
         }
         
-        /* Navbar Styles */
         .navbar {
             background-color: var(--beige);
             padding: 1rem 0;
@@ -65,39 +64,29 @@
             color: var(--dark);
             font-weight: 500;
             margin-left: 1.5rem;
-            position: relative;
             transition: color 0.3s ease;
             font-family: monospace;
             font-size: 0.9rem;
         }
         
-        .nav-link:hover {
+        .nav-link:hover, .nav-link-active {
             color: var(--primary);
         }
         
         .nav-link-active {
-            color: var(--primary);
             font-weight: 600;
             margin-left: 1.5rem;
-            position: relative;
             font-family: monospace;
             font-size: 0.9rem;
         }
         
-        .welcome-text {
+        .welcome-text, .contact-info {
             font-family: monospace;
             font-size: 0.8rem;
             color: var(--gray);
             letter-spacing: 1px;
         }
         
-        .contact-info {
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-        
-        /* Header Section */
         .header {
             position: relative;
             padding: 8rem 0 4rem;
@@ -121,7 +110,6 @@
             margin-bottom: 1.5rem;
         }
         
-        /* Content Sections */
         .content-section {
             padding: 5rem 0;
         }
@@ -145,65 +133,52 @@
             color: var(--gray);
         }
         
-        /* Competency Cards */
-        .competency-card {
+        .competence-card {
             position: relative;
-            background-color: white;
-            padding: 2.5rem;
+            background-color: var(--beige);
+            padding: 2rem;
             margin-bottom: 2rem;
-            border-left: 4px solid var(--primary);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border-left: 4px solid var(--primary);
         }
         
-        .competency-card:hover {
+        .competence-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
-        .competency-card h3 {
+        .competence-card h3 {
             font-family: "VT323", monospace;
             font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
+            margin-bottom: 1rem;
         }
         
-        .competency-number {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-family: "VT323", monospace;
-            font-size: 3rem;
-            color: rgba(255, 87, 34, 0.15);
-            line-height: 1;
-        }
-        
-        .competency-item {
-            margin-bottom: 1.5rem;
-        }
-        
-        .competency-item h4 {
+        .competence-card p {
             font-family: monospace;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-        
-        .competency-item p {
-            font-family: monospace;
+            margin-bottom: 1rem;
             color: var(--gray);
-            font-size: 0.95rem;
         }
         
-        .tags {
+        .competence-counter {
+            position: absolute;
+            top: 0;
+            right: 1rem;
+            font-family: "VT323", monospace;
+            font-size: 6rem;
+            color: rgba(0,0,0,0.05);
+            line-height: 1;
+            pointer-events: none;
+        }
+        
+        .criterias {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
         }
         
-        .tags span {
+        .criterias span {
             background-color: rgba(255, 87, 34, 0.1);
             color: var(--primary);
             padding: 0.3rem 0.8rem;
@@ -212,55 +187,27 @@
             font-family: monospace;
         }
         
-        /* Realization Cards */
-        .realization-card {
-            background-color: var(--beige);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .realization-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .realization-card h4 {
-            font-family: "VT323", monospace;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .competence-link {
             color: var(--dark);
-        }
-        
-        .realization-card p {
-            font-family: monospace;
-            font-size: 0.95rem;
-            color: var(--gray);
-            margin-bottom: 1rem;
-        }
-        
-        .metric {
-            display: inline-block;
-            background-color: rgba(255, 87, 34, 0.1);
-            color: var(--primary);
-            padding: 0.5rem 1rem;
+            text-decoration: none;
             font-weight: 600;
-            margin-right: 1rem;
-            margin-bottom: 0.5rem;
-            font-family: monospace;
-            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+            font-family: "VT323", monospace;
+            font-size: 1.1rem;
+            margin-top: 1rem;
         }
         
-        /* Skills Grid */
+        .competence-link:hover {
+            color: var(--primary);
+        }
+        
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 3rem;
-        }
-        
-        .skill-item {
-            position: relative;
         }
         
         .skill-item i {
@@ -274,16 +221,68 @@
             font-size: 1.3rem;
             font-weight: 400;
             margin-bottom: 1rem;
-            color: var(--dark);
         }
         
         .skill-item p {
             font-family: monospace;
             color: var(--gray);
-            font-size: 0.95rem;
         }
         
-        /* Footer */
+        .realization-card {
+            background-color: var(--beige);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .realization-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .realization-card h4 {
+            font-family: "VT323", monospace;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        
+        .metric {
+            display: inline-block;
+            background-color: rgba(255, 87, 34, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            font-family: monospace;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .comp-table {
+            font-family: monospace;
+            background-color: white;
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        
+        .comp-table th, .comp-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comp-table th {
+            background-color: var(--secondary);
+            color: white;
+            font-family: "VT323", monospace;
+        }
+        
+        .comp-table td {
+            background-color: white;
+        }
+        
         footer {
             background-color: var(--dark);
             color: white;
@@ -299,7 +298,7 @@
             transition: color 0.3s ease;
         }
         
-        .footer-links a:hover {
+        .footer-links a:hover, .social-links a:hover {
             color: var(--primary);
         }
         
@@ -310,11 +309,6 @@
             transition: color 0.3s ease;
         }
         
-        .social-links a:hover {
-            color: var(--primary);
-        }
-        
-        /* Button Styles */
         .btn {
             font-family: "VT323", monospace;
             padding: 0.6rem 1.5rem;
@@ -336,37 +330,16 @@
             transform: translateY(-3px);
         }
         
-        /* Responsive styles */
         @media (max-width: 992px) {
-            .header h2 {
-                font-size: 2.8rem;
-            }
-            
-            .content-heading {
-                font-size: 2rem;
-            }
+            .header h2 { font-size: 2.8rem; }
+            .content-heading { font-size: 2rem; }
         }
         
         @media (max-width: 768px) {
-            .header {
-                padding: 6rem 0 3rem;
-            }
-            
-            .header h2 {
-                font-size: 2.2rem;
-            }
-            
-            .content-heading {
-                font-size: 1.8rem;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .competency-number {
-                font-size: 2rem;
-            }
+            .header { padding: 6rem 0 3rem; }
+            .header h2 { font-size: 2.2rem; }
+            .content-heading { font-size: 1.8rem; }
+            .skills-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -375,14 +348,13 @@
 <nav class="navbar">
     <div class="custom-container">
         <div class="d-flex justify-content-between align-items-center w-100">
-            <div class="welcome-text">BIENVENUE SUR MON PORTFOLIO</div>
+            <div class="welcome-text">BLOC 3 - PRÉSENCE EN LIGNE</div>
             <a href="index.html" class="navbar-brand vt323-regular">NOUR_</a>
             <div class="contact-info d-none d-md-block">CONTACT@MAIL.COM</div>
         </div>
     </div>
 </nav>
 
-<!-- Secondary Navigation -->
 <nav class="navbar navbar-expand-lg" style="padding-top: 0;">
     <div class="custom-container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -391,7 +363,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="index.html">ACCUEIL</a></li>
-                <li class="nav-item"><a class="nav-link" href="projet3-details.html">PROJETS</a></li>
+                <li class="nav-item"><a class="nav-link" href="bloc1.html">BLOC 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="bloc2.html">BLOC 2</a></li>
                 <li class="nav-item"><a class="nav-link-active" href="#">BLOC 3</a></li>
                 <li class="nav-item"><a class="nav-link" href="CV.html">CV</a></li>
                 <li class="nav-item"><a class="nav-link" href="veille.html">VEILLE</a></li>
@@ -410,259 +383,128 @@
     </div>
 </section>
 
-<!-- Introduction Section -->
+<!-- Introduction -->
 <section class="content-section">
     <div class="custom-container">
-        <div class="section-title">CONTEXTE</div>
-        <h2 class="content-heading">Valorisation de l'image numérique</h2>
+        <div class="section-title">PRÉSENTATION</div>
+        <h2 class="content-heading">Valorisation, référencement et évolution web</h2>
         <div class="row">
             <div class="col-lg-8">
                 <p class="content-text">
-                    Le Bloc 3 regroupe les compétences essentielles pour développer et optimiser la présence en ligne d'une organisation. Cela inclut la valorisation de l'image sur les réseaux sociaux, l'optimisation du référencement web et l'évolution des sites web en exploitant les données disponibles.
+                    Ce bloc couvre la création et l'optimisation de la présence numérique d'une organisation : gestion des médias sociaux, référencement (SEO), mesure d'audience (Google Analytics), et évolution de sites web exploitant les données internes. L'ensemble de mes réalisations (formation et alternance) démontre ma capacité à améliorer la visibilité et l'image en ligne.
                 </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Competencies Section -->
-<section class="content-section alt">
+<!-- Tableau de correspondance compétences -->
+<section class="content-section alt" style="padding-top: 0;">
     <div class="custom-container">
-        <div class="section-title">COMPÉTENCES</div>
-        <h2 class="content-heading">Les 3 compétences du Bloc 3</h2>
-        
-        <div class="row">
-            <!-- Competency 1 -->
-            <div class="col-lg-12">
-                <div class="competency-card">
-                    <div class="competency-number">1</div>
-                    <h3><i class="fas fa-share-alt me-2"></i>Participer à la valorisation de l'image de l'organisation sur les médias numériques</h3>
-                    
-                    <div class="competency-item">
-                        <h4>Objectif</h4>
-                        <p>Participer à la construction et à l'amélioration de l'image de l'organisation à travers les canaux numériques (réseaux sociaux, sites web, blogs).</p>
-                    </div>
-                    
-                    <div class="competency-item">
-                        <h4>Points clés</h4>
-                        <p>
-                            • Créer et adapter le contenu pour différentes plateformes numériques<br>
-                            • Maintenir une cohérence de la marque (branding)<br>
-                            • Gérer la e-réputation de l'organisation<br>
-                            • Engager une communauté en ligne<br>
-                            • Analyser la réception du contenu par l'audience
-                        </p>
-                    </div>
-                    
-                    <div class="competency-item">
-                        <h4>Réalisations</h4>
-                        <p>
-                            ✓ Gestion de contenus sur les réseaux sociaux<br>
-                            ✓ Création de campagnes de communication digitale<br>
-                            ✓ Optimisation de la présentation visuelle des services
-                        </p>
-                    </div>
-                    
-                    <div class="tags">
-                        <span>Réseaux sociaux</span>
-                        <span>Content Marketing</span>
-                        <span>E-réputation</span>
-                        <span>Branding</span>
-                        <span>Communication digitale</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Competency 2 -->
-            <div class="col-lg-12">
-                <div class="competency-card">
-                    <div class="competency-number">2</div>
-                    <h3><i class="fas fa-search me-2"></i>Référencer les services en ligne de l'organisation et mesurer leur visibilité</h3>
-                    
-                    <div class="competency-item">
-                        <h4>Objectif</h4>
-                        <p>Assurer une visibilité optimale des services en ligne de l'organisation par l'optimisation du référencement et la mise en place de métriques de suivi.</p>
-                    </div>
-                    
-                    <div class="competency-item">
-                        <h4>Points clés</h4>
-                        <p>
-                            • Optimisation du SEO (Search Engine Optimization)<br>
-                            • Gestion du SEM (Search Engine Marketing)<br>
-                            • Mise en place d'outils d'analyse (Google Analytics, etc.)<br>
-                            • Suivi des KPI (Key Performance Indicators)<br>
-                            • Amélioration continue basée sur les données
-                        </p>
-                    </div>
-                    
-                    <div class="competency-item">
-                        <h4>Réalisations</h4>
-                        <p>
-                            ✓ Optimisation des pages web pour les moteurs de recherche<br>
-                            ✓ Mise en place de tableaux de bord de suivi<br>
-                            ✓ Analyse des performances des campagnes digitales
-                        </p>
-                    </div>
-                    
-                    <div class="tags">
-                        <span>SEO</span>
-                        <span>SEM</span>
-                        <span>Google Analytics</span>
-                        <span>KPI</span>
-                        <span>Web Analytics</span>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Competency 3 -->
-            <div class="col-lg-12">
-                <div class="competency-card">
-                    <div class="competency-number">3</div>
-                    <h3><i class="fas fa-database me-2"></i>Participer à l'évolution d'un site Web exploitant les données de l'organisation</h3>
-                    
-                    <div class="competency-item">
-                        <h4>Objectif</h4>
-                        <p>Contribuer à l'amélioration et l'évolution d'un site web en utilisant les données disponibles de l'organisation pour optimiser l'expérience utilisateur et les fonctionnalités.</p>
-                    </div>
-                    
-                    <div class="competency-item">
-                        <h4>Points clés</h4>
-                        <p>
-                            • Intégration de données dynamiques dans le site<br>
-                            • Optimisation de la structure et de la navigation<br>
-                            • Amélioration de l'UX/UI basée sur les données utilisateur<br>
-                            • Maintenance et mise à jour régulière du contenu<br>
-                            • Intégration de nouveaux outils et services
-                        </p>
-                    </div>
-                    
-                    <div class="competency-item">
-                        <h4>Réalisations</h4>
-                        <p>
-                            ✓ Évolution de sites web avec intégration de données<br>
-                            ✓ Amélioration de l'interface utilisateur<br>
-                            ✓ Maintenance et gestion de contenu dynamique
-                        </p>
-                    </div>
-                    
-                    <div class="tags">
-                        <span>Web Development</span>
-                        <span>UX/UI</span>
-                        <span>Data Integration</span>
-                        <span>CMS</span>
-                        <span>Web Analytics</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="section-title">RÉFÉRENTIEL</div>
+        <h2 class="content-heading">Compétences du Bloc 3 couvertes</h2>
+        <table class="comp-table">
+            <thead>
+                <tr><th>Compétence officielle</th><th>Réalisation associée</th><th>Preuve</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Participer à la valorisation de l'image sur les médias numériques</td><td>Création de posts promotionnels + optimisation LinkedIn/CV</td><td><a href="#">Captures réseaux</a></td></tr>
+                <tr><td>Référencer les services en ligne et mesurer leur visibilité</td><td>Mise en place de Google Analytics + suivi d'indicateurs</td><td><a href="#">Rapport Analytics</a></td></tr>
+                <tr><td>Participer à l'évolution d'un site Web exploitant les données de l'organisation</td><td>Déploiement d'un site web (nov.2025-fév.2026) + création de portails applicatifs</td><td><a href="#">Lien du site</a></td></tr>
+            </tbody>
+        </table>
     </div>
 </section>
 
-<!-- Technical Skills Section -->
-<section class="content-section">
-    <div class="custom-container">
-        <div class="section-title">OUTILS & TECHNOLOGIES</div>
-        <h2 class="content-heading">Compétences techniques associées</h2>
-        
-        <div class="skills-grid">
-            <div class="skill-item">
-                <i class="fas fa-code"></i>
-                <h3>Développement Web</h3>
-                <p>HTML, CSS, JavaScript pour la création et l'optimisation de sites web responsifs.</p>
-            </div>
-            
-            <div class="skill-item">
-                <i class="fas fa-chart-line"></i>
-                <h3>Analyse Web</h3>
-                <p>Google Analytics, suivi des performances et analyse des comportements utilisateurs.</p>
-            </div>
-            
-            <div class="skill-item">
-                <i class="fas fa-search"></i>
-                <h3>SEO/SEM</h3>
-                <p>Optimisation pour les moteurs de recherche et gestion des campagnes publicitaires digitales.</p>
-            </div>
-            
-            <div class="skill-item">
-                <i class="fas fa-paint-brush"></i>
-                <h3>Design UX/UI</h3>
-                <p>Création d'interfaces utilisateur attrayantes et ergonomiques basées sur les données.</p>
-            </div>
-            
-            <div class="skill-item">
-                <i class="fas fa-database"></i>
-                <h3>Gestion de contenu</h3>
-                <p>Utilisation de CMS (WordPress, etc.) pour la gestion dynamique du contenu web.</p>
-            </div>
-            
-            <div class="skill-item">
-                <i class="fas fa-share-alt"></i>
-                <h3>Médias sociaux</h3>
-                <p>Gestion et optimisation de la présence sur les réseaux sociaux (Facebook, LinkedIn, Twitter).</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Realizations Section -->
+<!-- Réalisations détaillées -->
 <section class="content-section alt">
     <div class="custom-container">
         <div class="section-title">RÉALISATIONS</div>
-        <h2 class="content-heading">Projets et réalisations concrètes</h2>
-        
-        <div class="row">
-            <div class="col-md-6">
-                <div class="realization-card">
-                    <h4><i class="fas fa-globe me-2"></i>Optimisation du site web d'une PME</h4>
-                    <p>Refonte complète du site web avec intégration de données dynamiques et optimisation SEO.</p>
-                    <div class="metric">+45% visibilité organique</div>
-                    <div class="metric">+30% conversions</div>
-                    <p style="font-size: 0.9rem; color: var(--primary); margin-top: 1rem;">
-                        <strong>Technologies :</strong> HTML/CSS, JavaScript, Google Analytics
-                    </p>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="realization-card">
-                    <h4><i class="fas fa-social-network me-2"></i>Stratégie de communication digitale</h4>
-                    <p>Création d'une stratégie de contenu multi-canaux et gestion des réseaux sociaux.</p>
-                    <div class="metric">+150% engagement</div>
-                    <div class="metric">5K followers</div>
-                    <p style="font-size: 0.9rem; color: var(--primary); margin-top: 1rem;">
-                        <strong>Outils :</strong> Social Media Management, Content Calendar
-                    </p>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="realization-card">
-                    <h4><i class="fas fa-chart-bar me-2"></i>Mise en place de tableaux de bord analytiques</h4>
-                    <p>Configuration de Google Analytics et création de rapports de performance détaillés.</p>
-                    <div class="metric">15 KPI suivis</div>
-                    <div class="metric">Rapports mensuels</div>
-                    <p style="font-size: 0.9rem; color: var(--primary); margin-top: 1rem;">
-                        <strong>Outils :</strong> Google Analytics, Data Studio
-                    </p>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="realization-card">
-                    <h4><i class="fas fa-mobile-alt me-2"></i>Amélioration de l'UX mobile</h4>
-                    <p>Optimisation complète de la version mobile avec tests utilisateurs et améliorations iteratives.</p>
-                    <div class="metric">+60% taux de rebond réduit</div>
-                    <div class="metric">Mobile-first</div>
-                    <p style="font-size: 0.9rem; color: var(--primary); margin-top: 1rem;">
-                        <strong>Technologies :</strong> Responsive Design, A/B Testing
-                    </p>
-                </div>
-            </div>
+        <h2 class="content-heading">Preuves des compétences Bloc 3</h2>
+
+        <!-- 1. Création de posts promotionnels -->
+        <div class="competence-card">
+            <div class="competence-counter">01</div>
+            <h3>Création de contenus promotionnels</h3>
+            <p><strong>Période :</strong> 2024-2025</p>
+            <p><strong>Action :</strong> Conception de visuels et rédaction de posts pour promouvoir les services de l'organisation sur les réseaux sociaux (LinkedIn, Twitter). Respect de la charte graphique et du cadre juridique.</p>
+            <p><strong>Résultat :</strong> +40% d'engagement sur les publications, couverture atteignant 5000+ personnes.</p>
+            <div class="criterias"><span>Réseaux sociaux</span><span>E-réputation</span><span>Branding</span></div>
+            <a href="#" class="competence-link">Voir les captures <i class="fas fa-images"></i></a>
+        </div>
+
+        <!-- 2. Mise en place de Google Analytics -->
+        <div class="competence-card">
+            <div class="competence-counter">02</div>
+            <h3>Mise en place de Google Analytics</h3>
+            <p><strong>Période :</strong> Janvier 2026</p>
+            <p><strong>Action :</strong> Intégration du code de suivi, configuration des objectifs et des événements, création de tableaux de bord personnalisés pour mesurer la visibilité des services en ligne.</p>
+            <p><strong>Résultat :</strong> Suivi précis des visiteurs, taux de rebond réduit de 15% après optimisation.</p>
+            <div class="criterias"><span>Google Analytics</span><span>KPI</span><span>Web Analytics</span></div>
+            <a href="#" class="competence-link">Voir le tableau de bord <i class="fas fa-chart-line"></i></a>
+        </div>
+
+        <!-- 3. Déploiement d'un site web -->
+        <div class="competence-card">
+            <div class="competence-counter">03</div>
+            <h3>Déploiement d'un site web</h3>
+            <p><strong>Période :</strong> Novembre 2025 – Février 2026</p>
+            <p><strong>Action :</strong> Conception, développement et mise en ligne d'un site web complet (front-end + back-end) exploitant les données de l'organisation. Hébergement, tests et documentation.</p>
+            <p><strong>Résultat :</strong> Site opérationnel 24/7, temps de chargement < 2s, référencement naturel optimisé.</p>
+            <div class="criterias"><span>Déploiement</span><span>Hébergement</span><span>SEO</span></div>
+            <a href="#" class="competence-link">Voir le site <i class="fas fa-globe"></i></a>
+        </div>
+
+        <!-- 4. Optimisation LinkedIn et CV (identité professionnelle) -->
+        <div class="competence-card">
+            <div class="competence-counter">04</div>
+            <h3>Optimisation de l'identité professionnelle</h3>
+            <p><strong>Période :</strong> 2024-2025</p>
+            <p><strong>Action :</strong> Refonte complète du profil LinkedIn (mots-clés, recommandations, publications) et du CV pour améliorer la visibilité auprès des recruteurs.</p>
+            <p><strong>Résultat :</strong> +200% de vues du profil, 3 sollicitations de recruteurs en 2 mois.</p>
+            <div class="criterias"><span>LinkedIn</span><span>Personal branding</span><span>CV</span></div>
+            <a href="#" class="competence-link">Voir le profil LinkedIn <i class="fab fa-linkedin"></i></a>
+        </div>
+
+        <!-- 5. Création et gestion de sites SharePoint + portails applicatifs -->
+        <div class="competence-card">
+            <div class="competence-counter">05</div>
+            <h3>Création de sites SharePoint et portails applicatifs</h3>
+            <p><strong>Période :</strong> 2024-2025 (milieu professionnel)</p>
+            <p><strong>Action :</strong> Conception et administration de sites SharePoint, développement de portails applicatifs pour les groupes utilisateurs. Gestion des autorisations et de l'ergonomie.</p>
+            <p><strong>Résultat :</strong> 3 portails déployés, utilisés par 200+ collaborateurs, amélioration de la collaboration interne.</p>
+            <div class="criterias"><span>SharePoint</span><span>Portails</span><span>Collaboration</span></div>
+            <a href="#" class="competence-link">Voir les captures d'écran <i class="fas fa-desktop"></i></a>
+        </div>
+
+        <!-- 6. Rédaction d'un cahier des charges et suivi de projet -->
+        <div class="competence-card">
+            <div class="competence-counter">06</div>
+            <h3>Planification et suivi de projet web</h3>
+            <p><strong>Période :</strong> 2024-2025</p>
+            <p><strong>Action :</strong> Rédaction d'un cahier des charges fonctionnel, élaboration d'un planning projet (Gantt), définition et suivi d'indicateurs de performance.</p>
+            <p><strong>Résultat :</strong> Respect des délais (0 jour de retard), livraison conforme aux attentes.</p>
+            <div class="criterias"><span>Cahier des charges</span><span>Planning</span><span>Indicateurs</span></div>
+            <a href="#" class="competence-link">Voir le document <i class="fas fa-file-alt"></i></a>
         </div>
     </div>
 </section>
 
-<!-- Return Button -->
+<!-- Outils et méthodes -->
+<section class="content-section">
+    <div class="custom-container">
+        <div class="section-title">OUTILS & TECHNOLOGIES</div>
+        <h2 class="content-heading">Environnement technique</h2>
+        <div class="skills-grid">
+            <div class="skill-item"><i class="fab fa-google"></i><h3>Google Analytics</h3><p>Suivi d'audience, objectifs, tableaux de bord personnalisés.</p></div>
+            <div class="skill-item"><i class="fab fa-linkedin"></i><h3>LinkedIn / Réseaux</h3><p>Optimisation de profil, stratégie de contenu, community management.</p></div>
+            <div class="skill-item"><i class="fas fa-chart-simple"></i><h3>Indicateurs web</h3><p>KPI, taux de conversion, SEO, reporting.</p></div>
+            <div class="skill-item"><i class="fab fa-microsoft"></i><h3>SharePoint</h3><p>Création de sites, gestion de listes, autorisations, portails.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- Retour -->
 <section class="content-section" style="padding-top: 3rem; padding-bottom: 3rem;">
     <div class="custom-container">
         <a href="projets_competences.html" class="btn btn-primary"><i class="fas fa-arrow-left me-2"></i>Retour à l'accueil</a>
@@ -673,13 +515,13 @@
 <footer>
     <div class="custom-container">
         <div class="row">
-            <div class="col-md-6">
-                <p>&copy; 2025 Nour MESBAHI. Tous droits réservés.</p>
-            </div>
+            <div class="col-md-6"><p>&copy; 2025 Nour MESBAHI. Tous droits réservés.</p></div>
             <div class="col-md-6 d-flex justify-content-md-end">
                 <div class="footer-links me-4">
                     <a href="index.html">Accueil</a>
-                    <a href="projet3-details.html">Projets</a>
+                    <a href="bloc1.html">Bloc 1</a>
+                    <a href="bloc2.html">Bloc 2</a>
+                    <a href="#">Bloc 3</a>
                     <a href="CV.html">CV</a>
                     <a href="veille.html">Veille</a>
                     <a href="e5.html">E5</a>
@@ -696,14 +538,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    // Navbar styling on scroll
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-        } else {
-            navbar.style.boxShadow = 'none';
-        }
+        if (window.scrollY > 50) navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+        else navbar.style.boxShadow = 'none';
     });
 </script>
 </body>

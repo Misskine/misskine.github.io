@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloc 1 - Incidents et Assistance | Nour MESBAHI</title>
+    <title>Bloc 2 - Incidents et Assistance | Nour MESBAHI</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,7 +45,6 @@
             padding: 0 2rem;
         }
         
-        /* Navbar Styles */
         .navbar {
             background-color: var(--beige);
             padding: 1rem 0;
@@ -65,39 +64,29 @@
             color: var(--dark);
             font-weight: 500;
             margin-left: 1.5rem;
-            position: relative;
             transition: color 0.3s ease;
             font-family: monospace;
             font-size: 0.9rem;
         }
         
-        .nav-link:hover {
+        .nav-link:hover, .nav-link-active {
             color: var(--primary);
         }
         
         .nav-link-active {
-            color: var(--primary);
             font-weight: 600;
             margin-left: 1.5rem;
-            position: relative;
             font-family: monospace;
             font-size: 0.9rem;
         }
         
-        .welcome-text {
+        .welcome-text, .contact-info {
             font-family: monospace;
             font-size: 0.8rem;
             color: var(--gray);
             letter-spacing: 1px;
         }
         
-        .contact-info {
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-        
-        /* Header Section */
         .header {
             position: relative;
             padding: 8rem 0 4rem;
@@ -121,7 +110,6 @@
             margin-bottom: 1.5rem;
         }
         
-        /* Content Sections */
         .content-section {
             padding: 5rem 0;
         }
@@ -145,7 +133,6 @@
             color: var(--gray);
         }
         
-        /* Competence Cards */
         .competence-card {
             position: relative;
             background-color: var(--beige);
@@ -165,7 +152,6 @@
             font-family: "VT323", monospace;
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            position: relative;
         }
         
         .competence-card p {
@@ -217,15 +203,10 @@
             color: var(--primary);
         }
         
-        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 3rem;
-        }
-        
-        .skill-item {
-            position: relative;
         }
         
         .skill-item i {
@@ -246,7 +227,6 @@
             color: var(--gray);
         }
         
-        /* Evidence/Proof Cards */
         .evidence-card {
             border: none;
             border-radius: 0;
@@ -273,7 +253,30 @@
             color: var(--gray);
         }
         
-        /* Footer */
+        .comp-table {
+            font-family: monospace;
+            background-color: white;
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        
+        .comp-table th, .comp-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comp-table th {
+            background-color: var(--secondary);
+            color: white;
+            font-family: "VT323", monospace;
+        }
+        
+        .comp-table td {
+            background-color: white;
+        }
+        
         footer {
             background-color: var(--dark);
             color: white;
@@ -289,7 +292,7 @@
             transition: color 0.3s ease;
         }
         
-        .footer-links a:hover {
+        .footer-links a:hover, .social-links a:hover {
             color: var(--primary);
         }
         
@@ -300,11 +303,6 @@
             transition: color 0.3s ease;
         }
         
-        .social-links a:hover {
-            color: var(--primary);
-        }
-        
-        /* Button Styles */
         .btn {
             font-family: "VT323", monospace;
             padding: 0.6rem 1.5rem;
@@ -326,33 +324,16 @@
             transform: translateY(-3px);
         }
         
-        /* Responsive styles */
         @media (max-width: 992px) {
-            .header h2 {
-                font-size: 2.8rem;
-            }
-            
-            .content-heading {
-                font-size: 2rem;
-            }
+            .header h2 { font-size: 2.8rem; }
+            .content-heading { font-size: 2rem; }
         }
         
         @media (max-width: 768px) {
-            .header {
-                padding: 6rem 0 3rem;
-            }
-            
-            .header h2 {
-                font-size: 2.2rem;
-            }
-            
-            .content-heading {
-                font-size: 1.8rem;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
+            .header { padding: 6rem 0 3rem; }
+            .header h2 { font-size: 2.2rem; }
+            .content-heading { font-size: 1.8rem; }
+            .skills-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -361,14 +342,13 @@
 <nav class="navbar">
     <div class="custom-container">
         <div class="d-flex justify-content-between align-items-center w-100">
-            <div class="welcome-text">BIENVENUE SUR MON PORTFOLIO</div>
+            <div class="welcome-text">BLOC 2 - INCIDENTS & ASSISTANCE</div>
             <a href="index.html" class="navbar-brand vt323-regular">NOUR_</a>
             <div class="contact-info d-none d-md-block">CONTACT@MAIL.COM</div>
         </div>
     </div>
 </nav>
 
-<!-- Secondary Navigation -->
 <nav class="navbar navbar-expand-lg" style="padding-top: 0;">
     <div class="custom-container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -377,9 +357,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="index.html">ACCUEIL</a></li>
-                <li class="nav-item"><a class="nav-link-active" href="#">BLOC 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="bloc1.html">BLOC 1</a></li>
+                <li class="nav-item"><a class="nav-link-active" href="#">BLOC 2</a></li>
                 <li class="nav-item"><a class="nav-link" href="#competences">COMPÉTENCES</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
                 <li class="nav-item"><a class="nav-link" href="CV.html">CV</a></li>
                 <li class="nav-item"><a class="nav-link" href="veille.html">VEILLE</a></li>
                 <li class="nav-item"><a class="nav-link" href="e5.html">E5</a></li>
@@ -392,159 +372,137 @@
 <!-- Header -->
 <section class="header">
     <div class="custom-container">
-        <div class="section-title">BLOC 2 - BTS SIO</div>
+        <div class="section-title">BLOC 2</div>
         <h2 style="color: whitesmoke;">Répondre aux incidents et aux demandes d'assistance et d'évolution</h2>
     </div>
 </section>
 
-<!-- Introduction Section -->
+<!-- Introduction -->
 <section class="content-section">
     <div class="custom-container">
         <div class="section-title">PRÉSENTATION</div>
-        <h2 class="content-heading">Bloc 2 du BTS SIO</h2>
+        <h2 class="content-heading">Support technique et gestion des demandes</h2>
         <div class="row">
             <div class="col-lg-8">
                 <p class="content-text">
-                    Ce bloc de compétences regroupe les trois compétences fondamentales pour assurer le support technique et l'assistance aux utilisateurs. Il s'agit de collecter et suivre les demandes, traiter les incidents réseau et système, ainsi que les problèmes applicatifs. Chaque situation rencontrée lors de mon alternance chez EDF m'a permis de développer et consolider ces compétences.
+                    Ce bloc couvre la gestion complète du cycle de vie des incidents et demandes : collecte, suivi, traitement des problèmes réseau/système, support applicatif et accompagnement des utilisateurs. L'ensemble de mes réalisations (formation et alternance) démontre ma capacité à traiter efficacement les tickets, résoudre des incidents critiques et développer des solutions d'évolution.
                 </p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Competences Section -->
+<!-- Tableau de correspondance compétences -->
+<section class="content-section alt" style="padding-top: 0;">
+    <div class="custom-container">
+        <div class="section-title">RÉFÉRENTIEL</div>
+        <h2 class="content-heading">Compétences du Bloc 2 couvertes</h2>
+        <table class="comp-table">
+            <thead>
+                <tr><th>Compétence officielle</th><th>Réalisation associée</th><th>Preuve</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Collecter, suivre et orienter des demandes</td><td>Gestion des tickets GLPI (150+ tickets)</td><td><a href="#">Statistiques tickets</a></td></tr>
+                <tr><td>Traiter des demandes concernant les services réseau et système</td><td>Résolution d'incident réseau (boucle STP) + contrôle postes perdus/volés</td><td><a href="#">Rapport d'incident</a></td></tr>
+                <tr><td>Traiter des demandes concernant les applications</td><td>Support applicatif (correction bug, ajout fonctionnalité) + développement d'applications Power Apps</td><td><a href="#">Documentation applicative</a></td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- Réalisations détaillées -->
 <section class="content-section alt">
     <div class="custom-container">
-        <div class="section-title">COMPÉTENCES</div>
-        <h2 class="content-heading">Les trois compétences du Bloc 2</h2>
-        
-        <div class="row">
-            <div class="col-md-6">
-                <div class="competence-card">
-                    <div class="competence-counter">01</div>
-                    <h3>Collecter, suivre et orienter des demandes</h3>
-                    <p>Gestion complète du cycle de vie des demandes : réception des demandes utilisateurs, enregistrement dans le système de ticketing, suivi du traitement et orientation vers les bonnes équipes.</p>
-                    <div class="criterias">
-                        <span>Ticketing</span>
-                        <span>Suivi</span>
-                        <span>Communication</span>
-                    </div>
-                    <a href="#" class="competence-link">Voir les preuves <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="competence-card">
-                    <div class="competence-counter">02</div>
-                    <h3>Traiter des demandes réseau et système</h3>
-                    <p>Diagnostic et résolution des problèmes liés à l'infrastructure réseau, aux serveurs et aux services système. Gestion des accès utilisateurs, configuration des postes de travail et maintenance des services.</p>
-                    <div class="criterias">
-                        <span>Windows Server</span>
-                        <span>Active Directory</span>
-                        <span>Réseau</span>
-                    </div>
-                    <a href="#" class="competence-link">Voir les preuves <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            
-            <div class="col-md-6">
-                <div class="competence-card">
-                    <div class="competence-counter">03</div>
-                    <h3>Traiter des demandes concernant les applications</h3>
-                    <p>Support technique pour les applications métier, diagnostic des dysfonctionnements applicatifs, gestion des droits d'accès aux ressources et coordination avec les équipes développement.</p>
-                    <div class="criterias">
-                        <span>Troubleshooting</span>
-                        <span>Droits d'accès</span>
-                        <span>SharePoint</span>
-                    </div>
-                    <a href="#" class="competence-link">Voir les preuves <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+        <div class="section-title">RÉALISATIONS</div>
+        <h2 class="content-heading">Preuves des compétences Bloc 2</h2>
+
+        <!-- 1. Gestion des tickets GLPI -->
+        <div class="competence-card">
+            <div class="competence-counter">01</div>
+            <h3>Gestion des tickets GLPI</h3>
+            <p><strong>Période :</strong> Novembre 2024 – Mars 2025</p>
+            <p><strong>Action :</strong> Collecte, catégorisation, priorisation et suivi des tickets incidents et demandes d'assistance. Rédaction de solutions en base de connaissances.</p>
+            <p><strong>Résultat :</strong> Plus de 150 tickets traités, délai moyen de résolution : 2 heures, taux de satisfaction > 90%.</p>
+            <div class="criterias"><span>Ticketing</span><span>GLPI</span><span>Priorisation</span></div>
+            <a href="#" class="competence-link">Voir l'export des statistiques <i class="fas fa-chart-line"></i></a>
+        </div>
+
+        <!-- 2. Résolution incident réseau -->
+        <div class="competence-card">
+            <div class="competence-counter">02</div>
+            <h3>Résolution d'incident réseau critique</h3>
+            <p><strong>Période :</strong> Octobre 2024</p>
+            <p><strong>Contexte :</strong> Perte de connectivité sur un segment entier du parc.</p>
+            <p><strong>Action :</strong> Diagnostic (analyse logs switch, test câblage, vérification VLAN), identification d'une boucle STP, correction de la configuration.</p>
+            <p><strong>Résultat :</strong> Rétablissement du service en 45 minutes, rédaction d'une procédure de prévention.</p>
+            <div class="criterias"><span>Réseau</span><span>STP</span><span>Diagnostic</span></div>
+            <a href="#" class="competence-link">Voir le rapport d'incident <i class="fas fa-file-alt"></i></a>
+        </div>
+
+        <!-- 3. Support applicatif (bug + fonctionnalité) -->
+        <div class="competence-card">
+            <div class="competence-counter">03</div>
+            <h3>Support applicatif – Correction et évolution</h3>
+            <p><strong>Période :</strong> Décembre 2024 – Janvier 2025</p>
+            <p><strong>Action :</strong> Analyse de bugs signalés, correction d'erreurs (SQL, logique métier), ajout d'une fonctionnalité de recherche avancée sur une application interne.</p>
+            <p><strong>Résultat :</strong> 100% des bugs critiques corrigés en moins de 48h, nouvelle fonctionnalité adoptée par 95% des utilisateurs.</p>
+            <div class="criterias"><span>Debug</span><span>Évolution</span><span>SQL</span></div>
+            <a href="#" class="competence-link">Voir les correctifs (extrait) <i class="fas fa-code"></i></a>
+        </div>
+
+        <!-- 4. Développement d'applications métier (Power Apps, Automate) -->
+        <div class="competence-card">
+            <div class="competence-counter">04</div>
+            <h3>Applications d'évolution : habilitations, synchronisation calendriers</h3>
+            <p><strong>Période :</strong> 2024-2025</p>
+            <p><strong>Action :</strong> Conception et déploiement d'applications Power Apps / Power Automate pour :<br>
+            - Gestion des habilitations prestataires (remplacement Excel)<br>
+            - Synchronisation automatique des calendriers interservices<br>
+            - Suivi du parc informatique</p>
+            <p><strong>Résultat :</strong> Gain estimé à 10h/semaine, réduction des délais d'habilitation de 2 jours à 2 heures.</p>
+            <div class="criterias"><span>Power Apps</span><span>Automatisation</span><span>Évolution</span></div>
+            <a href="#" class="competence-link">Voir les applications <i class="fas fa-apple-alt"></i></a>
+        </div>
+
+        <!-- 5. Documentation utilisateur et technique -->
+        <div class="competence-card">
+            <div class="competence-counter">05</div>
+            <h3>Rédaction de documentations</h3>
+            <p><strong>Période :</strong> 2024-2025</p>
+            <p><strong>Action :</strong> Création de guides utilisateurs pour les applications déployées, rédaction de documentations techniques pour les équipes (procédures de résolution d'incidents, fiches de poste).</p>
+            <p><strong>Résultat :</strong> Réduction de 30% des demandes redondantes au support, meilleure autonomie des utilisateurs.</p>
+            <div class="criterias"><span>Documentation</span><span>Utilisateur</span><span>Technique</span></div>
+            <a href="#" class="competence-link">Voir un exemple de guide <i class="fas fa-file-pdf"></i></a>
+        </div>
+
+        <!-- 6. Contrôle des postes perdus/volés (2e année) -->
+        <div class="competence-card">
+            <div class="competence-counter">06</div>
+            <h3>Gestion des incidents de sécurité – Postes perdus/volés</h3>
+            <p><strong>Période :</strong> 2025 (2e année)</p>
+            <p><strong>Action :</strong> Mise en place d'une procédure de contrôle et de désactivation des postes déclarés perdus/volés. Création d'indicateurs de suivi et rapports mensuels.</p>
+            <p><strong>Résultat :</strong> 100% des postes désactivés sous 1h après déclaration, traçabilité complète.</p>
+            <div class="criterias"><span>Sécurité</span><span>Incident</span><span>Reporting</span></div>
+            <a href="#" class="competence-link">Voir le tableau de bord <i class="fas fa-chart-simple"></i></a>
         </div>
     </div>
 </section>
 
-<!-- Contexte et Réalisations -->
+<!-- Outils et méthodes -->
 <section class="content-section">
     <div class="custom-container">
-        <div class="section-title">CONTEXTE PROFESSIONNEL</div>
-        <h2 class="content-heading">Mise en pratique en alternance</h2>
-        
+        <div class="section-title">OUTILS & MÉTHODES</div>
+        <h2 class="content-heading">Environnement technique</h2>
         <div class="skills-grid">
-            <div class="skill-item">
-                <i class="fas fa-ticket-alt"></i>
-                <h3>Système de Ticketing</h3>
-                <p>Utilisation quotidienne d'outils de ticketing pour enregistrer, suivre et fermer les demandes utilisateurs. Documentation des interventions et résolution apportée.</p>
-            </div>
-            
-            <div class="skill-item">
-                <i class="fas fa-headset"></i>
-                <h3>Support Utilisateur</h3>
-                <p>Assistance de premier niveau pour les utilisateurs EDF, avec une écoute active et une prise en charge rapide des problèmes signalés.</p>
-            </div>
-            
-            <div class="skill-item">
-                <i class="fas fa-tools"></i>
-                <h3>Diagnostic Technique</h3>
-                <p>Analyse méthodique des problèmes techniques, identification des causes racines et mise en place de solutions durables.</p>
-            </div>
-            
-            <div class="skill-item">
-                <i class="fas fa-clipboard-check"></i>
-                <h3>Documentation</h3>
-                <p>Rédaction de procédures et guides d'utilisation pour les utilisateurs et documentation technique pour les interventions.</p>
-            </div>
+            <div class="skill-item"><i class="fas fa-ticket-alt"></i><h3>GLPI</h3><p>Gestion complète du parc et des tickets d'incidents.</p></div>
+            <div class="skill-item"><i class="fas fa-network-wired"></i><h3>Diagnostic réseau</h3><p>Wireshark, logs switch, tests de connectivité.</p></div>
+            <div class="skill-item"><i class="fas fa-database"></i><h3>SQL / Applications</h3><p>Correction de bugs, ajout de fonctionnalités.</p></div>
+            <div class="skill-item"><i class="fab fa-microsoft"></i><h3>Power Platform</h3><p>Power Apps, Power Automate, SharePoint.</p></div>
         </div>
     </div>
 </section>
 
-<!-- Evidence/Preuves Section -->
-<section class="content-section alt">
-    <div class="custom-container">
-        <div class="section-title">PREUVES</div>
-        <h2 class="content-heading">Situations rencontrées</h2>
-        
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card evidence-card">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fas fa-envelope fa-2x me-3"></i>
-                        </div>
-                        <h4>Gestion des demandes</h4>
-                        <p>Traitement de 50+ demandes mensuelles via le système de ticketing, avec priorités et planification adaptées.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 mb-4">
-                <div class="card evidence-card">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fas fa-network-wired fa-2x me-3"></i>
-                        </div>
-                        <h4>Support Réseau/Système</h4>
-                        <p>Résolution de problèmes de connectivité, gestion des comptes utilisateurs et maintenance des serveurs.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="col-md-4 mb-4">
-                <div class="card evidence-card">
-                    <div class="card-body p-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fas fa-database fa-2x me-3"></i>
-                        </div>
-                        <h4>Support Applicatif</h4>
-                        <p>Support sur les applications métier EDF, assistance SharePoint et gestion des permissions.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Return Button -->
+<!-- Retour -->
 <section class="content-section" style="padding-top: 3rem; padding-bottom: 3rem;">
     <div class="custom-container">
         <a href="projets_competences.html" class="btn btn-primary"><i class="fas fa-arrow-left me-2"></i>Retour à l'accueil</a>
@@ -555,13 +513,12 @@
 <footer>
     <div class="custom-container">
         <div class="row">
-            <div class="col-md-6">
-                <p>&copy; 2025 Nour MESBAHI. Tous droits réservés.</p>
-            </div>
+            <div class="col-md-6"><p>&copy; 2025 Nour MESBAHI. Tous droits réservés.</p></div>
             <div class="col-md-6 d-flex justify-content-md-end">
                 <div class="footer-links me-4">
                     <a href="index.html">Accueil</a>
-                    <a href="#">Bloc 1</a>
+                    <a href="bloc1.html">Bloc 1</a>
+                    <a href="#">Bloc 2</a>
                     <a href="CV.html">CV</a>
                     <a href="veille.html">Veille</a>
                     <a href="e5.html">E5</a>
@@ -580,11 +537,8 @@
 <script>
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-        } else {
-            navbar.style.boxShadow = 'none';
-        }
+        if (window.scrollY > 50) navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+        else navbar.style.boxShadow = 'none';
     });
 </script>
 </body>
