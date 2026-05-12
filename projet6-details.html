@@ -364,6 +364,7 @@
                 <li class="nav-item"><a class="nav-link" href="bloc4.html">BLOC 4</a></li>
                 <li class="nav-item"><a class="nav-link" href="bloc5.html">BLOC 5</a></li>
                 <li class="nav-item"><a class="nav-link-active" href="#">BLOC 6</a></li>
+                <li class="nav-item"><a class="nav-link" href="edf.html">EDF</a></li>
                 <li class="nav-item"><a class="nav-link" href="CV.html">CV</a></li>
                 <li class="nav-item"><a class="nav-link" href="veille.html">VEILLE</a></li>
                 <li class="nav-item"><a class="nav-link" href="e5.html">E5</a></li>
@@ -406,8 +407,8 @@
                 <tr><th>Compétence officielle</th><th>Réalisation associée</th><th>Preuve</th></tr>
             </thead>
             <tbody>
-                <tr><td>Mettre en place son environnement d’apprentissage personnel</td><td>Base de données de cours et certifications + suivi de formations</td><td><a href="#">Base de données</a></td></tr>
-                <tr><td>Mettre en œuvre des outils et stratégies de veille informationnelle</td><td>Synthèse mensuelle Google Alerts (depuis sept.2024) + veille technologique</td><td><a href="#">Synthèses mensuelles</a></td></tr>
+                <tr><td>Mettre en place son environnement d’apprentissage personnel</td><td>Base de données de cours et certifications + suivi de formations</td><td><a href="certificates/dcode-data-2026.pdf" target="_blank">Certificats obtenus</a></td></tr>
+                <tr><td>Mettre en œuvre des outils et stratégies de veille informationnelle</td><td>Synthèse mensuelle Google Alerts (depuis sept.2024) + veille technologique</td><td><a href="veille.html">Synthèses mensuelles</a></td></tr>
                 <tr><td>Gérer son identité professionnelle</td><td>Optimisation LinkedIn / CV + portfolio en ligne</td><td><a href="#">Profil LinkedIn</a></td></tr>
                 <tr><td>Développer son projet professionnel</td><td>Rédaction d’un projet professionnel (sept.2024) + objectifs court/moyen terme</td><td><a href="#">Document projet</a></td></tr>
             </tbody>
@@ -428,8 +429,8 @@
             <p><strong>Période :</strong> Depuis septembre 2024 (en continu)</p>
             <p><strong>Action :</strong> Mise en place d’alertes Google sur les thèmes “cybersécurité”, “IA”, “développement web”. Consolidation mensuelle des actualités clés dans un document de synthèse.</p>
             <p><strong>Résultat :</strong> 12 synthèses produites, identification de 3 tendances majeures (Power Platform, automatisation, sécurité des identités).</p>
-            <div class="tags"><span>Google Alerts</span><span>Veille technologique</span><span>Synthèse</span></div>
-            <a href="#" class="project-link">Voir la dernière synthèse <i class="fas fa-newspaper"></i></a>
+            <div class=”tags”><span>Google Alerts</span><span>Veille technologique</span><span>Synthèse</span></div>
+            <a href=”veille.html” class=”project-link”>Voir la dernière synthèse <i class=”fas fa-newspaper”></i></a>
         </div>
 
         <!-- 2. Environnement d’apprentissage personnel (base de données cours/certifications) -->
@@ -440,7 +441,11 @@
             <p><strong>Action :</strong> Création d’une base de données (SQL) recensant les cours suivis, certifications obtenues et objectifs de formation. Outil de suivi personnel accessible en ligne.</p>
             <p><strong>Résultat :</strong> 15 formations répertoriées, 3 certifications planifiées (Microsoft, Cisco, etc.), vision claire des acquis.</p>
             <div class="tags"><span>SQL</span><span>Auto‑formation</span><span>Certifications</span></div>
-            <a href="#" class="project-link">Voir l’extrait de la base <i class="fas fa-database"></i></a>
+            <a href="certificates/dcode-data-2026.pdf" target="_blank" class="project-link">Certificat Data 2026 <i class="fas fa-certificate"></i></a>
+            <a href="certificates/dcode-cyber-2024.pdf" target="_blank" class="project-link">Certificat Cyber 2024 <i class="fas fa-certificate"></i></a>
+            <a href="certificates/passeport-cyber-pour-tous-2024.pdf" target="_blank" class="project-link">Passeport Cyber <i class="fas fa-certificate"></i></a>
+            <a href="certificates/passeport-data-ia-2024.pdf" target="_blank" class="project-link">Passeport Data & IA <i class="fas fa-certificate"></i></a>
+            <a href="certificates/pass-protection-cybersecurite-2025.pdf" target="_blank" class="project-link">Pass Cybersécurité 2025 <i class="fas fa-certificate"></i></a>
         </div>
 
         <!-- 3. Gestion de l’identité professionnelle (LinkedIn / CV) -->
@@ -473,7 +478,7 @@
             <p><strong>Action :</strong> Utilisation de Feedly pour agréger des flux RSS (blogs techniques, sites officiels), abonnement à des newsletters (Medium, Dev.to, Journal du Net).</p>
             <p><strong>Résultat :</strong> Veille automatisée, gain de 2h/semaine, partage des articles pertinents avec l’équipe.</p>
             <div class="tags"><span>Feedly</span><span>RSS</span><span>Newsletters</span></div>
-            <a href="#" class="project-link">Voir mes sources de veille <i class="fas fa-rss"></i></a>
+            <a href="veille.html" class="project-link">Voir mes sources de veille <i class="fas fa-rss"></i></a>
         </div>
     </div>
 </section>
@@ -567,6 +572,44 @@
         if (window.scrollY > 50) navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
         else navbar.style.boxShadow = 'none';
     });
+</script>
+
+<!-- Visionneuse documents -->
+<div id="docViewer" onclick="if(event.target===this)closeDocViewer()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.82);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;">
+    <div style="background:white;width:100%;max-width:1000px;height:90vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:0.8rem 1.25rem;background:#212121;flex-shrink:0;">
+            <span id="viewerTitle" style="font-family:'VT323',monospace;font-size:1.1rem;letter-spacing:2px;color:#EFEFDF;max-width:80%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
+            <button onclick="closeDocViewer()" style="background:none;border:1px solid #FF5722;color:#FF5722;font-family:'VT323',monospace;font-size:1rem;padding:0.3rem 0.9rem;cursor:pointer;letter-spacing:1px;transition:all 0.2s;" onmouseover="this.style.background='#FF5722';this.style.color='white'" onmouseout="this.style.background='none';this.style.color='#FF5722'">✕ FERMER</button>
+        </div>
+        <iframe id="viewerFrame" src="" style="flex:1;border:none;width:100%;" allowfullscreen></iframe>
+    </div>
+</div>
+<script>
+function openDocViewer(href, label) {
+    var src = href;
+    if (/\.docx?$/i.test(href)) {
+        src = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(new URL(href, window.location.href).href);
+    }
+    document.getElementById('viewerFrame').src = src;
+    document.getElementById('viewerTitle').textContent = label || href.split('/').pop();
+    document.getElementById('docViewer').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+function closeDocViewer() {
+    document.getElementById('docViewer').style.display = 'none';
+    document.getElementById('viewerFrame').src = '';
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeDocViewer(); });
+document.querySelectorAll('a[href]').forEach(function(a) {
+    if (/\.(docx?|pdf)$/i.test(a.getAttribute('href') || '')) {
+        a.removeAttribute('target');
+        a.addEventListener('click', function(e) {
+            e.preventDefault();
+            openDocViewer(this.getAttribute('href'), this.textContent.trim());
+        });
+    }
+});
 </script>
 </body>
 </html>

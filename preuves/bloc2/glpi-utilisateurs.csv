@@ -1,0 +1,14 @@
+﻿"Identifiant";"Nom de famille";"Courriels";"Téléphone";"Lieu";"Actif";
+"employe1Paris";"ALPHA";"victor@gmail.com";"123456789";"QG paris";"Oui";
+"employe2Paris";"BETA";"Victoria@gmail.com";"0123456";"QG paris";"Oui";
+"empLyon1";"GAMMA";"Jonas@gmail.com";"123456789";"QG Lyon";"Oui";
+"empLyon2";"DELTA";"Joanne@gmail.com";"98563321";"QG Lyon";"Oui";
+"empLyon3";"EPSILON";"Micheal@gmail.com";"0123456";"QG Lyon";"Oui";
+"glpi";"GLPI";"";"123456789";"QG paris";"Oui";
+"glpi-system";"Support";"";"";"";"Oui";
+"normal";"---";"normal@gmail.com";"---";"QG paris";"Oui";
+"post-only";"--";"";"----";"QG paris";"Oui";
+"tech";"DZETA";"Patrick@gmail.com";"0123456";"QG paris";"Oui";
+"techLyon1";"ÊTA";"Emmanuel@gmail.com";"123456789";"QG Lyon";"Oui";
+"techLyon2";"THÊTA";"Patricia@gmail.com";"98563321";"QG Lyon";"Oui";
+"technicianParis";"STIGMA";"Michaela@gmail.com";"123456789";"QG paris";"Oui";

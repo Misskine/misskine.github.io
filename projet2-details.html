@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloc 2 - Incidents et Assistance | Nour MESBAHI</title>
+    <title>Bloc 2 - Répondre aux incidents et aux demandes | Nour MESBAHI</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,343 +13,111 @@
         :root {
             --primary: #FF5722;
             --secondary: #212121;
-            --light: #F5F5F5;
             --dark: #121212;
             --gray: #888;
             --beige: #EFEFDF;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: sans-serif;
-            background-color: var(--beige);
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .vt323-regular {
-            font-family: "VT323", monospace;
-            font-weight: 400;
-            font-style: normal;
-        }
-        
-        .custom-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .navbar {
-            background-color: var(--beige);
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .navbar-brand {
-            font-family: "VT323", monospace;
-            font-weight: 400;
-            font-size: 1.5rem;
-            color: var(--dark);
-            letter-spacing: 1px;
-        }
-        
-        .nav-link {
-            color: var(--dark);
-            font-weight: 500;
-            margin-left: 1.5rem;
-            transition: color 0.3s ease;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-        
-        .nav-link:hover, .nav-link-active {
-            color: var(--primary);
-        }
-        
-        .nav-link-active {
-            font-weight: 600;
-            margin-left: 1.5rem;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-        
-        .welcome-text, .contact-info {
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: var(--gray);
-            letter-spacing: 1px;
-        }
-        
-        .header {
-            position: relative;
-            padding: 8rem 0 4rem;
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        .section-title {
-            font-family: "VT323", monospace;
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .header h2 {
-            font-family: "VT323", monospace;
-            font-size: 3.5rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-        }
-        
-        .content-section {
-            padding: 5rem 0;
-        }
-        
-        .content-section.alt {
-            background-color: white;
-        }
-        
-        .content-heading {
-            font-family: "VT323", monospace;
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 2rem;
-            line-height: 1.2;
-        }
-        
-        .content-text {
-            font-family: monospace;
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            color: var(--gray);
-        }
-        
-        .competence-card {
-            position: relative;
-            background-color: var(--beige);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .competence-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .competence-card h3 {
-            font-family: "VT323", monospace;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-        
-        .competence-card p {
-            font-family: monospace;
-            margin-bottom: 1.5rem;
-            color: var(--gray);
-        }
-        
-        .competence-counter {
-            position: absolute;
-            top: 0;
-            right: 1rem;
-            font-family: "VT323", monospace;
-            font-size: 6rem;
-            color: rgba(0,0,0,0.05);
-            line-height: 1;
-            pointer-events: none;
-        }
-        
-        .criterias {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .criterias span {
-            background-color: rgba(255, 87, 34, 0.1);
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            font-family: monospace;
-        }
-        
-        .competence-link {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s ease;
-            font-family: "VT323", monospace;
-            font-size: 1.1rem;
-        }
-        
-        .competence-link:hover {
-            color: var(--primary);
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-        
-        .skill-item i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .skill-item h3 {
-            font-family: "VT323", monospace;
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-        
-        .skill-item p {
-            font-family: monospace;
-            color: var(--gray);
-        }
-        
-        .evidence-card {
-            border: none;
-            border-radius: 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            height: 100%;
-            transition: transform 0.3s ease;
-        }
-        
-        .evidence-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .evidence-card i {
-            color: var(--primary);
-        }
-        
-        .evidence-card h4 {
-            font-family: "VT323", monospace;
-            font-weight: 400;
-        }
-        
-        .evidence-card p {
-            font-family: monospace;
-            color: var(--gray);
-        }
-        
-        .comp-table {
-            font-family: monospace;
-            background-color: white;
-            border-collapse: collapse;
-            width: 100%;
-            margin-bottom: 2rem;
-        }
-        
-        .comp-table th, .comp-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        
-        .comp-table th {
-            background-color: var(--secondary);
-            color: white;
-            font-family: "VT323", monospace;
-        }
-        
-        .comp-table td {
-            background-color: white;
-        }
-        
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 2rem 0;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin-right: 1.5rem;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover, .social-links a:hover {
-            color: var(--primary);
-        }
-        
-        .social-links a {
-            color: white;
-            margin-right: 1rem;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-        
-        .btn {
-            font-family: "VT323", monospace;
-            padding: 0.6rem 1.5rem;
-            border-radius: 0;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            border: none;
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        @media (max-width: 992px) {
-            .header h2 { font-size: 2.8rem; }
-            .content-heading { font-size: 2rem; }
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: sans-serif; background-color: var(--beige); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+        .vt323-regular { font-family: "VT323", monospace; font-weight: 400; }
+        .custom-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        .navbar { background-color: var(--beige); padding: 1rem 0; border-bottom: 1px solid #ddd; }
+        .navbar-brand { font-family: "VT323", monospace; font-size: 1.5rem; color: var(--dark); text-decoration: none; }
+        .nav-link { color: var(--dark); font-family: monospace; font-size: 0.9rem; margin-left: 1.5rem; font-weight: 500; transition: color 0.3s; text-decoration: none; display: inline-block; }
+        .nav-link:hover { color: var(--primary); }
+        .nav-link-active { font-family: monospace; font-size: 0.9rem; margin-left: 1.5rem; font-weight: 600; color: var(--primary); text-decoration: none; display: inline-block; }
+        .welcome-text, .contact-info { font-family: monospace; font-size: 0.8rem; color: var(--gray); letter-spacing: 1px; }
+
+        .page-header { background-color: var(--secondary); color: white; padding: 6rem 0 3rem; }
+        .page-header .bloc-label { font-family: "VT323", monospace; font-size: 1rem; color: var(--primary); letter-spacing: 3px; text-transform: uppercase; }
+        .page-header h1 { font-family: "VT323", monospace; font-size: 3rem; font-weight: 400; margin: 0.5rem 0 1rem; }
+        .page-header p { font-family: monospace; font-size: 0.9rem; color: #ccc; max-width: 750px; }
+
+        .content-section { padding: 4rem 0; }
+        .content-section.white { background-color: white; }
+        .content-section.beige { background-color: var(--beige); }
+
+        .section-label { font-family: "VT323", monospace; font-size: 1rem; color: var(--primary); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .section-heading { font-family: "VT323", monospace; font-size: 2.2rem; color: var(--dark); margin-bottom: 1.5rem; }
+        .content-text { font-family: monospace; font-size: 0.88rem; color: var(--gray); margin-bottom: 1rem; }
+
+        .sit-nav { display: flex; gap: 0; margin-bottom: 2rem; border-bottom: 2px solid #ddd; flex-wrap: wrap; }
+        .sit-tab { font-family: "VT323", monospace; font-size: 1.1rem; padding: 0.6rem 1.4rem; cursor: pointer; border: none; background: none; color: var(--gray); letter-spacing: 1px; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+        .sit-tab.active, .sit-tab:hover { color: var(--primary); border-bottom-color: var(--primary); }
+        .sit-panel { display: none; }
+        .sit-panel.active { display: block; }
+
+        .situation-card { background: var(--beige); border-left: 4px solid var(--primary); padding: 2rem; margin-bottom: 1.5rem; position: relative; overflow: hidden; }
+        .situation-number { position: absolute; top: 0; right: 1rem; font-family: "VT323", monospace; font-size: 6rem; color: rgba(0,0,0,0.04); line-height: 1; pointer-events: none; }
+        .situation-card h3 { font-family: "VT323", monospace; font-size: 1.8rem; margin-bottom: 0.5rem; }
+        .situation-meta { font-family: monospace; font-size: 0.78rem; color: var(--gray); margin-bottom: 1.2rem; }
+        .situation-meta span { margin-right: 1.5rem; }
+
+        .info-box { background: white; border-left: 4px solid var(--primary); padding: 1.2rem 1.5rem; margin-bottom: 0.8rem; font-family: monospace; font-size: 0.85rem; }
+        .info-box strong { color: var(--dark); display: block; margin-bottom: 0.25rem; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; }
+        .info-box span { color: var(--gray); }
+
+        .step-list { list-style: none; padding: 0; }
+        .step-list li { font-family: monospace; font-size: 0.87rem; color: var(--gray); padding: 0.5rem 0 0.5rem 1.5rem; position: relative; border-bottom: 1px solid #eee; }
+        .step-list li:last-child { border-bottom: none; }
+        .step-list li::before { content: "▶"; color: var(--primary); position: absolute; left: 0; font-size: 0.6rem; top: 0.65rem; }
+
+        .arch-box { background: white; border: 1px solid #e0e0e0; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .arch-title { font-family: "VT323", monospace; font-size: 1.2rem; color: var(--primary); margin-bottom: 1rem; letter-spacing: 1px; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
+        .arch-flow { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-family: monospace; font-size: 0.82rem; }
+        .arch-node { background: var(--beige); border: 1px solid #ccc; padding: 0.4rem 0.8rem; text-align: center; font-size: 0.78rem; min-width: 110px; }
+        .arch-node.highlight { background: rgba(255,87,34,0.1); border-color: var(--primary); color: var(--dark); }
+        .arch-arrow { color: var(--primary); font-size: 1.2rem; }
+
+        .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0; }
+        .tag { background-color: rgba(255,87,34,0.1); color: var(--primary); padding: 0.25rem 0.7rem; font-family: monospace; font-size: 0.78rem; font-weight: 600; }
+
+        .comp-table { width: 100%; border-collapse: collapse; font-family: monospace; font-size: 0.85rem; margin-bottom: 1.5rem; }
+        .comp-table th { background-color: var(--secondary); color: white; font-family: "VT323", monospace; font-size: 1rem; padding: 10px 14px; text-align: left; }
+        .comp-table td { padding: 10px 14px; border-bottom: 1px solid #e0e0e0; color: var(--gray); vertical-align: top; }
+        .comp-table tr:nth-child(even) td { background-color: #fafaf8; }
+        .comp-code { font-weight: 700; color: var(--primary); white-space: nowrap; }
+        .comp-check { color: #4caf50; font-weight: bold; }
+
+        .proof-link { display: inline-flex; align-items: center; gap: 0.4rem; font-family: monospace; font-size: 0.82rem; color: var(--primary); text-decoration: none; border: 1px solid var(--primary); padding: 0.3rem 0.8rem; margin: 0.3rem 0.3rem 0.3rem 0; transition: all 0.2s; }
+        .proof-link:hover { background-color: var(--primary); color: white; }
+        .proof-missing { display: inline-flex; align-items: center; gap: 0.4rem; font-family: monospace; font-size: 0.78rem; color: var(--gray); border: 1px dashed #ccc; padding: 0.3rem 0.8rem; margin: 0.3rem 0; }
+
+        .stat-chip { display: inline-block; background-color: var(--secondary); color: white; font-family: "VT323", monospace; font-size: 1.5rem; padding: 0.6rem 1.2rem; margin: 0.3rem; }
+        .stat-chip small { display: block; font-family: monospace; font-size: 0.62rem; color: #aaa; text-transform: uppercase; }
+
+        .alert-todo { background: rgba(255,87,34,0.06); border-left: 3px solid var(--primary); padding: 0.8rem 1rem; font-family: monospace; font-size: 0.82rem; color: var(--gray); margin: 0.8rem 0; }
+        .alert-todo i { color: var(--primary); margin-right: 0.4rem; }
+
+        .btn { font-family: "VT323", monospace; padding: 0.6rem 1.5rem; border-radius: 0; font-size: 1.1rem; letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s; }
+        .btn-primary { background-color: var(--primary); border: none; color: white; text-decoration: none; display: inline-block; }
+        .btn-primary:hover { background-color: var(--secondary); color: white; }
+
+        footer { background-color: var(--dark); color: white; padding: 2rem 0; font-family: monospace; font-size: 0.9rem; }
+        .footer-links a { color: white; text-decoration: none; margin-right: 1.5rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--primary); }
+
         @media (max-width: 768px) {
-            .header { padding: 6rem 0 3rem; }
-            .header h2 { font-size: 2.2rem; }
-            .content-heading { font-size: 1.8rem; }
-            .skills-grid { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 2.2rem; }
+            .section-heading { font-size: 1.8rem; }
+            .arch-flow { flex-direction: column; }
         }
     </style>
 </head>
 <body>
+
 <!-- Navigation -->
 <nav class="navbar">
     <div class="custom-container">
         <div class="d-flex justify-content-between align-items-center w-100">
-            <div class="welcome-text">BLOC 2 - INCIDENTS & ASSISTANCE</div>
+            <div class="welcome-text">BLOC 2 — RÉPONDRE AUX INCIDENTS ET DEMANDES</div>
             <a href="index.html" class="navbar-brand vt323-regular">NOUR_</a>
-            <div class="contact-info d-none d-md-block">CONTACT@MAIL.COM</div>
+            <div class="contact-info d-none d-md-block">NOUR.MESBAHI.0@GMAIL.COM</div>
         </div>
     </div>
 </nav>
-
-<nav class="navbar navbar-expand-lg" style="padding-top: 0;">
+<nav class="navbar navbar-expand-lg" style="padding-top:0;">
     <div class="custom-container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -357,9 +125,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="index.html">ACCUEIL</a></li>
-                <li class="nav-item"><a class="nav-link" href="bloc1.html">BLOC 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="projets_competences.html">PROJETS</a></li>
+                <li class="nav-item"><a class="nav-link" href="projet1-details.html">BLOC 1</a></li>
                 <li class="nav-item"><a class="nav-link-active" href="#">BLOC 2</a></li>
-                <li class="nav-item"><a class="nav-link" href="#competences">COMPÉTENCES</a></li>
+                <li class="nav-item"><a class="nav-link" href="edf.html">EDF</a></li>
                 <li class="nav-item"><a class="nav-link" href="CV.html">CV</a></li>
                 <li class="nav-item"><a class="nav-link" href="veille.html">VEILLE</a></li>
                 <li class="nav-item"><a class="nav-link" href="e5.html">E5</a></li>
@@ -370,142 +139,370 @@
 </nav>
 
 <!-- Header -->
-<section class="header">
+<section class="page-header">
     <div class="custom-container">
-        <div class="section-title">BLOC 2</div>
-        <h2 style="color: whitesmoke;">Répondre aux incidents et aux demandes d'assistance et d'évolution</h2>
+        <div class="bloc-label">Bloc 2 — BTS SIO SLAM</div>
+        <h1>Répondre aux incidents et aux demandes d'assistance et d'évolution</h1>
+        <p>Ce bloc couvre la collecte et le suivi des demandes via GLPI (150+ tickets), la résolution d'incidents réseau (boucle STP, postes perdus/volés) et le support applicatif incluant le développement de l'application Power Apps "Suivi Presta" chez EDF.</p>
     </div>
 </section>
 
-<!-- Introduction -->
-<section class="content-section">
+<!-- Contexte -->
+<section class="content-section white">
     <div class="custom-container">
-        <div class="section-title">PRÉSENTATION</div>
-        <h2 class="content-heading">Support technique et gestion des demandes</h2>
-        <div class="row">
-            <div class="col-lg-8">
-                <p class="content-text">
-                    Ce bloc couvre la gestion complète du cycle de vie des incidents et demandes : collecte, suivi, traitement des problèmes réseau/système, support applicatif et accompagnement des utilisateurs. L'ensemble de mes réalisations (formation et alternance) démontre ma capacité à traiter efficacement les tickets, résoudre des incidents critiques et développer des solutions d'évolution.
-                </p>
+        <div class="section-label">Contexte</div>
+        <h2 class="section-heading">Présentation de l'organisation</h2>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="info-box">
+                    <strong>Organisation</strong>
+                    <span>EDF — Direction Systèmes d'Information, alternance Appui SI</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <strong>Période</strong>
+                    <span>2024 – 2025 (alternance BTS SIO SLAM, EFREI)</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <strong>Rôle tenu</strong>
+                    <span>Appui SI — gestion des incidents, support applicatif, développement Power Platform</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <strong>Outils utilisés</strong>
+                    <span>GLPI · Power Apps · Power Automate · Power BI · SharePoint · Teams · MS Forms · Outlook</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <strong>Problématique</strong>
+                    <span>Centraliser la gestion des incidents, améliorer le support utilisateur et outiller le service avec des applications métier Power Platform</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <strong>Volume</strong>
+                    <span>150+ tickets GLPI · 1 incident réseau majeur résolu · 1 application Power Apps complète développée</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Tableau de correspondance compétences -->
-<section class="content-section alt" style="padding-top: 0;">
+<!-- Situations par compétence -->
+<section class="content-section beige">
     <div class="custom-container">
-        <div class="section-title">RÉFÉRENTIEL</div>
-        <h2 class="content-heading">Compétences du Bloc 2 couvertes</h2>
+        <div class="section-label">Situations professionnelles</div>
+        <h2 class="section-heading">Par compétence du référentiel</h2>
+
+        <div class="sit-nav">
+            <button class="sit-tab active" onclick="showTab(event,'c1')">C1 — Tickets GLPI</button>
+            <button class="sit-tab" onclick="showTab(event,'c2')">C2 — Réseau &amp; Système</button>
+            <button class="sit-tab" onclick="showTab(event,'c3')">C3 — Applications</button>
+        </div>
+
+        <!-- C1 -->
+        <div id="panel-c1" class="sit-panel active">
+            <div class="situation-card">
+                <div class="situation-number">C1</div>
+                <h3>Gestion de 150+ tickets GLPI — Collecte et orientation des demandes</h3>
+                <div class="situation-meta">
+                    <span><i class="fas fa-calendar-alt me-1"></i>2024 – 2025</span>
+                    <span><i class="fas fa-building me-1"></i>EDF — Service SI</span>
+                    <span><i class="fas fa-ticket-alt me-1"></i>150+ tickets traités</span>
+                </div>
+                <p class="content-text"><strong>Objectif :</strong> Assurer la collecte, la qualification et l'orientation de toutes les demandes et incidents remontés par les utilisateurs du service SI via GLPI, afin de garantir un traitement rapide et structuré.</p>
+                <p class="content-text"><strong>Étapes réalisées :</strong></p>
+                <ul class="step-list">
+                    <li>Réception et enregistrement des demandes dans GLPI (incidents, demandes de service, évolutions)</li>
+                    <li>Qualification et catégorisation de chaque ticket (type, priorité, urgence, impact)</li>
+                    <li>Orientation des tickets vers le technicien ou le groupe compétent selon la nature de la demande</li>
+                    <li>Suivi de l'avancement : relances, mises à jour de statut, communication avec les demandeurs</li>
+                    <li>Clôture des tickets avec rédaction du commentaire de résolution et notification utilisateur</li>
+                    <li>Analyse régulière du volume et des délais de traitement pour identifier les axes d'amélioration</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">GLPI</span>
+                    <span class="tag">Gestion des incidents</span>
+                    <span class="tag">ITIL</span>
+                    <span class="tag">Priorisation</span>
+                    <span class="tag">Support utilisateurs</span>
+                </div>
+                <p class="content-text mt-3"><strong>Preuves :</strong></p>
+                <a href="preuves/realisation_07_tickets_glpi.docx" target="_blank" class="proof-link">
+                    <i class="fas fa-file-word"></i> Réalisation — Tickets GLPI
+                </a>
+                <a href="preuves/realisation_11_tickets_edf.docx" target="_blank" class="proof-link">
+                    <i class="fas fa-file-word"></i> Réalisation — Tickets EDF
+                </a>
+            </div>
+        </div>
+
+        <!-- C2 -->
+        <div id="panel-c2" class="sit-panel">
+            <div class="situation-card">
+                <div class="situation-number">C2</div>
+                <h3>Résolution d'un incident réseau — Boucle STP</h3>
+                <div class="situation-meta">
+                    <span><i class="fas fa-calendar-alt me-1"></i>2024 – 2025</span>
+                    <span><i class="fas fa-building me-1"></i>EDF — Infrastructure réseau</span>
+                    <span><i class="fas fa-network-wired me-1"></i>Incident niveau 2</span>
+                </div>
+                <p class="content-text"><strong>Objectif :</strong> Identifier et résoudre un incident réseau critique causé par une boucle STP (Spanning Tree Protocol) entraînant une saturation du réseau et une dégradation des services pour les utilisateurs.</p>
+                <p class="content-text"><strong>Étapes réalisées :</strong></p>
+                <ul class="step-list">
+                    <li>Réception du ticket d'incident et prise en charge : lenteur réseau signalée simultanément par plusieurs utilisateurs</li>
+                    <li>Diagnostic initial : analyse des logs switchs, détection d'un storm broadcast (boucle réseau)</li>
+                    <li>Identification de la cause : câble mal branché créant une boucle physique non protégée par STP</li>
+                    <li>Résolution : isolement du port problématique, correction du câblage, vérification de la convergence STP</li>
+                    <li>Tests de vérification : ping, analyse du trafic, contrôle des tables MAC</li>
+                    <li>Recommandation : activation du BPDU Guard sur les ports d'accès pour prévenir les futures boucles</li>
+                    <li>Rédaction du rapport d'incident et mise à jour du ticket GLPI avec la solution appliquée</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">STP / Spanning Tree</span>
+                    <span class="tag">Réseau LAN</span>
+                    <span class="tag">Diagnostic réseau</span>
+                    <span class="tag">BPDU Guard</span>
+                    <span class="tag">GLPI</span>
+                </div>
+                <p class="content-text mt-3"><strong>Preuves :</strong></p>
+                <a href="preuves/realisation_08_incident_reseau.docx" target="_blank" class="proof-link">
+                    <i class="fas fa-file-word"></i> Réalisation — Incident réseau (STP)
+                </a>
+            </div>
+
+            <div class="situation-card">
+                <div class="situation-number">C2</div>
+                <h3>Gestion des postes perdus et volés</h3>
+                <div class="situation-meta">
+                    <span><i class="fas fa-calendar-alt me-1"></i>2024 – 2025</span>
+                    <span><i class="fas fa-building me-1"></i>EDF — Service SI</span>
+                    <span><i class="fas fa-laptop me-1"></i>Procédure sécurité</span>
+                </div>
+                <p class="content-text"><strong>Objectif :</strong> Mettre en œuvre la procédure de traitement des postes signalés comme perdus ou volés pour protéger les données sensibles d'EDF et assurer la continuité d'activité de l'utilisateur concerné.</p>
+                <p class="content-text"><strong>Étapes réalisées :</strong></p>
+                <ul class="step-list">
+                    <li>Réception de la déclaration via GLPI (ticket d'incident urgent, priorité haute)</li>
+                    <li>Vérification et blocage immédiat du compte Active Directory de l'utilisateur concerné</li>
+                    <li>Révocation des certificats et tokens d'accès associés au poste</li>
+                    <li>Déclenchement de la procédure MDM / effacement à distance si applicable</li>
+                    <li>Mise à jour du statut du matériel dans l'inventaire GLPI (statut : perdu / volé)</li>
+                    <li>Communication à l'utilisateur et provision d'un poste de remplacement</li>
+                    <li>Assistance pour le dépôt de plainte avec extraction du numéro de série depuis l'inventaire GLPI</li>
+                </ul>
+                <div class="tags">
+                    <span class="tag">Active Directory</span>
+                    <span class="tag">MDM</span>
+                    <span class="tag">GLPI Inventaire</span>
+                    <span class="tag">Sécurité des accès</span>
+                    <span class="tag">Procédure SI</span>
+                </div>
+                <p class="content-text mt-3"><strong>Preuves :</strong></p>
+                <a href="preuves/realisation_06_postes_perdus_voles.docx" target="_blank" class="proof-link">
+                    <i class="fas fa-file-word"></i> Réalisation — Postes perdus/volés
+                </a>
+            </div>
+        </div>
+
+        <!-- C3 -->
+        <div id="panel-c3" class="sit-panel">
+            <div class="situation-card">
+                <div class="situation-number">C3</div>
+                <h3>Développement de l'application Power Apps "Suivi Presta" — EDF</h3>
+                <div class="situation-meta">
+                    <span><i class="fas fa-calendar-alt me-1"></i>2024 – 2025</span>
+                    <span><i class="fas fa-building me-1"></i>EDF — Direction SI</span>
+                    <span><i class="fas fa-th me-1"></i>Microsoft Power Platform</span>
+                </div>
+                <p class="content-text"><strong>Objectif :</strong> Concevoir et développer une application complète de suivi des prestataires, intégrant collecte de données, flux d'approbation Teams, stockage SharePoint, gestion des profils Power Apps, notifications automatiques Outlook et rapports Power BI — en remplacement d'une gestion manuelle sous Excel.</p>
+
+                <p class="content-text"><strong>Architecture de l'application — 3 sections :</strong></p>
+
+                <div class="arch-box">
+                    <div class="arch-title"><i class="fas fa-calendar-check me-2"></i>Section 1 — Synchronisation calendrier Teams → Power Apps (flux T2S)</div>
+                    <div class="arch-flow">
+                        <div class="arch-node highlight">Teams<br><small>Création/modif/suppression événement</small></div>
+                        <span class="arch-arrow">→</span>
+                        <div class="arch-node">Power Automate T2S<br><small>Récupération données</small></div>
+                        <span class="arch-arrow">→</span>
+                        <div class="arch-node highlight">Liste SharePoint</div>
+                        <span class="arch-arrow">→</span>
+                        <div class="arch-node">Calendrier Power Apps<br><small>Outil condensé</small></div>
+                    </div>
+                </div>
+
+                <div class="arch-box">
+                    <div class="arch-title"><i class="fas fa-project-diagram me-2"></i>Architecture principale — Gestion des profils prestataires</div>
+                    <div class="arch-flow">
+                        <div class="arch-node">MS Forms<br><small>Formulaire collecte</small></div>
+                        <span class="arch-arrow">→</span>
+                        <div class="arch-node highlight">Power Automate<br><small>Création profils</small></div>
+                        <span class="arch-arrow">↔</span>
+                        <div class="arch-node">Teams<br><small>Approbation</small></div>
+                    </div>
+                    <div class="arch-flow mt-2">
+                        <div class="arch-node highlight">Liste SharePoint<br><small>Données profils</small></div>
+                        <span class="arch-arrow">+</span>
+                        <div class="arch-node highlight">Bibliothèque SharePoint<br><small>Documents</small></div>
+                        <span class="arch-arrow">→</span>
+                        <div class="arch-node">Suivi Appli Power Apps<br><small>Création / Gestion profil</small></div>
+                    </div>
+                    <div class="arch-flow mt-2">
+                        <div class="arch-node">Power Automate<br><small>Rappel fin de contrats</small></div>
+                        <span class="arch-arrow">→</span>
+                        <div class="arch-node highlight">Outlook<br><small>Notification mail automatique</small></div>
+                    </div>
+                </div>
+
+                <div class="arch-box">
+                    <div class="arch-title"><i class="fas fa-chart-bar me-2"></i>Sections 2 &amp; 3 — Reporting Power BI</div>
+                    <div class="arch-flow">
+                        <div class="arch-node">2 fichiers Excel<br><small>Sources historiques</small></div>
+                        <span class="arch-arrow">→</span>
+                        <div class="arch-node highlight">Rapport Power BI<br><small>Section 2</small></div>
+                    </div>
+                    <div class="arch-flow mt-2">
+                        <div class="arch-node highlight">Liste SharePoint</div>
+                        <span class="arch-arrow">+</span>
+                        <div class="arch-node highlight">Bibliothèque SharePoint</div>
+                        <span class="arch-arrow">→</span>
+                        <div class="arch-node highlight">Rapport Power BI<br><small>Section 3 (live)</small></div>
+                    </div>
+                </div>
+
+                <p class="content-text"><strong>Étapes de développement :</strong></p>
+                <ul class="step-list">
+                    <li>Recueil des besoins auprès des chargés de mission : identification des données à centraliser et des workflows à automatiser</li>
+                    <li>Conception du formulaire MS Forms pour la saisie des données prestataires</li>
+                    <li>Développement du flux Power Automate de création de profils avec boucle d'approbation Teams (approuvé / rejeté)</li>
+                    <li>Développement du flux Power Automate T2S pour la synchronisation des événements Teams vers SharePoint et Power Apps</li>
+                    <li>Développement du flux Power Automate de rappel automatique par mail (Outlook) avant fin de contrat</li>
+                    <li>Configuration SharePoint : liste de données prestataires + bibliothèque de documents contractuels</li>
+                    <li>Développement de l'application Power Apps "Suivi Presta" : écrans de consultation, création et modification de profils</li>
+                    <li>Création des rapports Power BI : Section 2 (sources Excel historiques), Section 3 (données SharePoint live)</li>
+                    <li>Tests fonctionnels, corrections des bugs et déploiement auprès des utilisateurs finaux</li>
+                </ul>
+
+                <div class="tags">
+                    <span class="tag">Power Apps</span>
+                    <span class="tag">Power Automate</span>
+                    <span class="tag">Power BI</span>
+                    <span class="tag">SharePoint</span>
+                    <span class="tag">MS Forms</span>
+                    <span class="tag">Teams</span>
+                    <span class="tag">Outlook</span>
+                    <span class="tag">Microsoft 365</span>
+                </div>
+
+                <p class="content-text mt-3"><strong>Preuves disponibles :</strong></p>
+                <a href="preuves/bloc2/power-automate-flow.json" target="_blank" class="proof-link">
+                    <i class="fas fa-file-code"></i> Export flux Power Automate (JSON)
+                </a>
+                <a href="preuves/bloc2/devis-elearning-bts.pdf" target="_blank" class="proof-link">
+                    <i class="fas fa-file-pdf"></i> Cahier des charges / Devis projet
+                </a>
+                <a href="preuves/realisation_09_support_applicatif.docx" target="_blank" class="proof-link">
+                    <i class="fas fa-file-word"></i> Support applicatif
+                </a>
+                <a href="preuves/realisation_10_app_habilitations_prestataires.docx" target="_blank" class="proof-link">
+                    <i class="fas fa-file-word"></i> App Habilitations Prestataires
+                </a>
+                <a href="preuves/realisation_13_flux_automatises.docx" target="_blank" class="proof-link">
+                    <i class="fas fa-file-word"></i> Flux automatisés Power Automate
+                </a>
+                <a href="preuves/realisation_21_sync_calendriers.docx" target="_blank" class="proof-link">
+                    <i class="fas fa-file-word"></i> Synchronisation calendriers (T2S)
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Tableau compétences -->
+<section class="content-section white">
+    <div class="custom-container">
+        <div class="section-label">Référentiel BTS SIO</div>
+        <h2 class="section-heading">Compétences mobilisées</h2>
         <table class="comp-table">
             <thead>
-                <tr><th>Compétence officielle</th><th>Réalisation associée</th><th>Preuve</th></tr>
+                <tr>
+                    <th>Code</th>
+                    <th>Compétence officielle</th>
+                    <th>Réalisation associée</th>
+                    <th>Statut</th>
+                    <th>Preuves</th>
+                </tr>
             </thead>
             <tbody>
-                <tr><td>Collecter, suivre et orienter des demandes</td><td>Gestion des tickets GLPI (150+ tickets)</td><td><a href="#">Statistiques tickets</a></td></tr>
-                <tr><td>Traiter des demandes concernant les services réseau et système</td><td>Résolution d'incident réseau (boucle STP) + contrôle postes perdus/volés</td><td><a href="#">Rapport d'incident</a></td></tr>
-                <tr><td>Traiter des demandes concernant les applications</td><td>Support applicatif (correction bug, ajout fonctionnalité) + développement d'applications Power Apps</td><td><a href="#">Documentation applicative</a></td></tr>
+                <tr>
+                    <td><span class="comp-code">C2.1</span></td>
+                    <td>Collecter, suivre et orienter des demandes</td>
+                    <td>Gestion de 150+ tickets GLPI : réception, qualification, priorisation, orientation et clôture</td>
+                    <td><span class="comp-check">✓ Validé</span></td>
+                    <td>
+                        <a href="preuves/realisation_07_tickets_glpi.docx" target="_blank" class="proof-link"><i class="fas fa-file-word"></i> Tickets GLPI</a>
+                        <a href="preuves/realisation_11_tickets_edf.docx" target="_blank" class="proof-link"><i class="fas fa-file-word"></i> Tickets EDF</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="comp-code">C2.2</span></td>
+                    <td>Traiter des demandes concernant les services réseau et système</td>
+                    <td>Résolution boucle STP (diagnostic → correction → BPDU Guard) + procédure postes perdus/volés (blocage AD, MDM)</td>
+                    <td><span class="comp-check">✓ Validé</span></td>
+                    <td>
+                        <a href="preuves/realisation_08_incident_reseau.docx" target="_blank" class="proof-link"><i class="fas fa-file-word"></i> Incident réseau</a>
+                        <a href="preuves/realisation_06_postes_perdus_voles.docx" target="_blank" class="proof-link"><i class="fas fa-file-word"></i> Postes perdus/volés</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span class="comp-code">C2.3</span></td>
+                    <td>Traiter des demandes concernant les applications</td>
+                    <td>Développement complet "Suivi Presta" : 4 flux Power Automate, 2 listes SharePoint, Power Apps, 2 rapports Power BI, notifications Outlook</td>
+                    <td><span class="comp-check">✓ Validé</span></td>
+                    <td>
+                        <a href="preuves/bloc2/power-automate-flow.json" target="_blank" class="proof-link"><i class="fas fa-file-code"></i> Flow JSON</a>
+                        <a href="preuves/bloc2/devis-elearning-bts.pdf" target="_blank" class="proof-link"><i class="fas fa-file-pdf"></i> Devis</a>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
 </section>
 
-<!-- Réalisations détaillées -->
-<section class="content-section alt">
+<!-- Résultats -->
+<section class="content-section beige">
     <div class="custom-container">
-        <div class="section-title">RÉALISATIONS</div>
-        <h2 class="content-heading">Preuves des compétences Bloc 2</h2>
-
-        <!-- 1. Gestion des tickets GLPI -->
-        <div class="competence-card">
-            <div class="competence-counter">01</div>
-            <h3>Gestion des tickets GLPI</h3>
-            <p><strong>Période :</strong> Novembre 2024 – Mars 2025</p>
-            <p><strong>Action :</strong> Collecte, catégorisation, priorisation et suivi des tickets incidents et demandes d'assistance. Rédaction de solutions en base de connaissances.</p>
-            <p><strong>Résultat :</strong> Plus de 150 tickets traités, délai moyen de résolution : 2 heures, taux de satisfaction > 90%.</p>
-            <div class="criterias"><span>Ticketing</span><span>GLPI</span><span>Priorisation</span></div>
-            <a href="#" class="competence-link">Voir l'export des statistiques <i class="fas fa-chart-line"></i></a>
+        <div class="section-label">Résultats obtenus</div>
+        <h2 class="section-heading">Bilan chiffré</h2>
+        <div class="mb-4">
+            <div class="stat-chip">150+<small>Tickets GLPI traités</small></div>
+            <div class="stat-chip">3<small>Compétences C validées</small></div>
+            <div class="stat-chip">4<small>Flux Power Automate</small></div>
+            <div class="stat-chip">2<small>Rapports Power BI</small></div>
+            <div class="stat-chip">1<small>Incident STP résolu</small></div>
+            <div class="stat-chip">M365<small>Stack maîtrisé</small></div>
         </div>
-
-        <!-- 2. Résolution incident réseau -->
-        <div class="competence-card">
-            <div class="competence-counter">02</div>
-            <h3>Résolution d'incident réseau critique</h3>
-            <p><strong>Période :</strong> Octobre 2024</p>
-            <p><strong>Contexte :</strong> Perte de connectivité sur un segment entier du parc.</p>
-            <p><strong>Action :</strong> Diagnostic (analyse logs switch, test câblage, vérification VLAN), identification d'une boucle STP, correction de la configuration.</p>
-            <p><strong>Résultat :</strong> Rétablissement du service en 45 minutes, rédaction d'une procédure de prévention.</p>
-            <div class="criterias"><span>Réseau</span><span>STP</span><span>Diagnostic</span></div>
-            <a href="#" class="competence-link">Voir le rapport d'incident <i class="fas fa-file-alt"></i></a>
-        </div>
-
-        <!-- 3. Support applicatif (bug + fonctionnalité) -->
-        <div class="competence-card">
-            <div class="competence-counter">03</div>
-            <h3>Support applicatif – Correction et évolution</h3>
-            <p><strong>Période :</strong> Décembre 2024 – Janvier 2025</p>
-            <p><strong>Action :</strong> Analyse de bugs signalés, correction d'erreurs (SQL, logique métier), ajout d'une fonctionnalité de recherche avancée sur une application interne.</p>
-            <p><strong>Résultat :</strong> 100% des bugs critiques corrigés en moins de 48h, nouvelle fonctionnalité adoptée par 95% des utilisateurs.</p>
-            <div class="criterias"><span>Debug</span><span>Évolution</span><span>SQL</span></div>
-            <a href="#" class="competence-link">Voir les correctifs (extrait) <i class="fas fa-code"></i></a>
-        </div>
-
-        <!-- 4. Développement d'applications métier (Power Apps, Automate) -->
-        <div class="competence-card">
-            <div class="competence-counter">04</div>
-            <h3>Applications d'évolution : habilitations, synchronisation calendriers</h3>
-            <p><strong>Période :</strong> 2024-2025</p>
-            <p><strong>Action :</strong> Conception et déploiement d'applications Power Apps / Power Automate pour :<br>
-            - Gestion des habilitations prestataires (remplacement Excel)<br>
-            - Synchronisation automatique des calendriers interservices<br>
-            - Suivi du parc informatique</p>
-            <p><strong>Résultat :</strong> Gain estimé à 10h/semaine, réduction des délais d'habilitation de 2 jours à 2 heures.</p>
-            <div class="criterias"><span>Power Apps</span><span>Automatisation</span><span>Évolution</span></div>
-            <a href="#" class="competence-link">Voir les applications <i class="fas fa-apple-alt"></i></a>
-        </div>
-
-        <!-- 5. Documentation utilisateur et technique -->
-        <div class="competence-card">
-            <div class="competence-counter">05</div>
-            <h3>Rédaction de documentations</h3>
-            <p><strong>Période :</strong> 2024-2025</p>
-            <p><strong>Action :</strong> Création de guides utilisateurs pour les applications déployées, rédaction de documentations techniques pour les équipes (procédures de résolution d'incidents, fiches de poste).</p>
-            <p><strong>Résultat :</strong> Réduction de 30% des demandes redondantes au support, meilleure autonomie des utilisateurs.</p>
-            <div class="criterias"><span>Documentation</span><span>Utilisateur</span><span>Technique</span></div>
-            <a href="#" class="competence-link">Voir un exemple de guide <i class="fas fa-file-pdf"></i></a>
-        </div>
-
-        <!-- 6. Contrôle des postes perdus/volés (2e année) -->
-        <div class="competence-card">
-            <div class="competence-counter">06</div>
-            <h3>Gestion des incidents de sécurité – Postes perdus/volés</h3>
-            <p><strong>Période :</strong> 2025 (2e année)</p>
-            <p><strong>Action :</strong> Mise en place d'une procédure de contrôle et de désactivation des postes déclarés perdus/volés. Création d'indicateurs de suivi et rapports mensuels.</p>
-            <p><strong>Résultat :</strong> 100% des postes désactivés sous 1h après déclaration, traçabilité complète.</p>
-            <div class="criterias"><span>Sécurité</span><span>Incident</span><span>Reporting</span></div>
-            <a href="#" class="competence-link">Voir le tableau de bord <i class="fas fa-chart-simple"></i></a>
-        </div>
+        <p class="content-text">L'ensemble des situations du Bloc 2 démontre une maîtrise complète du cycle de vie d'une demande IT : collecte via GLPI, traitement d'incidents réseau critiques et développement d'applications métier sur mesure avec Microsoft Power Platform.</p>
     </div>
 </section>
 
-<!-- Outils et méthodes -->
-<section class="content-section">
-    <div class="custom-container">
-        <div class="section-title">OUTILS & MÉTHODES</div>
-        <h2 class="content-heading">Environnement technique</h2>
-        <div class="skills-grid">
-            <div class="skill-item"><i class="fas fa-ticket-alt"></i><h3>GLPI</h3><p>Gestion complète du parc et des tickets d'incidents.</p></div>
-            <div class="skill-item"><i class="fas fa-network-wired"></i><h3>Diagnostic réseau</h3><p>Wireshark, logs switch, tests de connectivité.</p></div>
-            <div class="skill-item"><i class="fas fa-database"></i><h3>SQL / Applications</h3><p>Correction de bugs, ajout de fonctionnalités.</p></div>
-            <div class="skill-item"><i class="fab fa-microsoft"></i><h3>Power Platform</h3><p>Power Apps, Power Automate, SharePoint.</p></div>
-        </div>
-    </div>
-</section>
-
-<!-- Retour -->
-<section class="content-section" style="padding-top: 3rem; padding-bottom: 3rem;">
-    <div class="custom-container">
-        <a href="projets_competences.html" class="btn btn-primary"><i class="fas fa-arrow-left me-2"></i>Retour à l'accueil</a>
+<!-- Navigation blocs -->
+<section style="padding: 2rem 0; background: var(--beige);">
+    <div class="custom-container d-flex gap-3 flex-wrap">
+        <a href="projet1-details.html" class="btn btn-primary">
+            <i class="fas fa-arrow-left me-2"></i>Bloc 1
+        </a>
+        <a href="projets_competences.html" class="btn btn-primary">
+            <i class="fas fa-th me-2"></i>Tous les blocs
+        </a>
+        <a href="projet3-details.html" class="btn btn-primary">
+            Bloc 3<i class="fas fa-arrow-right ms-2"></i>
+        </a>
     </div>
 </section>
 
@@ -515,18 +512,12 @@
         <div class="row">
             <div class="col-md-6"><p>&copy; 2025 Nour MESBAHI. Tous droits réservés.</p></div>
             <div class="col-md-6 d-flex justify-content-md-end">
-                <div class="footer-links me-4">
+                <div class="footer-links">
                     <a href="index.html">Accueil</a>
-                    <a href="bloc1.html">Bloc 1</a>
-                    <a href="#">Bloc 2</a>
+                    <a href="projets_competences.html">Projets</a>
                     <a href="CV.html">CV</a>
-                    <a href="veille.html">Veille</a>
                     <a href="e5.html">E5</a>
                     <a href="e6.html">E6</a>
-                </div>
-                <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
@@ -535,11 +526,54 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+    function showTab(event, id) {
+        document.querySelectorAll('.sit-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.sit-tab').forEach(t => t.classList.remove('active'));
+        document.getElementById('panel-' + id).classList.add('active');
+        event.target.classList.add('active');
+    }
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-        else navbar.style.boxShadow = 'none';
+        navbar.style.boxShadow = window.scrollY > 50 ? '0 5px 15px rgba(0,0,0,0.1)' : 'none';
     });
+</script>
+
+<!-- Visionneuse documents -->
+<div id="docViewer" onclick="if(event.target===this)closeDocViewer()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.82);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;">
+    <div style="background:white;width:100%;max-width:1000px;height:90vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:0.8rem 1.25rem;background:#212121;flex-shrink:0;">
+            <span id="viewerTitle" style="font-family:'VT323',monospace;font-size:1.1rem;letter-spacing:2px;color:#EFEFDF;max-width:80%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
+            <button onclick="closeDocViewer()" style="background:none;border:1px solid #FF5722;color:#FF5722;font-family:'VT323',monospace;font-size:1rem;padding:0.3rem 0.9rem;cursor:pointer;letter-spacing:1px;transition:all 0.2s;" onmouseover="this.style.background='#FF5722';this.style.color='white'" onmouseout="this.style.background='none';this.style.color='#FF5722'">✕ FERMER</button>
+        </div>
+        <iframe id="viewerFrame" src="" style="flex:1;border:none;width:100%;" allowfullscreen></iframe>
+    </div>
+</div>
+<script>
+function openDocViewer(href, label) {
+    var src = href;
+    if (/\.docx?$/i.test(href)) {
+        src = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(new URL(href, window.location.href).href);
+    }
+    document.getElementById('viewerFrame').src = src;
+    document.getElementById('viewerTitle').textContent = label || href.split('/').pop();
+    document.getElementById('docViewer').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+function closeDocViewer() {
+    document.getElementById('docViewer').style.display = 'none';
+    document.getElementById('viewerFrame').src = '';
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeDocViewer(); });
+document.querySelectorAll('a[href]').forEach(function(a) {
+    if (/\.(docx?|pdf)$/i.test(a.getAttribute('href') || '')) {
+        a.removeAttribute('target');
+        a.addEventListener('click', function(e) {
+            e.preventDefault();
+            openDocViewer(this.getAttribute('href'), this.textContent.trim());
+        });
+    }
+});
 </script>
 </body>
 </html>

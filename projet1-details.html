@@ -18,13 +18,9 @@
             --gray: #888;
             --beige: #EFEFDF;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body {
             font-family: sans-serif;
             background-color: var(--beige);
@@ -32,389 +28,240 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
-        .vt323-regular {
-            font-family: "VT323", monospace;
-            font-weight: 400;
-            font-style: normal;
-        }
-        
-        .custom-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        /* Navbar Styles */
+
+        .vt323-regular { font-family: "VT323", monospace; font-weight: 400; }
+        .custom-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* Navbar */
         .navbar {
             background-color: var(--beige);
             padding: 1rem 0;
-            transition: all 0.3s ease;
             border-bottom: 1px solid #ddd;
+            transition: all 0.3s ease;
         }
-        
-        .navbar-brand {
-            font-family: "VT323", monospace;
-            font-weight: 400;
-            font-size: 1.5rem;
-            color: var(--dark);
-            letter-spacing: 1px;
-        }
-        
-        .nav-link {
-            color: var(--dark);
-            font-weight: 500;
-            margin-left: 1.5rem;
-            position: relative;
-            transition: color 0.3s ease;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-        
-        .nav-link:hover {
-            color: var(--primary);
-        }
-        
-        .nav-link-active {
-            color: var(--primary);
-            font-weight: 600;
-            margin-left: 1.5rem;
-            position: relative;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-        
-        .welcome-text {
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: var(--gray);
-            letter-spacing: 1px;
-        }
-        
-        .contact-info {
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-        
-        /* Header Section */
-        .header {
-            position: relative;
-            padding: 8rem 0 4rem;
+        .navbar-brand { font-family: "VT323", monospace; font-size: 1.5rem; color: var(--dark); text-decoration: none; }
+        .nav-link { color: var(--dark); font-family: monospace; font-size: 0.9rem; margin-left: 1.5rem; font-weight: 500; transition: color 0.3s; }
+        .nav-link:hover, .nav-link-active { color: var(--primary); }
+        .nav-link-active { font-family: monospace; font-size: 0.9rem; margin-left: 1.5rem; font-weight: 600; }
+        .welcome-text, .contact-info { font-family: monospace; font-size: 0.8rem; color: var(--gray); letter-spacing: 1px; }
+
+        /* Header */
+        .page-header {
             background-color: var(--secondary);
             color: white;
+            padding: 6rem 0 3rem;
         }
-        
-        .section-title {
+        .page-header .bloc-label {
             font-family: "VT323", monospace;
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: var(--primary);
-            margin-bottom: 1rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 2px;
         }
-        
-        .header h2 {
+        .page-header h1 {
             font-family: "VT323", monospace;
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 400;
+            margin: 0.5rem 0 1rem;
+        }
+        .page-header p { font-family: monospace; font-size: 0.9rem; color: #ccc; max-width: 700px; }
+
+        /* Sections */
+        .content-section { padding: 4rem 0; }
+        .content-section.white { background-color: white; }
+        .content-section.beige { background-color: var(--beige); }
+
+        .section-label {
+            font-family: "VT323", monospace;
+            font-size: 1rem;
+            color: var(--primary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .section-heading {
+            font-family: "VT323", monospace;
+            font-size: 2.2rem;
+            color: var(--dark);
             margin-bottom: 1.5rem;
         }
-        
-        /* Content Sections */
-        .content-section {
-            padding: 5rem 0;
-        }
-        
-        .content-section.alt {
-            background-color: white;
-        }
-        
-        .content-heading {
-            font-family: "VT323", monospace;
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 2rem;
-            line-height: 1.2;
-        }
-        
         .content-text {
             font-family: monospace;
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
+            font-size: 0.9rem;
             color: var(--gray);
+            margin-bottom: 1rem;
         }
-        
-        /* Project Cards */
-        .project-card {
-            position: relative;
-            background-color: var(--beige);
+
+        /* Info box */
+        .info-box {
+            background: white;
+            border-left: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: monospace;
+            font-size: 0.88rem;
+        }
+        .info-box strong { color: var(--dark); display: block; margin-bottom: 0.3rem; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
+        .info-box span { color: var(--gray); }
+
+        /* Situation card */
+        .situation-card {
+            background: var(--beige);
+            border-left: 4px solid var(--primary);
             padding: 2rem;
             margin-bottom: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .project-card h3 {
-            font-family: "VT323", monospace;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
             position: relative;
+            overflow: hidden;
         }
-        
-        .project-card p {
-            font-family: monospace;
-            margin-bottom: 1.5rem;
-            color: var(--gray);
-        }
-        
-        .project-counter {
+        .situation-number {
             position: absolute;
-            top: 0;
-            right: 1rem;
+            top: 0; right: 1rem;
             font-family: "VT323", monospace;
             font-size: 6rem;
-            color: rgba(0,0,0,0.05);
+            color: rgba(0,0,0,0.04);
             line-height: 1;
             pointer-events: none;
         }
-        
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .tags span {
-            background-color: rgba(255, 87, 34, 0.1);
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            font-family: monospace;
-        }
-        
-        .project-link {
+        .situation-card h3 {
+            font-family: "VT323", monospace;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
             color: var(--dark);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s ease;
-            font-family: "VT323", monospace;
-            font-size: 1.1rem;
         }
-        
-        .project-link:hover {
-            color: var(--primary);
+        .situation-meta {
+            font-family: monospace;
+            font-size: 0.78rem;
+            color: var(--gray);
+            margin-bottom: 1.2rem;
         }
-        
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-        
-        .skill-item {
+        .situation-meta span { margin-right: 1.5rem; }
+
+        /* Steps */
+        .step-list { list-style: none; padding: 0; }
+        .step-list li {
+            font-family: monospace;
+            font-size: 0.88rem;
+            color: var(--gray);
+            padding: 0.4rem 0 0.4rem 1.5rem;
             position: relative;
+            border-bottom: 1px solid #eee;
         }
-        
-        .skill-item i {
-            font-size: 2.5rem;
+        .step-list li:last-child { border-bottom: none; }
+        .step-list li::before {
+            content: "▶";
             color: var(--primary);
-            margin-bottom: 1.5rem;
+            position: absolute;
+            left: 0;
+            font-size: 0.6rem;
+            top: 0.55rem;
         }
-        
-        .skill-item h3 {
-            font-family: "VT323", monospace;
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-        
-        .skill-item p {
+
+        /* Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0; }
+        .tag {
+            background-color: rgba(255,87,34,0.1);
+            color: var(--primary);
+            padding: 0.25rem 0.7rem;
             font-family: monospace;
-            color: var(--gray);
+            font-size: 0.78rem;
+            font-weight: 600;
         }
-        
-        /* Soft Skills Cards */
-        .soft-skill-card {
-            border: none;
-            border-radius: 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            height: 100%;
-            transition: transform 0.3s ease;
-        }
-        
-        .soft-skill-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .soft-skill-card i {
-            color: var(--primary);
-        }
-        
-        .soft-skill-card h4 {
-            font-family: "VT323", monospace;
-            font-weight: 400;
-        }
-        
-        .soft-skill-card p {
-            font-family: monospace;
-            color: var(--gray);
-        }
-        
-        /* Certification Cards */
-        .certification-card {
-            border: none;
-            border-radius: 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            height: 100%;
-            transition: transform 0.3s ease;
-        }
-        
-        .certification-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .certification-card i {
-            color: var(--primary);
-        }
-        
-        .certification-card h4 {
-            font-family: "VT323", monospace;
-            font-weight: 400;
-            margin-top: 1rem;
-        }
-        
-        .certification-card p {
-            font-family: monospace;
-            color: var(--gray);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 2rem 0;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin-right: 1.5rem;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-        
-        .social-links a {
-            color: white;
-            margin-right: 1rem;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: var(--primary);
-        }
-        
-        /* Button Styles */
-        .btn {
-            font-family: "VT323", monospace;
-            padding: 0.6rem 1.5rem;
-            border-radius: 0;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            border: none;
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        /* Tableau compétences */
+
+        /* Competences table */
         .comp-table {
-            font-family: monospace;
-            background-color: white;
-            border-collapse: collapse;
             width: 100%;
-            margin-bottom: 2rem;
-        }
-        .comp-table th, .comp-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
+            border-collapse: collapse;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
         }
         .comp-table th {
             background-color: var(--secondary);
             color: white;
             font-family: "VT323", monospace;
+            font-size: 1rem;
+            padding: 10px 14px;
+            text-align: left;
         }
         .comp-table td {
-            background-color: white;
+            padding: 10px 14px;
+            border-bottom: 1px solid #e0e0e0;
+            color: var(--gray);
+            vertical-align: top;
         }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            .header h2 {
-                font-size: 2.8rem;
-            }
-            .content-heading {
-                font-size: 2rem;
-            }
+        .comp-table tr:nth-child(even) td { background-color: #fafaf8; }
+        .comp-code {
+            font-weight: 700;
+            color: var(--primary);
+            white-space: nowrap;
         }
+
+        /* Proof link */
+        .proof-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-family: monospace;
+            font-size: 0.82rem;
+            color: var(--primary);
+            text-decoration: none;
+            border: 1px solid var(--primary);
+            padding: 0.3rem 0.8rem;
+            margin: 0.3rem 0.3rem 0.3rem 0;
+            transition: all 0.2s;
+        }
+        .proof-link:hover { background-color: var(--primary); color: white; }
+
+        /* Result chips */
+        .result-chip {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            font-family: "VT323", monospace;
+            font-size: 1.3rem;
+            padding: 0.6rem 1.2rem;
+            margin: 0.3rem;
+        }
+        .result-chip small { display: block; font-family: monospace; font-size: 0.65rem; color: #aaa; text-transform: uppercase; }
+
+        /* Buttons */
+        .btn {
+            font-family: "VT323", monospace;
+            padding: 0.6rem 1.5rem;
+            border-radius: 0;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+        .btn-primary { background-color: var(--primary); border: none; color: white; }
+        .btn-primary:hover { background-color: var(--secondary); }
+
+        /* Footer */
+        footer { background-color: var(--dark); color: white; padding: 2rem 0; font-family: monospace; font-size: 0.9rem; }
+        .footer-links a { color: white; text-decoration: none; margin-right: 1.5rem; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--primary); }
+
         @media (max-width: 768px) {
-            .header {
-                padding: 6rem 0 3rem;
-            }
-            .header h2 {
-                font-size: 2.2rem;
-            }
-            .content-heading {
-                font-size: 1.8rem;
-            }
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
+            .page-header h1 { font-size: 2.2rem; }
+            .section-heading { font-size: 1.8rem; }
+            .result-chip { font-size: 1.1rem; }
         }
     </style>
 </head>
 <body>
+
 <!-- Navigation -->
 <nav class="navbar">
     <div class="custom-container">
         <div class="d-flex justify-content-between align-items-center w-100">
-            <div class="welcome-text">BLOC 1 - GESTION DU PARC INFORMATIQUE</div>
+            <div class="welcome-text">BLOC 1 — GÉRER LE PARC INFORMATIQUE</div>
             <a href="index.html" class="navbar-brand vt323-regular">NOUR_</a>
-            <div class="contact-info d-none d-md-block">CONTACT@MAIL.COM</div>
+            <div class="contact-info d-none d-md-block">NOUR.MESBAHI.0@GMAIL.COM</div>
         </div>
     </div>
 </nav>
-
-<!-- Secondary Navigation -->
-<nav class="navbar navbar-expand-lg" style="padding-top: 0;">
+<nav class="navbar navbar-expand-lg" style="padding-top:0;">
     <div class="custom-container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -422,9 +269,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="index.html">ACCUEIL</a></li>
-                <li class="nav-item"><a class="nav-link-active" href="#">BLOC 1</a></li>
-                <li class="nav-item"><a class="nav-link" href="#skills">COMPÉTENCES</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">CONTACT</a></li>
+                <li class="nav-item"><a class="nav-link" href="projets_competences.html">PROJETS</a></li>
+                <li class="nav-item"><a class="nav-link nav-link-active" href="#">BLOC 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="edf.html">EDF</a></li>
                 <li class="nav-item"><a class="nav-link" href="CV.html">CV</a></li>
                 <li class="nav-item"><a class="nav-link" href="veille.html">VEILLE</a></li>
                 <li class="nav-item"><a class="nav-link" href="e5.html">E5</a></li>
@@ -435,183 +282,283 @@
 </nav>
 
 <!-- Header -->
-<section class="header">
+<section class="page-header">
     <div class="custom-container">
-        <div class="section-title">BLOC 1</div>
-        <h2 style="color: whitesmoke;">Gérer le parc informatique</h2>
+        <div class="bloc-label">Bloc 1 — BTS SIO SLAM</div>
+        <h1>Gérer le parc informatique</h1>
+        <p>Ce bloc recouvre la mise en place et l'administration d'un outil de gestion de parc (GLPI), la création des structures multi-entités, la gestion des habilitations utilisateurs et le traitement des tickets d'incidents.</p>
     </div>
 </section>
 
-<!-- Introduction Section -->
-<section class="content-section">
+<!-- Contexte -->
+<section class="content-section white">
     <div class="custom-container">
-        <div class="section-title">PRÉSENTATION</div>
-        <h2 class="content-heading">Gestion et maintenance du parc informatique</h2>
-        <div class="row">
-            <div class="col-lg-8">
-                <p class="content-text">
-                    Le bloc 1 du BTS SIO couvre l'ensemble des compétences nécessaires pour gérer, maintenir et sécuriser un parc informatique d'entreprise. Découvrez ci-dessous l'ensemble de mes réalisations concrètes (en formation et en milieu professionnel) qui valident chaque compétence du référentiel : inventaire, habilitations, sauvegardes, continuité de service, gestion des incidents, etc.
-                </p>
+        <div class="section-label">Contexte</div>
+        <h2 class="section-heading">Présentation de l'organisation</h2>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="info-box">
+                    <strong>Organisation</strong>
+                    <span>Projet de formation BTS SIO — environnement simulé multi-sites</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <strong>Sites concernés</strong>
+                    <span>Paris &amp; Lyon (structure hiérarchique GLPI)</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <strong>Période</strong>
+                    <span>Septembre 2025</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <strong>Rôle tenu</strong>
+                    <span>Administratrice GLPI — configuration complète de l'environnement</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <strong>Environnement technique</strong>
+                    <span>Debian GNU/Linux 12 (Bookworm) · VMware · GLPI</span>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-box">
+                    <strong>Problématique</strong>
+                    <span>Absence d'outil centralisé pour la gestion du parc et des incidents sur deux sites géographiques</span>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Tableau de correspondance compétences -->
-<section class="content-section alt" style="padding-top: 0;">
+<!-- Situation 1 : Déploiement GLPI -->
+<section class="content-section beige">
     <div class="custom-container">
-        <div class="section-title">RÉFÉRENTIEL</div>
-        <h2 class="content-heading">Compétences du Bloc 1 couvertes</h2>
+        <div class="section-label">Situation professionnelle 1</div>
+        <h2 class="section-heading">Déploiement et configuration de GLPI</h2>
+
+        <div class="situation-card">
+            <div class="situation-number">01</div>
+            <h3>Installation de GLPI sur serveur Debian</h3>
+            <div class="situation-meta">
+                <span><i class="fas fa-calendar-alt me-1"></i>Septembre 2025</span>
+                <span><i class="fas fa-server me-1"></i>Debian GNU/Linux 12 · VMware</span>
+                <span><i class="fas fa-user me-1"></i>Administratrice</span>
+            </div>
+
+            <p class="content-text"><strong>Objectif :</strong> Déployer un outil ITSM open-source sur un serveur virtualisé pour centraliser la gestion du parc informatique et des tickets d'incidents de deux entités géographiques (Paris et Lyon).</p>
+
+            <p class="content-text"><strong>Étapes réalisées :</strong></p>
+            <ul class="step-list">
+                <li>Mise en place d'une machine virtuelle sous VMware avec Debian GNU/Linux 12 (Bookworm) — processeur AMD Ryzen 7 5825U</li>
+                <li>Installation et configuration de GLPI (serveur web, base de données, dépendances PHP)</li>
+                <li>Configuration de la structure multi-entités : <strong>Entité racine → Lyon</strong> et <strong>Entité racine → Paris</strong></li>
+                <li>Création de 13 comptes utilisateurs répartis par site et par rôle (employés, techniciens, comptes système)</li>
+                <li>Paramétrage des niveaux d'habilitation par entité (accès restreint au site d'appartenance)</li>
+                <li>Test de la gestion des tickets : ouverture, attribution, suivi de 3 incidents</li>
+                <li>Inventaire et enregistrement de la machine Debian dans le parc GLPI</li>
+            </ul>
+
+            <div class="tags">
+                <span class="tag">GLPI</span>
+                <span class="tag">Debian GNU/Linux 12</span>
+                <span class="tag">VMware</span>
+                <span class="tag">Multi-entités</span>
+                <span class="tag">Habilitations</span>
+                <span class="tag">Tickets d'incidents</span>
+                <span class="tag">Inventaire</span>
+                <span class="tag">ITIL</span>
+            </div>
+
+            <p class="content-text"><strong>Preuves :</strong></p>
+            <a href="preuves/bloc1/glpi-entites.pdf" target="_blank" class="proof-link">
+                <i class="fas fa-file-pdf"></i> Export entités GLPI (3 entités)
+            </a>
+            <a href="preuves/bloc1/glpi-utilisateurs.pdf" target="_blank" class="proof-link">
+                <i class="fas fa-file-pdf"></i> Export utilisateurs (13 comptes)
+            </a>
+            <a href="preuves/bloc1/glpi-tickets.pdf" target="_blank" class="proof-link">
+                <i class="fas fa-file-pdf"></i> Export tickets (3 incidents)
+            </a>
+            <a href="preuves/bloc1/glpi-inventaire.pdf" target="_blank" class="proof-link">
+                <i class="fas fa-file-pdf"></i> Inventaire parc (VM Debian)
+            </a>
+            <a href="preuves/bloc1/glpi-utilisateurs.csv" target="_blank" class="proof-link">
+                <i class="fas fa-file-csv"></i> Export CSV utilisateurs
+            </a>
+            <a href="preuves/realisation_01_inventaire_glpi.docx" target="_blank" class="proof-link">
+                <i class="fas fa-file-word"></i> Réalisation — Inventaire GLPI
+            </a>
+            <a href="preuves/realisation_02_habilitations_nas.docx" target="_blank" class="proof-link">
+                <i class="fas fa-file-word"></i> Réalisation — Habilitations NAS
+            </a>
+            <a href="preuves/realisation_05_gestion_parc_edf.docx" target="_blank" class="proof-link">
+                <i class="fas fa-file-word"></i> Réalisation — Gestion parc EDF
+            </a>
+            <a href="preuves/realisation_12_droits_acces_azure.docx" target="_blank" class="proof-link">
+                <i class="fas fa-file-word"></i> Réalisation — Droits d'accès Azure
+            </a>
+            <a href="preuves/realisation_14_migration_droits.docx" target="_blank" class="proof-link">
+                <i class="fas fa-file-word"></i> Réalisation — Migration des droits
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Compétences mobilisées -->
+<section class="content-section white">
+    <div class="custom-container">
+        <div class="section-label">Référentiel BTS SIO</div>
+        <h2 class="section-heading">Compétences mobilisées</h2>
+
         <table class="comp-table">
             <thead>
-                <tr><th>Compétence officielle</th><th>Réalisation associée</th><th>Preuve</th></tr>
+                <tr>
+                    <th>Code</th>
+                    <th>Compétence officielle</th>
+                    <th>Réalisation associée</th>
+                    <th>Preuve</th>
+                </tr>
             </thead>
             <tbody>
-                <tr><td>Recenser et identifier les ressources numériques</td><td>Inventaire GLPI (120 équipements)</td><td><a href="#">Export PDF</a></td></tr>
-                <tr><td>Exploiter des référentiels, normes et standards</td><td>Utilisation GLPI selon normes ITIL</td><td><a href="#">Documentation</a></td></tr>
-                <tr><td>Mettre en place et vérifier les niveaux d'habilitation</td><td>Gestion droits NAS + app habilitations prestataires</td><td><a href="#">Matrice des droits</a></td></tr>
-                <tr><td>Vérifier les conditions de continuité d'un service</td><td>Test de continuité / sauvegarde NAS (RPO=1h, RTO=4h)</td><td><a href="#">Rapport test</a></td></tr>
-                <tr><td>Gérer des sauvegardes</td><td>Stratégie de sauvegarde NAS</td><td><a href="#">Plan de sauvegarde</a></td></tr>
-                <tr><td>Vérifier le respect des règles d'utilisation des ressources</td><td>Contrôle des postes perdus/volés (2e année)</td><td><a href="#">Procédure</a></td></tr>
+                <tr>
+                    <td><span class="comp-code">B1.1</span></td>
+                    <td>Recenser et identifier les ressources numériques</td>
+                    <td>Inventaire de la machine Debian dans GLPI (numéro de série, fabricant, OS, processeur)</td>
+                    <td><a href="preuves/bloc1/glpi-inventaire.pdf" target="_blank" class="proof-link"><i class="fas fa-file-pdf"></i> Preuve</a></td>
+                </tr>
+                <tr>
+                    <td><span class="comp-code">B1.2</span></td>
+                    <td>Exploiter des référentiels, normes et standards adoptés par le prestataire informatique</td>
+                    <td>Configuration de GLPI selon les bonnes pratiques ITIL : catégorisation des tickets, niveaux de priorité, entités hiérarchiques</td>
+                    <td><a href="preuves/bloc1/glpi-tickets.pdf" target="_blank" class="proof-link"><i class="fas fa-file-pdf"></i> Preuve</a></td>
+                </tr>
+                <tr>
+                    <td><span class="comp-code">B1.3</span></td>
+                    <td>Mettre en place et vérifier les niveaux d'habilitation associés à un service</td>
+                    <td>Création de 13 comptes utilisateurs avec rôles différenciés (employé, technicien, admin) par entité géographique</td>
+                    <td><a href="preuves/bloc1/glpi-utilisateurs.pdf" target="_blank" class="proof-link"><i class="fas fa-file-pdf"></i> Preuve</a></td>
+                </tr>
+                <tr>
+                    <td><span class="comp-code">B1.4</span></td>
+                    <td>Vérifier les conditions de la continuité d'un service informatique</td>
+                    <td>Structure multi-entités permettant la continuité du service sur deux sites indépendants (Paris et Lyon)</td>
+                    <td><a href="preuves/bloc1/glpi-entites.pdf" target="_blank" class="proof-link"><i class="fas fa-file-pdf"></i> Preuve</a></td>
+                </tr>
+                <tr>
+                    <td><span class="comp-code">B1.6</span></td>
+                    <td>Vérifier le respect des règles d'utilisation des ressources numériques</td>
+                    <td>Gestion et suivi des tickets d'incidents (3 tickets : "lyon", "technician abs", "Logiciel") avec attribution aux techniciens compétents</td>
+                    <td><a href="preuves/bloc1/glpi-tickets.pdf" target="_blank" class="proof-link"><i class="fas fa-file-pdf"></i> Preuve</a></td>
+                </tr>
             </tbody>
         </table>
     </div>
 </section>
 
-<!-- Réalisations détaillées -->
-<section class="content-section alt">
+<!-- Résultats -->
+<section class="content-section beige">
     <div class="custom-container">
-        <div class="section-title">RÉALISATIONS</div>
-        <h2 class="content-heading">Preuves des compétences Bloc 1</h2>
-        
-        <!-- 1. Inventaire GLPI -->
-        <div class="project-card">
-            <div class="project-counter">01</div>
-            <h3>Inventaire complet du parc sous GLPI</h3>
-            <p><strong>Période :</strong> Novembre 2024</p>
-            <p><strong>Contexte :</strong> Besoin de centraliser les postes, serveurs et équipements réseau pour un suivi fiable.</p>
-            <p><strong>Action :</strong> Recensement physique des ressources, saisie dans GLPI avec catégorisation (type, localisation, utilisateur, date d'achat). Rédaction d'une procédure de mise à jour.</p>
-            <p><strong>Résultat :</strong> 120 équipements inventoriés, taux d'erreur nul après 2 semaines, inventaire consultable à tout moment.</p>
-            <div class="tags"><span>GLPI</span><span>Inventaire</span><span>Référentiel</span></div>
-            <a href="#" class="project-link">Voir l'export GLPI (PDF) <i class="fas fa-file-pdf"></i></a>
-        </div>
-        
-        <!-- 2. Gestion des droits d'accès (NAS + prestataires) -->
-        <div class="project-card">
-            <div class="project-counter">02</div>
-            <h3>Gestion des habilitations – NAS et prestataires</h3>
-            <p><strong>Période :</strong> Octobre 2024 – Janvier 2025</p>
-            <p><strong>Action :</strong> Création et administration des habilitations utilisateurs/groupes sur serveur NAS. Développement d'une application interne pour gérer les habilitations des prestataires (remplacement d'Excel).</p>
-            <p><strong>Résultat :</strong> 50 utilisateurs internes + 30 prestataires gérés, réduction des délais d'habilitation de 2 jours à 2 heures.</p>
-            <div class="tags"><span>Habilitations</span><span>NAS</span><span>Sécurité</span><span>Power Apps</span></div>
-            <a href="#" class="project-link">Voir la matrice des droits <i class="fas fa-table"></i></a>
-        </div>
-        
-        <!-- 3. Stratégie de sauvegarde et test de continuité -->
-        <div class="project-card">
-            <div class="project-counter">03</div>
-            <h3>Stratégie de sauvegarde et test de continuité</h3>
-            <p><strong>Période :</strong> Janvier 2025</p>
-            <p><strong>Action :</strong> Définition d'une politique de sauvegarde (quotidienne incrémentale, hebdomadaire complète), configuration des tâches sur serveur NAS, réalisation d'un test de restauration complet.</p>
-            <p><strong>Résultat :</strong> RPO = 1 heure, RTO = 4 heures. Validation du test de continuité de service.</p>
-            <div class="tags"><span>Sauvegarde</span><span>Continuité</span><span>NAS</span></div>
-            <a href="#" class="project-link">Voir le plan de sauvegarde <i class="fas fa-file-word"></i></a>
-        </div>
-        
-        <!-- 4. Gestion des tickets GLPI (incidents et demandes) -->
-        <div class="project-card">
-            <div class="project-counter">04</div>
-            <h3>Support et gestion des tickets GLPI</h3>
-            <p><strong>Période :</strong> Novembre 2024 – Mars 2025</p>
-            <p><strong>Action :</strong> Prise en charge, catégorisation et traitement des tickets incidents et demandes d'assistance (réseau, système, applications). Rédaction de solutions en base de connaissances.</p>
-            <p><strong>Résultat :</strong> Plus de 150 tickets traités, délai moyen de résolution de 2 heures, taux de satisfaction utilisateur > 90%.</p>
-            <div class="tags"><span>GLPI</span><span>Support</span><span>Incidents</span></div>
-            <a href="#" class="project-link">Voir statistiques tickets <i class="fas fa-chart-line"></i></a>
-        </div>
-        
-        <!-- 5. Résolution incident réseau -->
-        <div class="project-card">
-            <div class="project-counter">05</div>
-            <h3>Résolution d'incident réseau critique</h3>
-            <p><strong>Période :</strong> Octobre 2024</p>
-            <p><strong>Contexte :</strong> Perte de connectivité sur un segment du parc.</p>
-            <p><strong>Action :</strong> Diagnostic (analyse des logs switch, test de câblage, vérification VLAN), identification d'une boucle STP, correction de la configuration.</p>
-            <p><strong>Résultat :</strong> Rétablissement du service en 45 minutes, rédaction d'une procédure de prévention.</p>
-            <div class="tags"><span>Réseau</span><span>Diagnostic</span><span>STP</span></div>
-            <a href="#" class="project-link">Voir le rapport d'incident <i class="fas fa-file-alt"></i></a>
-        </div>
-        
-        <!-- 6. Développement d'applications (Power Apps, Automate, synchronisation calendriers) -->
-        <div class="project-card">
-            <div class="project-counter">06</div>
-            <h3>Applications métier : habilitations, synchronisation calendriers, gestion parc</h3>
-            <p><strong>Période :</strong> 2024-2025 (1re et 2e année)</p>
-            <p><strong>Action :</strong> Création d'applications Power Apps / Power Automate pour :<br>
-            - Gestion des habilitations prestataires<br>
-            - Synchronisation des calendriers interservices<br>
-            - Gestion du parc informatique (suivi des affectations)<br>
-            - Planification des ressources en fonction des présences (2e année)</p>
-            <p><strong>Résultat :</strong> Automatisation de processus manuels, gain de temps estimé à 10h/semaine.</p>
-            <div class="tags"><span>Power Apps</span><span>Automate</span><span>Gestion parc</span></div>
-            <a href="#" class="project-link">Voir les applications <i class="fas fa-apple-alt"></i></a>
-        </div>
-        
-        <!-- 7. Migration des droits d'accès (2e année) -->
-        <div class="project-card">
-            <div class="project-counter">07</div>
-            <h3>Migration des droits d'accès vers nouvel outil</h3>
-            <p><strong>Période :</strong> 2025 (2e année)</p>
-            <p><strong>Action :</strong> Participation à la migration complète des droits d'accès (300 utilisateurs) d'un annuaire legacy vers un nouvel outil dédié. Tests, validation, transfert.</p>
-            <p><strong>Résultat :</strong> Migration réussie sans interruption de service, zéro incident remonté.</p>
-            <div class="tags"><span>Migration</span><span>Droits accès</span><span>Sécurité</span></div>
-            <a href="#" class="project-link">Voir le rapport de migration <i class="fas fa-exchange-alt"></i></a>
-        </div>
-        
-        <!-- 8. Contrôle des postes perdus/volés + indicateurs de sécurité -->
-        <div class="project-card">
-            <div class="project-counter">08</div>
-            <h3>Contrôle des postes perdus/volés et reporting sécurité</h3>
-            <p><strong>Période :</strong> 2025 (2e année)</p>
-            <p><strong>Action :</strong> Mise en place d'une procédure de contrôle des postes déclarés perdus/volés (désactivation, traçabilité). Création d'indicateurs et rapports sur les risques et menaces de sécurité.</p>
-            <p><strong>Résultat :</strong> 100% des postes désactivés sous 1h après déclaration, tableaux de bord mensuels pour la direction.</p>
-            <div class="tags"><span>Sécurité</span><span>Indicateurs</span><span>Risques</span></div>
-            <a href="#" class="project-link">Voir le tableau de bord <i class="fas fa-chart-simple"></i></a>
-        </div>
-    </div>
-</section>
-
-<!-- Technical Skills Section (optionnelle, conservée) -->
-<section class="content-section" id="skills">
-    <div class="custom-container">
-        <div class="section-title">EXPERTISE</div>
-        <h2 class="content-heading">Compétences techniques Bloc 1</h2>
-        <div class="skills-grid">
-            <div class="skill-item"><i class="fas fa-hdd"></i><h3>Administration système</h3><p>Windows Server, Active Directory, NAS, gestion des droits et stratégies.</p></div>
-            <div class="skill-item"><i class="fas fa-tools"></i><h3>Maintenance matérielle</h3><p>Diagnostic, dépannage, remplacement de composants, préparation de postes.</p></div>
-            <div class="skill-item"><i class="fas fa-chart-line"></i><h3>Monitoring et logs</h3><p>Surveillance, analyse des logs, alertes, reporting (GLPI, tableaux de bord).</p></div>
-            <div class="skill-item"><i class="fas fa-lock"></i><h3>Sécurité informatique</h3><p>Gestion des habilitations, mises à jour, contrôle d'accès, protection des données.</p></div>
-        </div>
-    </div>
-</section>
-
-<!-- Soft Skills Section (conservée) -->
-<section class="content-section alt">
-    <div class="custom-container">
-        <div class="section-title">SAVOIR-ÊTRE</div>
-        <h2 class="content-heading">Compétences transversales</h2>
+        <div class="section-label">Résultats obtenus</div>
+        <h2 class="section-heading">Bilan chiffré</h2>
         <div class="row">
-            <div class="col-md-6 mb-4"><div class="card soft-skill-card"><div class="card-body p-4"><div class="d-flex align-items-center mb-3"><i class="fas fa-tasks fa-2x me-3"></i><h4>Rigueur</h4></div><p>Documentation précise des interventions, respect des protocoles et des normes.</p></div></div></div>
-            <div class="col-md-6 mb-4"><div class="card soft-skill-card"><div class="card-body p-4"><div class="d-flex align-items-center mb-3"><i class="fas fa-clock fa-2x me-3"></i><h4>Réactivité</h4></div><p>Résolution rapide des incidents critiques, gestion des priorités.</p></div></div></div>
-            <div class="col-md-6 mb-4"><div class="card soft-skill-card"><div class="card-body p-4"><div class="d-flex align-items-center mb-3"><i class="fas fa-comments fa-2x me-3"></i><h4>Communication</h4></div><p>Explications claires, documentation, collaboration avec les équipes.</p></div></div></div>
-            <div class="col-md-6 mb-4"><div class="card soft-skill-card"><div class="card-body p-4"><div class="d-flex align-items-center mb-3"><i class="fas fa-graduation-cap fa-2x me-3"></i><h4>Apprentissage continu</h4></div><p>Veille technologique, certifications, adaptation aux nouveaux outils.</p></div></div></div>
+            <div class="col-12 mb-4">
+                <div class="result-chip">
+                    3
+                    <small>Entités configurées<br>(Racine · Paris · Lyon)</small>
+                </div>
+                <div class="result-chip">
+                    13
+                    <small>Utilisateurs créés<br>(employés + techniciens)</small>
+                </div>
+                <div class="result-chip">
+                    3
+                    <small>Tickets d'incidents<br>enregistrés et suivis</small>
+                </div>
+                <div class="result-chip">
+                    1
+                    <small>Machine inventoriée<br>VM Debian GNU/Linux 12</small>
+                </div>
+                <div class="result-chip">
+                    2
+                    <small>Sites couverts<br>Paris &amp; Lyon</small>
+                </div>
+            </div>
+        </div>
+        <p class="content-text">
+            La configuration de GLPI permet désormais à l'organisation de centraliser la gestion du parc informatique multi-sites, de tracer tous les incidents et de gérer les habilitations utilisateurs de façon structurée et conforme aux bonnes pratiques ITIL.
+        </p>
+    </div>
+</section>
+
+<!-- Documents produits -->
+<section class="content-section white">
+    <div class="custom-container">
+        <div class="section-label">Documents produits</div>
+        <h2 class="section-heading">Preuves et livrables</h2>
+        <div class="row g-3">
+            <div class="col-md-6 col-lg-4">
+                <div class="info-box">
+                    <strong><i class="fas fa-sitemap me-2"></i>Structure multi-entités</strong>
+                    <span>Export PDF de la hiérarchie GLPI : Entité racine, Lyon, Paris</span>
+                    <div class="mt-2">
+                        <a href="preuves/bloc1/glpi-entites.pdf" target="_blank" class="proof-link">
+                            <i class="fas fa-file-pdf"></i> Voir le document
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="info-box">
+                    <strong><i class="fas fa-users me-2"></i>Gestion des utilisateurs</strong>
+                    <span>Liste des 13 comptes GLPI avec identifiants, rôles et sites d'affectation</span>
+                    <div class="mt-2">
+                        <a href="preuves/bloc1/glpi-utilisateurs.pdf" target="_blank" class="proof-link">
+                            <i class="fas fa-file-pdf"></i> Voir le document
+                        </a>
+                        <a href="preuves/bloc1/glpi-utilisateurs.csv" target="_blank" class="proof-link">
+                            <i class="fas fa-file-csv"></i> Export CSV
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="info-box">
+                    <strong><i class="fas fa-ticket-alt me-2"></i>Gestion des tickets</strong>
+                    <span>3 tickets d'incidents actifs (priorité moyenne, statut : Nouveau) sur entités Lyon et racine</span>
+                    <div class="mt-2">
+                        <a href="preuves/bloc1/glpi-tickets.pdf" target="_blank" class="proof-link">
+                            <i class="fas fa-file-pdf"></i> Voir le document
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="info-box">
+                    <strong><i class="fas fa-desktop me-2"></i>Inventaire du parc</strong>
+                    <span>VM Debian GNU/Linux 12 (Bookworm) — VMware Virtual Platform — AMD Ryzen 7 5825U</span>
+                    <div class="mt-2">
+                        <a href="preuves/bloc1/glpi-inventaire.pdf" target="_blank" class="proof-link">
+                            <i class="fas fa-file-pdf"></i> Voir le document
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Return Button -->
-<section class="content-section" style="padding-top: 3rem; padding-bottom: 3rem;">
+<!-- Retour -->
+<section class="content-section" style="padding: 2rem 0;">
     <div class="custom-container">
-        <a href="projets_competences.html" class="btn btn-primary"><i class="fas fa-arrow-left me-2"></i>Retour à l'accueil</a>
+        <a href="projets_competences.html" class="btn btn-primary">
+            <i class="fas fa-arrow-left me-2"></i>Retour aux projets
+        </a>
     </div>
 </section>
 
@@ -621,17 +568,13 @@
         <div class="row">
             <div class="col-md-6"><p>&copy; 2025 Nour MESBAHI. Tous droits réservés.</p></div>
             <div class="col-md-6 d-flex justify-content-md-end">
-                <div class="footer-links me-4">
+                <div class="footer-links">
                     <a href="index.html">Accueil</a>
-                    <a href="#">Bloc 1</a>
+                    <a href="projets_competences.html">Projets</a>
                     <a href="CV.html">CV</a>
                     <a href="veille.html">Veille</a>
                     <a href="e5.html">E5</a>
                     <a href="e6.html">E6</a>
-                </div>
-                <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
@@ -642,12 +585,46 @@
 <script>
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-        } else {
-            navbar.style.boxShadow = 'none';
-        }
+        navbar.style.boxShadow = window.scrollY > 50 ? '0 5px 15px rgba(0,0,0,0.1)' : 'none';
     });
+</script>
+
+<!-- Visionneuse documents -->
+<div id="docViewer" onclick="if(event.target===this)closeDocViewer()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.82);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;">
+    <div style="background:white;width:100%;max-width:1000px;height:90vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:0.8rem 1.25rem;background:#212121;flex-shrink:0;">
+            <span id="viewerTitle" style="font-family:'VT323',monospace;font-size:1.1rem;letter-spacing:2px;color:#EFEFDF;max-width:80%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
+            <button onclick="closeDocViewer()" style="background:none;border:1px solid #FF5722;color:#FF5722;font-family:'VT323',monospace;font-size:1rem;padding:0.3rem 0.9rem;cursor:pointer;letter-spacing:1px;transition:all 0.2s;" onmouseover="this.style.background='#FF5722';this.style.color='white'" onmouseout="this.style.background='none';this.style.color='#FF5722'">✕ FERMER</button>
+        </div>
+        <iframe id="viewerFrame" src="" style="flex:1;border:none;width:100%;" allowfullscreen></iframe>
+    </div>
+</div>
+<script>
+function openDocViewer(href, label) {
+    var src = href;
+    if (/\.docx?$/i.test(href)) {
+        src = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(new URL(href, window.location.href).href);
+    }
+    document.getElementById('viewerFrame').src = src;
+    document.getElementById('viewerTitle').textContent = label || href.split('/').pop();
+    document.getElementById('docViewer').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+function closeDocViewer() {
+    document.getElementById('docViewer').style.display = 'none';
+    document.getElementById('viewerFrame').src = '';
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeDocViewer(); });
+document.querySelectorAll('a[href]').forEach(function(a) {
+    if (/\.(docx?|pdf)$/i.test(a.getAttribute('href') || '')) {
+        a.removeAttribute('target');
+        a.addEventListener('click', function(e) {
+            e.preventDefault();
+            openDocViewer(this.getAttribute('href'), this.textContent.trim());
+        });
+    }
+});
 </script>
 </body>
 </html>
