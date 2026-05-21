@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -257,7 +257,7 @@
         <div class="d-flex justify-content-between align-items-center w-100">
             <div class="welcome-text">BLOC 1 — GÉRER LE PARC INFORMATIQUE</div>
             <a href="index.html" class="navbar-brand vt323-regular">NOUR_</a>
-            <div class="contact-info d-none d-md-block">NOUR.MESBAHI.0@GMAIL.COM</div>
+            <div class="contact-info d-none d-md-block"></div>
         </div>
     </div>
 </nav>
@@ -290,125 +290,8 @@
     </div>
 </section>
 
-<!-- Contexte -->
-<section class="content-section white">
-    <div class="custom-container">
-        <div class="section-label">Contexte</div>
-        <h2 class="section-heading">Présentation de l'organisation</h2>
-        <div class="row g-3">
-            <div class="col-md-4">
-                <div class="info-box">
-                    <strong>Organisation</strong>
-                    <span>Projet de formation BTS SIO — environnement simulé multi-sites</span>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-box">
-                    <strong>Sites concernés</strong>
-                    <span>Paris &amp; Lyon (structure hiérarchique GLPI)</span>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-box">
-                    <strong>Période</strong>
-                    <span>Septembre 2025</span>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-box">
-                    <strong>Rôle tenu</strong>
-                    <span>Administratrice GLPI — configuration complète de l'environnement</span>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-box">
-                    <strong>Environnement technique</strong>
-                    <span>Debian GNU/Linux 12 (Bookworm) · VMware · GLPI</span>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="info-box">
-                    <strong>Problématique</strong>
-                    <span>Absence d'outil centralisé pour la gestion du parc et des incidents sur deux sites géographiques</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- Situation 1 : Déploiement GLPI -->
-<section class="content-section beige">
-    <div class="custom-container">
-        <div class="section-label">Situation professionnelle 1</div>
-        <h2 class="section-heading">Déploiement et configuration de GLPI</h2>
 
-        <div class="situation-card">
-            <div class="situation-number">01</div>
-            <h3>Installation de GLPI sur serveur Debian</h3>
-            <div class="situation-meta">
-                <span><i class="fas fa-calendar-alt me-1"></i>Septembre 2025</span>
-                <span><i class="fas fa-server me-1"></i>Debian GNU/Linux 12 · VMware</span>
-                <span><i class="fas fa-user me-1"></i>Administratrice</span>
-            </div>
-
-            <p class="content-text"><strong>Objectif :</strong> Déployer un outil ITSM open-source sur un serveur virtualisé pour centraliser la gestion du parc informatique et des tickets d'incidents de deux entités géographiques (Paris et Lyon).</p>
-
-            <p class="content-text"><strong>Étapes réalisées :</strong></p>
-            <ul class="step-list">
-                <li>Mise en place d'une machine virtuelle sous VMware avec Debian GNU/Linux 12 (Bookworm) — processeur AMD Ryzen 7 5825U</li>
-                <li>Installation et configuration de GLPI (serveur web, base de données, dépendances PHP)</li>
-                <li>Configuration de la structure multi-entités : <strong>Entité racine → Lyon</strong> et <strong>Entité racine → Paris</strong></li>
-                <li>Création de 13 comptes utilisateurs répartis par site et par rôle (employés, techniciens, comptes système)</li>
-                <li>Paramétrage des niveaux d'habilitation par entité (accès restreint au site d'appartenance)</li>
-                <li>Test de la gestion des tickets : ouverture, attribution, suivi de 3 incidents</li>
-                <li>Inventaire et enregistrement de la machine Debian dans le parc GLPI</li>
-            </ul>
-
-            <div class="tags">
-                <span class="tag">GLPI</span>
-                <span class="tag">Debian GNU/Linux 12</span>
-                <span class="tag">VMware</span>
-                <span class="tag">Multi-entités</span>
-                <span class="tag">Habilitations</span>
-                <span class="tag">Tickets d'incidents</span>
-                <span class="tag">Inventaire</span>
-                <span class="tag">ITIL</span>
-            </div>
-
-            <p class="content-text"><strong>Preuves :</strong></p>
-            <a href="preuves/bloc1/glpi-entites.pdf" target="_blank" class="proof-link">
-                <i class="fas fa-file-pdf"></i> Export entités GLPI (3 entités)
-            </a>
-            <a href="preuves/bloc1/glpi-utilisateurs.pdf" target="_blank" class="proof-link">
-                <i class="fas fa-file-pdf"></i> Export utilisateurs (13 comptes)
-            </a>
-            <a href="preuves/bloc1/glpi-tickets.pdf" target="_blank" class="proof-link">
-                <i class="fas fa-file-pdf"></i> Export tickets (3 incidents)
-            </a>
-            <a href="preuves/bloc1/glpi-inventaire.pdf" target="_blank" class="proof-link">
-                <i class="fas fa-file-pdf"></i> Inventaire parc (VM Debian)
-            </a>
-            <a href="preuves/bloc1/glpi-utilisateurs.csv" target="_blank" class="proof-link">
-                <i class="fas fa-file-csv"></i> Export CSV utilisateurs
-            </a>
-            <a href="preuves/realisation_01_inventaire_glpi.docx" target="_blank" class="proof-link">
-                <i class="fas fa-file-word"></i> Réalisation — Inventaire GLPI
-            </a>
-            <a href="preuves/realisation_02_habilitations_nas.docx" target="_blank" class="proof-link">
-                <i class="fas fa-file-word"></i> Réalisation — Habilitations NAS
-            </a>
-            <a href="preuves/realisation_05_gestion_parc_edf.docx" target="_blank" class="proof-link">
-                <i class="fas fa-file-word"></i> Réalisation — Gestion parc EDF
-            </a>
-            <a href="preuves/realisation_12_droits_acces_azure.docx" target="_blank" class="proof-link">
-                <i class="fas fa-file-word"></i> Réalisation — Droits d'accès Azure
-            </a>
-            <a href="preuves/realisation_14_migration_droits.docx" target="_blank" class="proof-link">
-                <i class="fas fa-file-word"></i> Réalisation — Migration des droits
-            </a>
-        </div>
-    </div>
-</section>
 
 <!-- Compétences mobilisées -->
 <section class="content-section white">
@@ -442,7 +325,7 @@
                     <td><span class="comp-code">B1.3</span></td>
                     <td>Mettre en place et vérifier les niveaux d'habilitation associés à un service</td>
                     <td>Création de 13 comptes utilisateurs avec rôles différenciés (employé, technicien, admin) par entité géographique</td>
-                    <td><a href="preuves/bloc1/glpi-utilisateurs.pdf" target="_blank" class="proof-link"><i class="fas fa-file-pdf"></i> Preuve</a></td>
+                    <td><a href="preuves/bloc1/glpi-utilisateurs.csv" target="_blank" class="proof-link"><i class="fas fa-file-csv"></i> Preuve</a></td>
                 </tr>
                 <tr>
                     <td><span class="comp-code">B1.4</span></td>
