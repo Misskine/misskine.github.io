@@ -1,330 +1,127 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bloc 5 - Mettre à disposition des utilisateurs | Nour MESBAHI</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #FF5722;
-            --secondary: #212121;
-            --light: #F5F5F5;
-            --dark: #121212;
-            --gray: #888;
-            --beige: #EFEFDF;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: sans-serif;
-            background-color: var(--beige);
-            color: var(--dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        
-        .vt323-regular {
-            font-family: "VT323", monospace;
-            font-weight: 400;
-            font-style: normal;
-        }
-        
-        .custom-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        .navbar {
-            background-color: var(--beige);
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .navbar-brand {
-            font-family: "VT323", monospace;
-            font-weight: 400;
-            font-size: 1.5rem;
-            color: var(--dark);
-            letter-spacing: 1px;
-        }
-        
-        .nav-link {
-            color: var(--dark);
-            font-weight: 500;
-            margin-left: 1.5rem;
-            transition: color 0.3s ease;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-        
-        .nav-link:hover, .nav-link-active {
-            color: var(--primary);
-        }
-        
-        .nav-link-active {
-            font-weight: 600;
-            margin-left: 1.5rem;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-        
-        .welcome-text, .contact-info {
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: var(--gray);
-            letter-spacing: 1px;
-        }
-        
-        .header {
-            position: relative;
-            padding: 8rem 0 4rem;
-            background-color: var(--secondary);
-            color: white;
-        }
-        
-        .section-title {
-            font-family: "VT323", monospace;
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        .header h2 {
-            font-family: "VT323", monospace;
-            font-size: 3.5rem;
-            font-weight: 400;
-            margin-bottom: 1.5rem;
-        }
-        
-        .content-section {
-            padding: 5rem 0;
-        }
-        
-        .content-section.alt {
-            background-color: white;
-        }
-        
-        .content-heading {
-            font-family: "VT323", monospace;
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 2rem;
-            line-height: 1.2;
-        }
-        
-        .content-text {
-            font-family: monospace;
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            color: var(--gray);
-        }
-        
-        .competence-card {
-            position: relative;
-            background-color: var(--beige);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            overflow: hidden;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .competence-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        .competence-card h3 {
-            font-family: "VT323", monospace;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-        
-        .competence-card p {
-            font-family: monospace;
-            margin-bottom: 1rem;
-            color: var(--gray);
-        }
-        
-        .competence-counter {
-            position: absolute;
-            top: 0;
-            right: 1rem;
-            font-family: "VT323", monospace;
-            font-size: 6rem;
-            color: rgba(0,0,0,0.05);
-            line-height: 1;
-            pointer-events: none;
-        }
-        
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-        
-        .tags span {
-            background-color: rgba(255, 87, 34, 0.1);
-            color: var(--primary);
-            padding: 0.3rem 0.8rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            font-family: monospace;
-        }
-        
-        .competence-link {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s ease;
-            font-family: "VT323", monospace;
-            font-size: 1.1rem;
-            margin-top: 1rem;
-        }
-        
-        .competence-link:hover {
-            color: var(--primary);
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-        
-        .skill-item i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .skill-item h3 {
-            font-family: "VT323", monospace;
-            font-size: 1.3rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-        
-        .skill-item p {
-            font-family: monospace;
-            color: var(--gray);
-        }
-        
-        .comp-table {
-            font-family: monospace;
-            background-color: white;
-            border-collapse: collapse;
-            width: 100%;
-            margin-bottom: 2rem;
-        }
-        
-        .comp-table th, .comp-table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        
-        .comp-table th {
-            background-color: var(--secondary);
-            color: white;
-            font-family: "VT323", monospace;
-        }
-        
-        .comp-table td {
-            background-color: white;
-        }
-        
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 2rem 0;
-            font-family: monospace;
-            font-size: 0.9rem;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin-right: 1.5rem;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover, .social-links a:hover {
-            color: var(--primary);
-        }
-        
-        .social-links a {
-            color: white;
-            margin-right: 1rem;
-            font-size: 1.2rem;
-            transition: color 0.3s ease;
-        }
-        
-        .btn {
-            font-family: "VT323", monospace;
-            padding: 0.6rem 1.5rem;
-            border-radius: 0;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary);
-            border: none;
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        @media (max-width: 992px) {
-            .header h2 { font-size: 2.8rem; }
-            .content-heading { font-size: 2rem; }
-        }
-        
-        @media (max-width: 768px) {
-            .header { padding: 6rem 0 3rem; }
-            .header h2 { font-size: 2.2rem; }
-            .content-heading { font-size: 1.8rem; }
-            .skills-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloc 5 — Mettre à disposition des utilisateurs un service informatique | Nour MESBAHI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FF5722;
+      --secondary: #212121;
+      --dark: #121212;
+      --gray: #777;
+      --beige: #EFEFDF;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:sans-serif; background:var(--beige); color:var(--dark); line-height:1.6; overflow-x:hidden; }
+
+    .custom-container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+    .navbar { background-color:var(--beige); padding:1rem 0; border-bottom:1px solid #ddd; transition:all 0.3s; }
+    .navbar-brand { font-family:"VT323",monospace; font-weight:400; font-size:1.5rem; color:var(--dark); text-decoration:none; letter-spacing:1px; }
+    .nav-link { color:var(--dark); font-weight:500; margin-left:1.5rem; font-family:monospace; font-size:0.9rem; transition:color 0.3s; text-decoration:none; }
+    .nav-link:hover { color:var(--primary); }
+    .nav-link-active { color:var(--primary); font-weight:600; margin-left:1.5rem; font-family:monospace; font-size:0.9rem; text-decoration:none; }
+    .welcome-text, .contact-info { font-family:monospace; font-size:0.8rem; color:var(--gray); letter-spacing:1px; }
+
+    .page-header { background:var(--secondary); color:white; padding:4rem 0 3rem; }
+    .page-header-inner { max-width:1200px; margin:0 auto; padding:0 2rem; }
+    .bloc-badge { font-family:"VT323",monospace; font-size:0.9rem; color:var(--primary);
+      letter-spacing:4px; text-transform:uppercase; margin-bottom:0.5rem; }
+    .page-header h1 { font-family:"VT323",monospace; font-size:2.8rem; font-weight:400; margin-bottom:0.8rem; }
+    .page-header .meta { font-family:monospace; font-size:0.78rem; color:#aaa; letter-spacing:1px; }
+
+    .comp-list { max-width:1200px; margin:0 auto; padding:3rem 2rem; }
+
+    .comp-card {
+      background:white; border-left:4px solid var(--primary);
+      margin-bottom:2rem; display:grid; grid-template-columns:160px 1fr;
+    }
+    .comp-left {
+      background:var(--secondary); padding:1.5rem 1.2rem;
+      display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start;
+    }
+    .comp-code { font-family:"VT323",monospace; font-size:2rem; color:var(--primary); letter-spacing:2px; line-height:1; }
+    .comp-label { font-family:monospace; font-size:0.66rem; color:#aaa; margin-top:0.6rem; line-height:1.4; }
+
+    .comp-right { padding:1.5rem 2rem; }
+    .comp-desc { font-family:"VT323",monospace; font-size:1.3rem; color:var(--dark); margin-bottom:0.8rem; line-height:1.3; }
+    .comp-task { font-family:monospace; font-size:0.85rem; color:#555; margin-bottom:1.2rem; line-height:1.6; }
+    .comp-proofs { display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; }
+
+    .proof-btn {
+      display:inline-flex; align-items:center; gap:0.4rem;
+      font-family:monospace; font-size:0.78rem; color:var(--primary);
+      text-decoration:none; border:1px solid var(--primary);
+      padding:0.35rem 0.9rem; transition:all 0.2s; cursor:pointer;
+    }
+    .proof-btn:hover { background:var(--primary); color:white; }
+
+    .conf-note {
+      display:inline-flex; align-items:center; gap:0.4rem;
+      font-family:monospace; font-size:0.78rem; font-style:italic;
+      color:var(--primary); border:1px dashed var(--primary); padding:0.35rem 0.9rem;
+    }
+
+    footer { background:var(--secondary); color:#aaa; padding:2rem 0; margin-top:2rem; }
+    .footer-inner { max-width:1200px; margin:0 auto; padding:0 2rem;
+      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .footer-inner p { font-family:monospace; font-size:0.78rem; }
+    .footer-links { display:flex; gap:1.2rem; flex-wrap:wrap; }
+    .footer-links a { font-family:monospace; font-size:0.78rem; color:#aaa; text-decoration:none; }
+    .footer-links a:hover { color:var(--primary); }
+
+    @media (max-width:768px) {
+      .comp-card { grid-template-columns:1fr; }
+      .comp-left { padding:1rem 1.2rem; flex-direction:row; gap:1rem; align-items:center; }
+      .page-header h1 { font-size:2rem; }
+    }
+
+    /* ── Viewer ── */
+    #viewer-overlay {
+      display:none; position:fixed; inset:0;
+      background:rgba(0,0,0,0.85); z-index:9999;
+      align-items:center; justify-content:center; padding:1rem;
+    }
+    #viewer-overlay.open { display:flex; }
+    #viewer-box {
+      background:#1a1a1a; width:100%; max-width:1100px;
+      height:90vh; display:flex; flex-direction:column;
+      box-shadow:0 20px 60px rgba(0,0,0,0.6);
+    }
+    #viewer-bar {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:0.7rem 1.2rem; background:var(--secondary); flex-shrink:0;
+      border-bottom:2px solid var(--primary);
+    }
+    #viewer-title {
+      font-family:"VT323",monospace; font-size:1.1rem; color:#EFEFDF;
+      letter-spacing:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:70%;
+    }
+    .viewer-btn {
+      font-family:monospace; font-size:0.78rem; padding:0.3rem 0.8rem;
+      border:1px solid var(--primary); color:var(--primary); background:none;
+      text-decoration:none; cursor:pointer; transition:all 0.2s; letter-spacing:1px;
+    }
+    .viewer-btn:hover { background:var(--primary); color:white; }
+    .viewer-close { color:var(--primary); }
+    #viewer-frame { flex:1; border:none; width:100%; background:white; }
+</style>
 </head>
 <body>
-<!-- Navigation -->
+
 <nav class="navbar">
     <div class="custom-container">
         <div class="d-flex justify-content-between align-items-center w-100">
-            <div class="welcome-text">BLOC 5 - METTRE À DISPOSITION UN SERVICE</div>
+            <div class="welcome-text">BLOC 5 — METTRE À DISPOSITION DES UTILISATEURS UN SERVICE INFORMATIQUE</div>
             <a href="index.html" class="navbar-brand vt323-regular">NOUR_</a>
-            <div class="contact-info d-none d-md-block"></div>
+            <div class="contact-info d-none d-md-block">BTS SIO SLAM · EDF</div>
         </div>
     </div>
 </nav>
-
-<nav class="navbar navbar-expand-lg" style="padding-top: 0;">
+<nav class="navbar navbar-expand-lg" style="padding-top:0;">
     <div class="custom-container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
@@ -332,218 +129,127 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="index.html">ACCUEIL</a></li>
-                <li class="nav-item"><a class="nav-link" href="bloc1.html">BLOC 1</a></li>
-                <li class="nav-item"><a class="nav-link" href="bloc2.html">BLOC 2</a></li>
-                <li class="nav-item"><a class="nav-link" href="bloc3.html">BLOC 3</a></li>
-                <li class="nav-item"><a class="nav-link" href="bloc4.html">BLOC 4</a></li>
+                <li class="nav-item"><a class="nav-link" href="projets_competences.html">PROJETS</a></li>
+                <li class="nav-item"><a class="nav-link" href="projet1-details.html">BLOC 1</a></li>
+                <li class="nav-item"><a class="nav-link" href="projet2-details.html">BLOC 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="projet3-details.html">BLOC 3</a></li>
+                <li class="nav-item"><a class="nav-link" href="projet4-details.html">BLOC 4</a></li>
                 <li class="nav-item"><a class="nav-link-active" href="#">BLOC 5</a></li>
-                <li class="nav-item"><a class="nav-link" href="edf.html">EDF</a></li>
+                <li class="nav-item"><a class="nav-link" href="projet6-details.html">BLOC 6</a></li>
                 <li class="nav-item"><a class="nav-link" href="CV.html">CV</a></li>
                 <li class="nav-item"><a class="nav-link" href="veille.html">VEILLE</a></li>
                 <li class="nav-item"><a class="nav-link" href="e5.html">E5</a></li>
-                <li class="nav-item"><a class="nav-link" href="e6.html">E6</a></li>
+                
             </ul>
         </div>
     </div>
 </nav>
 
-<!-- Header -->
-<section class="header">
-    <div class="custom-container">
-        <div class="section-title">BLOC 5</div>
-        <h2 style="color: whitesmoke;">Mettre à disposition des utilisateurs un service informatique</h2>
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="bloc-badge">BLOC 5 · BTS SIO SLAM · ÉPREUVE E5</div>
+    <h1>Mettre à disposition des utilisateurs un service informatique</h1>
+    <div class="meta">Nour MESBAHI · Alternance EDF · 2024 – 2026</div>
+  </div>
+</div>
+
+<div class="comp-list">
+    <div class="comp-card">
+      <div class="comp-left">
+        <div class="comp-code">B5.1</div>
+        <div class="comp-label">RÉFÉRENTIEL<br>BTS SIO</div>
+      </div>
+      <div class="comp-right">
+        <div class="comp-desc">Réaliser les tests d'intégration et d'acceptation d'un service</div>
+        <p class="comp-task">Test d'intégration d'une <strong>PowerApp</strong> (projet personnel) via <strong>NGROK</strong> : exposition du serveur local en HTTPS public pour simuler les conditions réelles de production et valider les appels API.</p>
+        <div class="comp-proofs">
+          <a href="preuves/bloc5/ngrok_wordpress.pdf" onclick="openViewer('preuves/bloc5/ngrok_wordpress.pdf','WordPress + NGROK (Ubuntu)');return false;" class="proof-btn"><i class="fas fa-file-pdf"></i> WordPress + NGROK (Ubuntu)</a>
+        </div>
+      </div>
     </div>
-</section>
-
-<!-- Introduction -->
-<section class="content-section">
-    <div class="custom-container">
-        <div class="section-title">PRÉSENTATION</div>
-        <h2 class="content-heading">Tests, déploiement et accompagnement</h2>
-        <div class="row">
-            <div class="col-lg-8">
-                <p class="content-text">
-                    Ce bloc couvre la phase finale de mise en production d’un service : réalisation des tests d’intégration et d’acceptation, déploiement en conditions réelles, accompagnement des utilisateurs et documentation. L’ensemble de mes réalisations (formation et alternance) démontre ma capacité à livrer un service opérationnel, stable et adopté par les utilisateurs.
-                </p>
-            </div>
+    <div class="comp-card">
+      <div class="comp-left">
+        <div class="comp-code">B5.2</div>
+        <div class="comp-label">RÉFÉRENTIEL<br>BTS SIO</div>
+      </div>
+      <div class="comp-right">
+        <div class="comp-desc">Déployer un service</div>
+        <p class="comp-task">Déploiement d'une solution lors d'un <strong>hackathon</strong> en conditions réelles avec contrainte de temps. Utilisation de <strong>Nginx Proxy Manager</strong> sur Debian pour la mise en production.</p>
+        <div class="comp-proofs">
+          <a href="preuves/bloc5/hackathon_screenshot.png" onclick="openViewer('preuves/bloc5/hackathon_screenshot.png','Screenshot Hackathon');return false;" class="proof-btn"><i class="fas fa-image"></i> Screenshot Hackathon</a>
+          <a href="preuves/bloc5/procedure_nginx_proxy.pdf" onclick="openViewer('preuves/bloc5/procedure_nginx_proxy.pdf','Procédure Nginx Proxy');return false;" class="proof-btn"><i class="fas fa-file-pdf"></i> Procédure Nginx Proxy</a>
         </div>
+      </div>
     </div>
-</section>
-
-<!-- Tableau de correspondance compétences -->
-<section class="content-section alt" style="padding-top: 0;">
-    <div class="custom-container">
-        <div class="section-title">RÉFÉRENTIEL</div>
-        <h2 class="content-heading">Compétences du Bloc 5 couvertes</h2>
-        <table class="comp-table">
-            <thead>
-                <tr><th>Compétence officielle</th><th>Réalisation associée</th><th>Preuve</th></tr>
-            </thead>
-            <tbody>
-                <tr><td>Réaliser les tests d’intégration et d’acceptation d’un service</th><td>Tests de continuité (sauvegarde NAS) + tests d’intégration des applications Power Apps</th><td><a href="preuves/bloc5/realisation_03_test_continuite_sauvegarde.docx" target="_blank">Rapport de tests</a></th></tr>
-                <tr><td>Déployer un service</th><td>Déploiement d’un site web (nov.2025-fév.2026) + déploiement d’applications Power Platform</th><td><a href="preuves/bloc3/realisation_17_deploiement_site_npm.docx" target="_blank">Procédure déploiement</a></th></tr>
-                <tr><td>Accompagner les utilisateurs dans la mise en place d’un service</th><td>Rédaction de documentation utilisateur + animation de réunions métier + formation utilisateurs</th><td><a href="preuves/bloc5/realisation_15_documentations_techniques.docx" target="_blank">Guide utilisateur</a></th></tr>
-            </tbody>
-        </table>
+    <div class="comp-card">
+      <div class="comp-left">
+        <div class="comp-code">B5.3</div>
+        <div class="comp-label">RÉFÉRENTIEL<br>BTS SIO</div>
+      </div>
+      <div class="comp-right">
+        <div class="comp-desc">Accompagner les utilisateurs dans la mise en place d'un service</div>
+        <p class="comp-task">Création de <strong>maquettes Power Platform</strong> pour accompagner les utilisateurs dans la prise en main du service : écrans annotés, flux pas-à-pas, guide visuel.</p>
+        <div class="comp-proofs">
+          <a href="preuves/bloc5/maquette_powerplatform_1.png" onclick="openViewer('preuves/bloc5/maquette_powerplatform_1.png','Maquette 1');return false;" class="proof-btn"><i class="fas fa-image"></i> Maquette 1</a>
+          <a href="preuves/bloc5/maquette_powerplatform_2.png" onclick="openViewer('preuves/bloc5/maquette_powerplatform_2.png','Maquette 2');return false;" class="proof-btn"><i class="fas fa-image"></i> Maquette 2</a>
+          <a href="preuves/bloc5/maquette_powerplatform_3.png" onclick="openViewer('preuves/bloc5/maquette_powerplatform_3.png','Maquette 3');return false;" class="proof-btn"><i class="fas fa-image"></i> Maquette 3</a>
+          <a href="preuves/bloc5/maquette_powerplatform_4.png" onclick="openViewer('preuves/bloc5/maquette_powerplatform_4.png','Maquette 4');return false;" class="proof-btn"><i class="fas fa-image"></i> Maquette 4</a>
+        </div>
+      </div>
     </div>
-</section>
+</div>
 
-<!-- Réalisations détaillées -->
-<section class="content-section alt">
-    <div class="custom-container">
-        <div class="section-title">RÉALISATIONS</div>
-        <h2 class="content-heading">Preuves des compétences Bloc 5</h2>
-
-        <!-- 1. Tests d’intégration et d’acceptation (sauvegarde NAS) -->
-        <div class="competence-card">
-            <div class="competence-counter">01</div>
-            <h3>Tests d’intégration et de continuité – Sauvegarde NAS</h3>
-            <p><strong>Période :</strong> Janvier 2025</p>
-            <p><strong>Action :</strong> Conception et exécution des tests d’intégration de la solution de sauvegarde (vérification des flux, restauration complète). Tests d’acceptation avec les utilisateurs clés pour valider la RPO/RTO.</p>
-            <p><strong>Résultat :</strong> RPO = 1h, RTO = 4h, validation formelle des utilisateurs. Rapport de tests complet.</p>
-            <div class="tags"><span>Tests intégration</span><span>Tests acceptation</span><span>Continuité</span></div>
-            <a href="preuves/bloc5/realisation_03_test_continuite_sauvegarde.docx" target="_blank" class="competence-link">Voir le rapport de tests <i class="fas fa-file-alt"></i></a>
-        </div>
-
-        <!-- 2. Déploiement d’un site web -->
-        <div class="competence-card">
-            <div class="competence-counter">02</div>
-            <h3>Déploiement d’un site web en production</h3>
-            <p><strong>Période :</strong> Novembre 2025 – Février 2026</p>
-            <p><strong>Action :</strong> Préparation de l’environnement de production, migration des données, configuration du serveur, tests de non-régression, plan de rollback.</p>
-            <p><strong>Résultat :</strong> Site déployé sans interruption de service, zéro incident critique post-déploiement.</p>
-            <div class="tags"><span>Déploiement</span><span>Production</span><span>Rollback</span></div>
-            <a href="preuves/bloc3/realisation_17_deploiement_site_npm.docx" target="_blank" class="competence-link">Voir la procédure de déploiement <i class="fas fa-cloud-upload-alt"></i></a>
-        </div>
-
-        <!-- 3. Rédaction de documentation utilisateur -->
-        <div class="competence-card">
-            <div class="competence-counter">03</div>
-            <h3>Rédaction de documentation utilisateur</h3>
-            <p><strong>Période :</strong> 2024-2025</p>
-            <p><strong>Action :</strong> Création de guides pas-à-pas, FAQ, tutoriels vidéo pour les applications déployées (Power Apps, SharePoint, outil d’habilitation).</p>
-            <p><strong>Résultat :</strong> Réduction de 30% des demandes de support, autonomie accrue des utilisateurs.</p>
-            <div class="tags"><span>Documentation</span><span>Utilisateur</span><span>Formation</span></div>
-            <a href="preuves/bloc5/realisation_15_documentations_techniques.docx" target="_blank" class="competence-link">Voir un extrait du guide <i class="fas fa-book"></i></a>
-        </div>
-
-        <!-- 4. Accompagnement utilisateur – Formation et support -->
-        <div class="competence-card">
-            <div class="competence-counter">04</div>
-            <h3>Accompagnement des utilisateurs – Formation et support</h3>
-            <p><strong>Période :</strong> 2025</p>
-            <p><strong>Action :</strong> Animation de sessions de formation (présentiel et à distance) pour les nouveaux services. Rédaction de fiches d’aide et d’un plan de gestion du changement.</p>
-            <p><strong>Résultat :</strong> Taux d’adoption du service > 90% à 1 mois, retours utilisateurs positifs.</p>
-            <div class="tags"><span>Formation</span><span>Gestion du changement</span><span>Support</span></div>
-            <a href="preuves/bloc5/realisation_15_documentations_techniques.docx" target="_blank" class="competence-link">Voir le support de formation <i class="fas fa-chalkboard-user"></i></a>
-        </div>
-
-        <!-- 5. Déploiement d’applications Power Platform (Power Apps + Automate) -->
-        <div class="competence-card">
-            <div class="competence-counter">05</div>
-            <h3>Déploiement d’applications Power Platform</h3>
-            <p><strong>Période :</strong> 2024-2025</p>
-            <p><strong>Action :</strong> Déploiement des applications d’habilitation prestataires, synchronisation calendriers et gestion de parc. Configuration des environnements, migration des données, tests d’acceptation utilisateurs.</p>
-            <p><strong>Résultat :</strong> 3 applications en production, utilisées par 150+ collaborateurs, gain de temps estimé à 10h/semaine.</p>
-            <div class="tags"><span>Power Apps</span><span>Déploiement</span><span>Acceptation</span></div>
-            <a href="preuves/bloc2/realisation_10_app_habilitations_prestataires.docx" target="_blank" class="competence-link">Voir le rapport de déploiement <i class="fab fa-microsoft"></i></a>
-        </div>
+<!-- Viewer iframe modal -->
+<div id="viewer-overlay" onclick="if(event.target===this)closeViewer()">
+  <div id="viewer-box">
+    <div id="viewer-bar">
+      <span id="viewer-title"></span>
+      <div style="display:flex;gap:0.5rem;align-items:center;">
+        <a id="viewer-ext" href="#" target="_blank" class="viewer-btn">
+          <i class="fas fa-external-link-alt"></i> Ouvrir
+        </a>
+        <button onclick="closeViewer()" class="viewer-btn viewer-close">
+          <i class="fas fa-times"></i> Fermer
+        </button>
+      </div>
     </div>
-</section>
+    <iframe id="viewer-frame" src="" allowfullscreen></iframe>
+  </div>
+</div>
 
-<!-- Outils et méthodes -->
-<section class="content-section">
-    <div class="custom-container">
-        <div class="section-title">OUTILS & MÉTHODES</div>
-        <h2 class="content-heading">Environnement de test et déploiement</h2>
-        <div class="skills-grid">
-            <div class="skill-item"><i class="fas fa-vial"></i><h3>Tests d’intégration</h3><p>JUnit, Postman, tests manuels de recette.</p></div>
-            <div class="skill-item"><i class="fas fa-rocket"></i><h3>Déploiement</h3><p>FTP, Docker, scripts de migration, plan de rollback.</p></div>
-            <div class="skill-item"><i class="fas fa-life-ring"></i><h3>Accompagnement</h3><p>Formation, documentation, support utilisateur.</p></div>
-            <div class="skill-item"><i class="fas fa-chart-line"></i><h3>Suivi post-déploiement</h3><p>Indicateurs d’adoption, remontées utilisateurs.</p></div>
-        </div>
-    </div>
-</section>
-
-<!-- Retour -->
-<section class="content-section" style="padding-top: 3rem; padding-bottom: 3rem;">
-    <div class="custom-container">
-        <a href="projets_competences.html" class="btn btn-primary"><i class="fas fa-arrow-left me-2"></i>Retour à l'accueil</a>
-    </div>
-</section>
-
-<!-- Footer -->
 <footer>
-    <div class="custom-container">
-        <div class="row">
-            <div class="col-md-6"><p>&copy; 2025 Nour MESBAHI. Tous droits réservés.</p></div>
-            <div class="col-md-6 d-flex justify-content-md-end">
-                <div class="footer-links me-4">
-                    <a href="index.html">Accueil</a>
-                    <a href="bloc1.html">Bloc 1</a>
-                    <a href="bloc2.html">Bloc 2</a>
-                    <a href="bloc3.html">Bloc 3</a>
-                    <a href="bloc4.html">Bloc 4</a>
-                    <a href="#">Bloc 5</a>
-                    <a href="CV.html">CV</a>
-                    <a href="veille.html">Veille</a>
-                    <a href="e5.html">E5</a>
-                    <a href="e6.html">E6</a>
-                </div>
-                <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
-            </div>
-        </div>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="index.html">ACCUEIL</a>
+      <a href="projets_competences.html">PROJETS</a>
+      <a href="projet1-details.html">BLOC 1</a>
+      <a href="projet2-details.html">BLOC 2</a>
+      <a href="projet3-details.html">BLOC 3</a>
+      <a href="projet4-details.html">BLOC 4</a>
+      <a href="projet5-details.html">BLOC 5</a>
+      <a href="projet6-details.html">BLOC 6</a>
+      <a href="CV.html">CV</a>
+      <a href="veille.html">VEILLE</a>
+      <a href="e5.html">E5</a>
     </div>
+  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) navbar.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-        else navbar.style.boxShadow = 'none';
-    });
-</script>
-
-<!-- Visionneuse documents -->
-<div id="docViewer" onclick="if(event.target===this)closeDocViewer()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.82);z-index:9999;align-items:center;justify-content:center;padding:1.5rem;">
-    <div style="background:white;width:100%;max-width:1000px;height:90vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,0.5);">
-        <div style="display:flex;justify-content:space-between;align-items:center;padding:0.8rem 1.25rem;background:#212121;flex-shrink:0;">
-            <span id="viewerTitle" style="font-family:'VT323',monospace;font-size:1.1rem;letter-spacing:2px;color:#EFEFDF;max-width:80%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"></span>
-            <button onclick="closeDocViewer()" style="background:none;border:1px solid #FF5722;color:#FF5722;font-family:'VT323',monospace;font-size:1rem;padding:0.3rem 0.9rem;cursor:pointer;letter-spacing:1px;transition:all 0.2s;" onmouseover="this.style.background='#FF5722';this.style.color='white'" onmouseout="this.style.background='none';this.style.color='#FF5722'">✕ FERMER</button>
-        </div>
-        <iframe id="viewerFrame" src="" style="flex:1;border:none;width:100%;" allowfullscreen></iframe>
-    </div>
-</div>
-<script>
-function openDocViewer(href, label) {
-    var src = href;
-    if (/\.docx?$/i.test(href)) {
-        src = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(new URL(href, window.location.href).href);
-    }
-    document.getElementById('viewerFrame').src = src;
-    document.getElementById('viewerTitle').textContent = label || href.split('/').pop();
-    document.getElementById('docViewer').style.display = 'flex';
-    document.body.style.overflow = 'hidden';
+function openViewer(href, label) {
+  document.getElementById('viewer-frame').src = href;
+  document.getElementById('viewer-title').textContent = label;
+  document.getElementById('viewer-ext').href = href;
+  document.getElementById('viewer-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
-function closeDocViewer() {
-    document.getElementById('docViewer').style.display = 'none';
-    document.getElementById('viewerFrame').src = '';
-    document.body.style.overflow = '';
+function closeViewer() {
+  document.getElementById('viewer-overlay').classList.remove('open');
+  document.getElementById('viewer-frame').src = '';
+  document.body.style.overflow = '';
 }
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeDocViewer(); });
-document.querySelectorAll('a[href]').forEach(function(a) {
-    if (/\.(docx?|pdf)$/i.test(a.getAttribute('href') || '')) {
-        a.removeAttribute('target');
-        a.addEventListener('click', function(e) {
-            e.preventDefault();
-            openDocViewer(this.getAttribute('href'), this.textContent.trim());
-        });
-    }
-});
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeViewer(); });
 </script>
 </body>
 </html>

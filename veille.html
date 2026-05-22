@@ -1,559 +1,1074 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille technologique - Interfaces cerveau-machine | Nour MESBAHI</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #FF5722;
-            --secondary: #212121;
-            --dark: #121212;
-            --gray: #555;
-            --beige: #EFEFDF;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            background-color: var(--beige);
-            font-family: monospace;
-            color: var(--dark);
-            line-height: 1.6;
-        }
-        .custom-container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        .navbar {
-            background-color: var(--beige);
-            padding: 1rem 0;
-            border-bottom: 1px solid #ddd;
-        }
-        .navbar-brand {
-            font-family: "VT323", monospace;
-            font-weight: 400;
-            font-size: 1.5rem;
-            color: var(--dark);
-        }
-        .nav-link {
-            color: var(--dark);
-            font-family: monospace;
-            font-size: 0.9rem;
-            margin-left: 1.5rem;
-        }
-        .nav-link:hover, .nav-link-active {
-            color: var(--primary);
-        }
-        .welcome-text, .contact-info {
-            font-family: monospace;
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-        .header {
-            background-color: var(--secondary);
-            color: white;
-            padding: 6rem 0 3rem;
-            margin-bottom: 2rem;
-        }
-        .header h1 {
-            font-family: "VT323", monospace;
-            font-size: 3rem;
-        }
-        .section-title {
-            font-family: "VT323", monospace;
-            font-size: 1.2rem;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-        }
-        .content-heading {
-            font-family: "VT323", monospace;
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-        .veille-card {
-            background-color: white;
-            border-left: 4px solid var(--primary);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .veille-card:hover {
-            transform: translateY(-5px);
-        }
-        .veille-card h3 {
-            font-family: "VT323", monospace;
-            font-size: 1.6rem;
-            margin-bottom: 0.5rem;
-        }
-        .veille-date {
-            color: var(--primary);
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-        .tag {
-            background-color: rgba(255, 87, 34, 0.1);
-            color: var(--primary);
-            padding: 0.2rem 0.6rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .btn-outline-primary {
-            border-color: var(--primary);
-            color: var(--primary);
-            font-family: "VT323", monospace;
-        }
-        .btn-outline-primary:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        .footer-links a {
-            color: white;
-            margin-right: 1.5rem;
-            text-decoration: none;
-        }
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-        @media (max-width: 768px) {
-            .header h1 { font-size: 2rem; }
-            .content-heading { font-size: 1.6rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veille technologique — Interfaces Cerveau-Machine | Nour MESBAHI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FF5722;
+      --secondary: #212121;
+      --dark: #121212;
+      --gray: #777;
+      --beige: #EFEFDF;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:sans-serif; background:var(--beige); color:var(--dark); line-height:1.6; overflow-x:hidden; }
+
+    .custom-container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+    .navbar { background-color:var(--beige); padding:1rem 0; border-bottom:1px solid #ddd; transition:all 0.3s; }
+    .navbar-brand { font-family:"VT323",monospace; font-weight:400; font-size:1.5rem; color:var(--dark); text-decoration:none; letter-spacing:1px; }
+    .nav-link { color:var(--dark); font-weight:500; margin-left:1.5rem; font-family:monospace; font-size:0.9rem; transition:color 0.3s; text-decoration:none; }
+    .nav-link:hover { color:var(--primary); }
+    .nav-link-active { color:var(--primary); font-weight:600; margin-left:1.5rem; font-family:monospace; font-size:0.9rem; text-decoration:none; }
+    .welcome-text, .contact-info { font-family:monospace; font-size:0.8rem; color:var(--gray); letter-spacing:1px; }
+
+    /* ── Page header ── */
+    .page-header { background:var(--secondary); color:white; padding:4rem 0 3rem; }
+    .page-header-inner { max-width:1200px; margin:0 auto; padding:0 2rem; }
+    .bloc-badge { font-family:"VT323",monospace; font-size:0.9rem; color:var(--primary);
+      letter-spacing:4px; text-transform:uppercase; margin-bottom:0.5rem; }
+    .page-header h1 { font-family:"VT323",monospace; font-size:2.8rem; font-weight:400; margin-bottom:0.8rem; }
+    .page-header .meta { font-family:monospace; font-size:0.78rem; color:#aaa; letter-spacing:1px; }
+    .update-badge {
+      display:inline-flex; align-items:center; gap:0.4rem;
+      font-family:monospace; font-size:0.72rem;
+      background:var(--primary); color:white;
+      padding:0.25rem 0.7rem; letter-spacing:1px; margin-top:0.8rem;
+    }
+    .header-bullets {
+      margin-top:1.2rem; list-style:none; padding:0;
+      font-family:monospace; font-size:0.82rem; color:#ccc;
+    }
+    .header-bullets li { margin-bottom:0.3rem; }
+    .header-bullets li::before { content:"▸ "; color:var(--primary); }
+
+    /* ── Stats bar ── */
+    .stats-bar {
+      background:var(--dark); color:white;
+      padding:1.2rem 0; border-bottom:3px solid var(--primary);
+    }
+    .stats-bar .custom-container {
+      display:grid; grid-template-columns:repeat(4,1fr); gap:1rem;
+    }
+    .stat-block { text-align:center; }
+    .stat-num {
+      font-family:"VT323",monospace; font-size:2.4rem;
+      color:var(--primary); line-height:1;
+    }
+    .stat-label {
+      font-family:monospace; font-size:0.65rem;
+      color:#aaa; letter-spacing:1px; text-transform:uppercase;
+      margin-top:0.2rem;
+    }
+
+    /* ── Filter bar ── */
+    .filter-bar {
+      background:white; border-bottom:1px solid #ddd;
+      padding:0.8rem 0; position:sticky; top:0; z-index:100;
+    }
+    .filter-bar .custom-container {
+      display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap;
+    }
+    .filter-label {
+      font-family:monospace; font-size:0.72rem; color:var(--gray);
+      letter-spacing:1px; margin-right:0.3rem; white-space:nowrap;
+    }
+    .filter-btn {
+      font-family:monospace; font-size:0.72rem;
+      padding:0.3rem 0.8rem; border:1px solid #ccc;
+      background:none; color:var(--dark); cursor:pointer;
+      transition:all 0.2s; letter-spacing:1px; white-space:nowrap;
+    }
+    .filter-btn:hover { border-color:var(--primary); color:var(--primary); }
+    .filter-btn.active {
+      background:var(--primary); color:white; border-color:var(--primary);
+    }
+    .filter-sep {
+      width:1px; height:20px; background:#ddd; margin:0 0.3rem; flex-shrink:0;
+    }
+
+    /* ── Main layout ── */
+    .veille-main { max-width:1200px; margin:0 auto; padding:3rem 2rem; }
+
+    /* ── Year divider ── */
+    .year-divider {
+      font-family:"VT323",monospace; font-size:1rem;
+      color:var(--primary); letter-spacing:6px;
+      padding:0.6rem 1rem; background:var(--secondary); color:white;
+      margin-bottom:1.5rem; margin-top:2.5rem;
+      display:flex; align-items:center; gap:1rem;
+    }
+    .year-divider .yd-year { color:var(--primary); font-size:1.6rem; }
+    .year-divider .yd-count {
+      font-family:monospace; font-size:0.7rem;
+      color:#aaa; letter-spacing:2px;
+      border-left:1px solid #444; padding-left:1rem;
+    }
+
+    /* ── Article cards ── */
+    .article-col { margin-bottom:1.5rem; }
+    .veille-card {
+      background:white; border-left:4px solid var(--primary);
+      height:100%; display:flex; flex-direction:column;
+      transition:box-shadow 0.2s;
+    }
+    .veille-card:hover { box-shadow:0 4px 20px rgba(255,87,34,0.15); }
+    .card-header-strip {
+      background:var(--secondary); padding:0.5rem 1rem;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .card-num {
+      font-family:"VT323",monospace; font-size:1.1rem;
+      color:var(--primary); letter-spacing:2px;
+    }
+    .card-date {
+      font-family:monospace; font-size:0.68rem;
+      color:#aaa; letter-spacing:1px;
+    }
+    .card-body-inner { padding:1.2rem; flex:1; display:flex; flex-direction:column; }
+    .card-cat-badge {
+      display:inline-block; font-family:monospace; font-size:0.62rem;
+      letter-spacing:2px; text-transform:uppercase;
+      padding:0.15rem 0.5rem; margin-bottom:0.6rem;
+      border:1px solid var(--primary); color:var(--primary);
+    }
+    .card-cat-badge.cat-recherche   { border-color:#0066cc; color:#0066cc; }
+    .card-cat-badge.cat-ethique     { border-color:#7b2d8b; color:#7b2d8b; }
+    .card-cat-badge.cat-marche      { border-color:#2e7d32; color:#2e7d32; }
+    .card-cat-badge.cat-technologie { border-color:var(--primary); color:var(--primary); }
+    .card-cat-badge.cat-medical     { border-color:#c62828; color:#c62828; }
+
+    .veille-card h3 {
+      font-family:"VT323",monospace; font-size:1.35rem;
+      color:var(--dark); margin-bottom:0.6rem; line-height:1.25;
+    }
+    .veille-card p { font-family:monospace; font-size:0.8rem; color:#555; line-height:1.6; flex:1; }
+    .card-tags { margin-top:0.8rem; }
+    .tag {
+      background:rgba(255,87,34,0.08); color:var(--primary);
+      padding:0.15rem 0.5rem; font-size:0.65rem; font-family:monospace;
+      display:inline-block; margin-right:0.3rem; margin-bottom:0.3rem;
+      letter-spacing:0.5px;
+    }
+    .card-link {
+      display:inline-flex; align-items:center; gap:0.3rem;
+      font-family:monospace; font-size:0.72rem; color:var(--primary);
+      text-decoration:none; border:1px solid var(--primary);
+      padding:0.3rem 0.7rem; margin-top:0.8rem;
+      transition:all 0.2s; align-self:flex-start;
+    }
+    .card-link:hover { background:var(--primary); color:white; }
+
+    /* ── No results ── */
+    .no-results {
+      display:none; text-align:center; padding:3rem;
+      font-family:"VT323",monospace; font-size:1.8rem;
+      color:#aaa; letter-spacing:2px;
+    }
+
+    /* ── Section titles ── */
+    .section-heading {
+      font-family:"VT323",monospace; font-size:2rem;
+      color:var(--dark); margin-bottom:1.5rem; margin-top:3rem;
+      border-left:4px solid var(--primary); padding-left:1rem;
+    }
+    .section-sub {
+      font-family:monospace; font-size:0.78rem; color:var(--gray);
+      margin-top:-1rem; margin-bottom:1.5rem; padding-left:1.3rem;
+    }
+
+    /* ── Actors grid ── */
+    .actor-card {
+      background:white; padding:1.2rem; height:100%;
+      border-top:3px solid var(--primary); text-align:center;
+    }
+    .actor-icon { font-size:1.6rem; color:var(--primary); margin-bottom:0.5rem; }
+    .actor-name { font-family:"VT323",monospace; font-size:1.2rem; margin-bottom:0.3rem; }
+    .actor-desc { font-family:monospace; font-size:0.72rem; color:#555; }
+
+    /* ── Analysis cards ── */
+    .analysis-card {
+      background:white; border-left:4px solid var(--primary);
+      padding:1.5rem; margin-bottom:1.5rem;
+    }
+    .analysis-card h3 {
+      font-family:"VT323",monospace; font-size:1.5rem;
+      margin-bottom:0.8rem;
+    }
+    .analysis-card ul {
+      font-family:monospace; font-size:0.82rem; color:#555;
+      padding-left:1.2rem; line-height:2;
+    }
+    .analysis-card p { font-family:monospace; font-size:0.82rem; color:#555; line-height:1.7; }
+
+    /* ── Trend row ── */
+    .trend-item {
+      display:flex; align-items:flex-start; gap:0.8rem;
+      font-family:monospace; font-size:0.8rem; color:#555;
+      margin-bottom:0.8rem;
+    }
+    .trend-icon {
+      font-size:1rem; color:var(--primary); flex-shrink:0; margin-top:0.1rem;
+    }
+
+    /* ── Methodology ── */
+    .method-card {
+      background:var(--secondary); color:white;
+      padding:1.5rem; height:100%;
+    }
+    .method-card .method-icon {
+      font-size:1.5rem; color:var(--primary); margin-bottom:0.6rem;
+    }
+    .method-card h4 {
+      font-family:"VT323",monospace; font-size:1.2rem;
+      margin-bottom:0.5rem; letter-spacing:1px;
+    }
+    .method-card p, .method-card small {
+      font-family:monospace; font-size:0.75rem; color:#ccc; line-height:1.6;
+    }
+    .method-card em { color:var(--primary); font-style:normal; }
+
+    /* ── Sources sidebar-style block ── */
+    .sources-block {
+      background:white; border-left:4px solid var(--primary);
+      padding:1.5rem; margin-bottom:2rem;
+    }
+    .sources-block h3 {
+      font-family:"VT323",monospace; font-size:1.4rem; margin-bottom:1rem;
+    }
+    .source-item {
+      display:flex; align-items:center; gap:0.6rem;
+      font-family:monospace; font-size:0.78rem;
+      margin-bottom:0.6rem; color:#555;
+    }
+    .source-item i { color:var(--primary); width:16px; text-align:center; }
+    .source-item a { color:var(--dark); text-decoration:none; }
+    .source-item a:hover { color:var(--primary); }
+
+    /* ── Footer ── */
+    footer { background:var(--secondary); color:#aaa; padding:2rem 0; margin-top:2rem; }
+    .footer-inner { max-width:1200px; margin:0 auto; padding:0 2rem;
+      display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .footer-inner p { font-family:monospace; font-size:0.78rem; }
+    .footer-links { display:flex; gap:1.2rem; flex-wrap:wrap; }
+    .footer-links a { font-family:monospace; font-size:0.78rem; color:#aaa; text-decoration:none; }
+    .footer-links a:hover { color:var(--primary); }
+
+    /* ── Responsive ── */
+    @media (max-width:768px) {
+      .stats-bar .custom-container { grid-template-columns:repeat(2,1fr); }
+      .page-header h1 { font-size:2rem; }
+      .filter-bar .custom-container { gap:0.3rem; }
+    }
+  </style>
 </head>
 <body>
-<!-- Navigation -->
+
+<!-- ── Navbar ── -->
 <nav class="navbar">
-    <div class="custom-container">
-        <div class="d-flex justify-content-between align-items-center w-100">
-            <div class="welcome-text">VEILLE TECHNOLOGIQUE</div>
-            <a href="index.html" class="navbar-brand">NOUR_</a>
-            <div class="contact-info d-none d-md-block">CONTACT@MAIL.COM</div>
-        </div>
+  <div class="custom-container">
+    <div class="d-flex justify-content-between align-items-center w-100">
+      <div class="welcome-text">VEILLE TECHNOLOGIQUE — INTERFACES CERVEAU-MACHINE</div>
+      <a href="index.html" class="navbar-brand vt323-regular">NOUR_</a>
+      <div class="contact-info d-none d-md-block">BTS SIO SLAM · EDF</div>
     </div>
+  </div>
+</nav>
+<nav class="navbar navbar-expand-lg" style="padding-top:0;">
+  <div class="custom-container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">ACCUEIL</a></li>
+        <li class="nav-item"><a class="nav-link" href="projets_competences.html">PROJETS</a></li>
+        <li class="nav-item"><a class="nav-link" href="projet1-details.html">BLOC 1</a></li>
+        <li class="nav-item"><a class="nav-link" href="projet2-details.html">BLOC 2</a></li>
+        <li class="nav-item"><a class="nav-link" href="projet3-details.html">BLOC 3</a></li>
+        <li class="nav-item"><a class="nav-link" href="projet4-details.html">BLOC 4</a></li>
+        <li class="nav-item"><a class="nav-link" href="projet5-details.html">BLOC 5</a></li>
+        <li class="nav-item"><a class="nav-link" href="projet6-details.html">BLOC 6</a></li>
+        <li class="nav-item"><a class="nav-link" href="CV.html">CV</a></li>
+        <li class="nav-item"><a class="nav-link-active" href="#">VEILLE</a></li>
+        <li class="nav-item"><a class="nav-link" href="e5.html">E5</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<nav class="navbar navbar-expand-lg" style="padding-top: 0;">
-    <div class="custom-container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="index.html">ACCUEIL</a></li>
-                <li class="nav-item"><a class="nav-link" href="projets_competences.html">PROJETS</a></li>
-                <li class="nav-item"><a class="nav-link" href="edf.html">EDF</a></li>
-                <li class="nav-item"><a class="nav-link" href="CV.html">CV</a></li>
-                <li class="nav-item"><a class="nav-link-active" href="#">VEILLE</a></li>
-                <li class="nav-item"><a class="nav-link" href="e5.html">E5</a></li>
-                <li class="nav-item"><a class="nav-link" href="e6.html">E6</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Header -->
-<section class="header">
-    <div class="custom-container">
-        <div class="section-title">VEILLE TECHNOLOGIQUE</div>
-        <h1>Interfaces Cerveau-Machine (BCI)</h1>
-        <p>Suivi des avancées, acteurs et enjeux – Mise à jour avril 2026</p>
-    </div>
-</section>
-
-<!-- Introduction -->
-<div class="custom-container">
-    <div class="row mb-5">
-        <div class="col-lg-8">
-            <h2 class="content-heading">Pourquoi cette veille ?</h2>
-            <p>Les interfaces cerveau-machine (Brain-Computer Interfaces) sont au carrefour des neurosciences, de l’IA et de l’électronique. Leur potentiel est immense : restaurer la mobilité de personnes paralysées, contrôler des objets par la pensée, ou augmenter les capacités cognitives. Cette veille, alimentée par <strong>Google Alerts</strong> et des flux RSS spécialisés, suit mensuellement les percées scientifiques, les annonces industrielles et les débats éthiques.</p>
-            <p><span class="tag">Stratégie</span><span class="tag">Google Alerts</span><span class="tag">Feedly</span><span class="tag">Newsletters</span></p>
-        </div>
-        <div class="col-lg-4">
-            <div class="bg-white p-3" style="border-left: 4px solid var(--primary);">
-                <h3 style="font-family: 'VT323', monospace;">Sources principales</h3>
-                <ul style="list-style: none; padding-left: 0;">
-                    <li><i class="fas fa-rss"></i> <a href="https://www.nature.com/subjects/brain-computer-interface" target="_blank" rel="noopener">Nature Neuroscience</a></li>
-                    <li><i class="fab fa-twitter"></i> <a href="https://twitter.com/neuralink" target="_blank" rel="noopener">@Neuralink</a></li>
-                    <li><i class="fas fa-newspaper"></i> <a href="https://www.technologyreview.com/topic/brain-computer-interfaces/" target="_blank" rel="noopener">MIT Technology Review</a></li>
-                    <li><i class="fas fa-university"></i> <a href="https://wysscenter.ch" target="_blank" rel="noopener">Wyss Center</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Synthèse des actualités récentes (sources réelles) -->
-    <h2 class=”content-heading”>Actualités marquantes (Sept. 2024 – Mai 2026)</h2>
-
-    <div class=”row”>
-        <!-- ── AVRIL 2026 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Avril 2026</div>
-                <h3>Cognixion ONE : casque BCI non invasif en pré-commercialisation</h3>
-                <p>Cognixion annonce la mise en pré-commercialisation de son casque BCI non invasif « ONE » destiné aux personnes atteintes de SLA ou de paralysie. Le dispositif traduit les signaux cérébraux EEG en commandes pour interfaces numériques, sans implant chirurgical.</p>
-                <div><span class=”tag”>Cognixion</span><span class=”tag”>Non invasif</span><span class=”tag”>EEG</span></div>
-                <a href=”https://cognixion.com/one” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── MARS 2026 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Mars 2026</div>
-                <h3>Neuralink : 21 patients implantés – Bilan des essais</h3>
-                <p>Selon un article du Journal du Geek, Neuralink a implanté 21 patients. L’entreprise publie des résultats encourageants sur la durée de vie des implants et la précision du contrôle. Chaque participant peut désormais contrôler un curseur ou un bras robotique par la seule pensée.</p>
-                <div><span class=”tag”>Neuralink</span><span class=”tag”>Essai clinique</span></div>
-                <a href=”https://www.journaldugeek.com/neuralink-21-patients-implantes-beaucoup-trop/” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── FÉVRIER 2026 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Février 2026</div>
-                <h3>UNESCO : recommandations mondiales sur l’éthique des neurotechnologies</h3>
-                <p>L’UNESCO publie ses premières recommandations mondiales encadrant l’usage des neurotechnologies. Le texte insiste sur la « vie privée neuronale », le consentement éclairé et l’interdiction d’exploitation des données cérébrales à des fins de surveillance ou de discrimination.</p>
-                <div><span class=”tag”>UNESCO</span><span class=”tag”>Éthique</span><span class=”tag”>Réglementation</span></div>
-                <a href=”https://www.cortex-mag.net/neurotechnologies-des-jalons-sur-leur-ethique-poses-a-lunesco/” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── JANVIER 2026 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Janvier 2026</div>
-                <h3>Neuralink : sept patients participent à l’essai clinique au Royaume-Uni</h3>
-                <p>L’hôpital national de neurologie et neurochirurgie de Londres (UCLH) annonce que sept patients britanniques participent à l’essai PRIME de Neuralink, première expansion internationale du programme. Les résultats préliminaires confirment la stabilité des électrodes sur 6 mois.</p>
-                <div><span class=”tag”>Neuralink</span><span class=”tag”>International</span><span class=”tag”>UCLH</span></div>
-                <a href=”https://www.uclh.nhs.uk/news/seven-gb-prime-patients-now-participating-neuralink-trial” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── DÉCEMBRE 2025 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Décembre 2025</div>
-                <h3>Bilan BCI 2025 : une année charnière pour les interfaces cerveau-machine</h3>
-                <p>MIT Technology Review dresse le bilan de l’année 2025 pour les BCI : 5 entreprises ont atteint le stade des essais humains, le financement mondial a dépassé 2 milliards de dollars, et la réglementation FDA a été clarifiée. Les interfaces non invasives (EEG, fNIRS) progressent vers le grand public.</p>
-                <div><span class=”tag”>Bilan annuel</span><span class=”tag”>Marché</span><span class=”tag”>Réglementation</span></div>
-                <a href=”https://www.technologyreview.com” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── NOVEMBRE 2025 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Novembre 2025</div>
-                <h3>Rapport Mordor Intelligence : le marché BCI atteindra 6,2 Mds$ en 2030</h3>
-                <p>Mordor Intelligence publie son rapport semestriel sur le marché mondial des BCI. Croissance annuelle estimée à +15,8% jusqu’en 2030. Les applications médicales (paralysie, épilepsie, Parkinson) représentent 68% du marché. L’Asie-Pacifique émerge comme nouveau pôle d’investissement.</p>
-                <div><span class=”tag”>Marché</span><span class=”tag”>Chiffres</span><span class=”tag”>Prévisions</span></div>
-                <a href=”https://www.mordorintelligence.com/fr/industry-reports/brain-computer-interface-market” target=”_blank” rel=”noopener”>Lire le rapport →</a>
-            </div>
-        </div>
-        <!-- ── OCTOBRE 2025 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Octobre 2025</div>
-                <h3>Chine : accélération des investissements BCI – 12 projets publics financés</h3>
-                <p>Le gouvernement chinois annonce le financement de 12 projets nationaux de recherche BCI dans le cadre du plan « Cerveau 2030 ». L’objectif affiché : atteindre la parité technologique avec les États-Unis en neurotechnologies d’ici 2030, en ciblant les applications militaires et médicales.</p>
-                <div><span class=”tag”>Chine</span><span class=”tag”>Géopolitique</span><span class=”tag”>R&D</span></div>
-                <a href=”https://www.nature.com/articles/s41586-021-03962-w” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── SEPTEMBRE 2025 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Septembre 2025</div>
-                <h3>Stanford décode la « parole intérieure » avec une précision de 74%</h3>
-                <p>Des chercheurs de Stanford sont parvenus à décoder des phrases imaginées par des patients grâce à une BCI haute densité implantée dans le cortex moteur. Une avancée majeure pour la communication des personnes “locked-in” : 74% de phrases correctement restituées en temps réel.</p>
-                <div><span class=”tag”>Stanford</span><span class=”tag”>Décodage</span><span class=”tag”>Parole intérieure</span></div>
-                <a href=”https://theconversation.com/interface-cerveau-machine-decode-la-parole-interne-une-avancee-prometteuse-244870” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── AOÛT 2025 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Août 2025</div>
-                <h3>Neuralink : bilan à 12 mois – 9 patients actifs, nouveaux usages</h3>
-                <p>Neuralink publie son rapport de suivi à 12 mois pour ses premiers patients. Parmi les avancées : contrôle de fauteuil roulant électrique, navigation sur Internet par la pensée, et premiers essais de communication accélérée (80 mots/minute pour l’un des participants). La FDA valide la poursuite de l’essai PRIME.</p>
-                <div><span class=”tag”>Neuralink</span><span class=”tag”>Suivi clinique</span><span class=”tag”>FDA</span></div>
-                <a href=”https://neuralink.com/blog/” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── JUILLET 2025 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Juillet 2025</div>
-                <h3>G7 Neurotechnologies : premier cadre éthique international pour les BCI</h3>
-                <p>Les pays du G7 adoptent un cadre de principes communs pour réguler les neurotechnologies, inspiré du RGPD. Cinq piliers : consentement, transparence, sécurité des données cérébrales, équité d’accès et interdiction de l’usage coercitif. Premiers textes législatifs attendus en Europe fin 2025.</p>
-                <div><span class=”tag”>G7</span><span class=”tag”>Politique</span><span class=”tag”>Neuroéthique</span></div>
-                <a href=”https://www.g7italy.it” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── JUIN 2025 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Juin 2025</div>
-                <h3>Stanford : 40 mots/minute grâce à une BCI linguistique haute performance</h3>
-                <p>Une équipe de Stanford publie dans Nature Neuroscience un nouveau record de communication BCI : 40 mots par minute avec 95% de précision pour une personne paralysée. L’algorithme de décodage repose sur un réseau de neurones récurrents entraîné en temps réel sur les signaux du cortex moteur.</p>
-                <div><span class=”tag”>Stanford</span><span class=”tag”>Communication</span><span class=”tag”>IA</span></div>
-                <a href=”https://www.nature.com/articles/s41593-021-00939-9” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── MAI 2025 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Mai 2025</div>
-                <h3>Blackrock Neurotech s’associe à Cognixion pour une BCI non invasive</h3>
-                <p>Le partenariat vise à développer une interface cerveau-machine non invasive, accessible via un casque intelligent, pour les personnes en situation de handicap. Blackrock apporte son expertise en électrodes Utah ; Cognixion développe le logiciel de décodage et l’interface utilisateur.</p>
-                <div><span class=”tag”>Blackrock</span><span class=”tag”>Non invasif</span><span class=”tag”>Partenariat</span></div>
-                <a href=”https://www.mobihealthnews.com/news/cognixion-blackrock-neurotech-partner-brain-computer-interface-technology” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── AVRIL 2025 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Avril 2025</div>
-                <h3>Precision Neuroscience : implant cortical réversible approuvé pour essai élargi</h3>
-                <p>La FDA accorde à Precision Neuroscience l’autorisation d’élargir son essai clinique pour son implant cortical « Layer 7 », posé via une fente millimétrique dans le crâne sans retrait de tissu. Sa réversibilité totale le distingue de Neuralink et attire l’intérêt des hôpitaux européens.</p>
-                <div><span class=”tag”>Precision Neuroscience</span><span class=”tag”>FDA</span><span class=”tag”>Invasif réversible</span></div>
-                <a href=”https://www.precisionneuro.com” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── MARS 2025 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Mars 2025</div>
-                <h3>Wyss Center (Genève) : charte européenne pour un développement éthique des neurotechnologies</h3>
-                <p>Le Wyss Center for Bio and Neuroengineering publie, en collaboration avec l’Agence de la biomédecine, une charte européenne définissant les bonnes pratiques pour le développement des BCI. Le document aborde la protection des données neuronales, le consentement longitudinal et la surveillance post-marché.</p>
-                <div><span class=”tag”>Wyss Center</span><span class=”tag”>Europe</span><span class=”tag”>Charte</span></div>
-                <a href=”https://www.agence-biomedecine.fr/un-developpement-ethique-des-neurotechnologies” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── FÉVRIER 2025 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Février 2025</div>
-                <h3>EPFL : une BCI restaure la marche d’un patient paraplégique grâce à la stimulation spinale</h3>
-                <p>Des chercheurs de l’EPFL (Lausanne) publient dans Nature Medicine des résultats spectaculaires : un dispositif BCI combinant un implant cérébral et une stimulation spinale électrique permet à un patient paraplégique de marcher sur plusieurs centaines de mètres de façon autonome. Une avancée jugée historique.</p>
-                <div><span class=”tag”>EPFL</span><span class=”tag”>Motricité</span><span class=”tag”>Stimulation spinale</span></div>
-                <a href=”https://www.epfl.ch/research/domains/bluebrain/” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── JANVIER 2025 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Janvier 2025</div>
-                <h3>Neuralink : second patient implanté – amélioration du robot chirurgical R1</h3>
-                <p>Neuralink annonce l’implantation d’un second patient dans son essai PRIME. Le robot chirurgical R1 a été mis à jour pour réduire le temps d’implantation à moins de 30 minutes. Le premier patient, Noland Arbaugh, communique toujours activement via son implant après plus de 9 mois.</p>
-                <div><span class=”tag”>Neuralink</span><span class=”tag”>Chirurgie robotique</span><span class=”tag”>PRIME</span></div>
-                <a href=”https://neuralink.com/blog/” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── DÉCEMBRE 2024 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Décembre 2024</div>
-                <h3>Rétrospective 2024 : l’année du premier patient Neuralink et des BCI en plein essor</h3>
-                <p>Science et Avenir dresse le bilan 2024 des interfaces cerveau-machine : premier implant Neuralink en janvier, approbation FDA pour Synchron, annonce de Meta sur les bracelets EMG. Le marché mondial des BCI est estimé à 1,6 Mrd$ fin 2024, un doublement en 3 ans.</p>
-                <div><span class=”tag”>Bilan 2024</span><span class=”tag”>Marché</span><span class=”tag”>Chronologie</span></div>
-                <a href=”https://www.sciencesetavenir.fr” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── NOVEMBRE 2024 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Novembre 2024</div>
-                <h3>Synchron obtient l’approbation FDA pour élargir son essai endovasculaire</h3>
-                <p>Synchron, concurrent de Neuralink avec son dispositif « Stentrode » implanté par voie endovasculaire (sans ouvrir le crâne), reçoit le feu vert de la FDA pour recruter 10 patients supplémentaires. La technique, moins invasive, est perçue comme une alternative sérieuse aux implants corticaux classiques.</p>
-                <div><span class=”tag”>Synchron</span><span class=”tag”>FDA</span><span class=”tag”>Endovasculaire</span></div>
-                <a href=”https://synchron.com” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── OCTOBRE 2024 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Octobre 2024</div>
-                <h3>Meta dévoile un bracelet EMG « neural » pour contrôler la réalité mixte par les gestes</h3>
-                <p>Meta présente à Connect 2024 un prototype de bracelet captant les signaux électromyographiques (EMG) du poignet pour piloter les lunettes Ray-Ban et l’Orion AR. Bien que non invasif, le dispositif ouvre la voie à des BCI grand public et suscite un débat éthique sur la collecte de données biomécaniques.</p>
-                <div><span class=”tag”>Meta</span><span class=”tag”>EMG</span><span class=”tag”>Grand public</span></div>
-                <a href=”https://www.meta.com/blog/quest/orion-ar-glasses-augmented-reality/” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-        <!-- ── SEPTEMBRE 2024 ── -->
-        <div class=”col-md-6”>
-            <div class=”veille-card”>
-                <div class=”veille-date”>Septembre 2024</div>
-                <h3>Neuralink : bilan à 6 mois du premier patient – succès et défis techniques</h3>
-                <p>Six mois après l’implantation de Noland Arbaugh, premier patient Neuralink, l’entreprise publie un bilan détaillé. Si les capacités de contrôle (curseur, jeux vidéo) sont confirmées, une perte partielle d’électrodes actives est signalée. Neuralink annonce une amélioration du logiciel pour compenser la rétraction tissulaire.</p>
-                <div><span class=”tag”>Neuralink</span><span class=”tag”>Premier patient</span><span class=”tag”>Retour d’expérience</span></div>
-                <a href=”https://neuralink.com/blog/” target=”_blank” rel=”noopener”>Lire l’article →</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Acteurs clés (liste réelle issue du marché BCI) -->
-    <h2 class="content-heading mt-4">Acteurs majeurs du domaine</h2>
-    <div class="row text-center mb-5">
-        <div class="col-md-3 col-6 mb-3">
-            <div class="bg-white p-3 h-100">
-                <i class="fab fa-twitter fa-2x" style="color: var(--primary);"></i>
-                <h4>Neuralink</h4>
-                <small>Implant invasif, essais humains</small>
-            </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3">
-            <div class="bg-white p-3 h-100">
-                <i class="fas fa-microchip fa-2x" style="color: var(--primary);"></i>
-                <h4>Blackrock Neurotech</h4>
-                <small>Électrodes Utah, systèmes cliniques</small>
-            </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3">
-            <div class="bg-white p-3 h-100">
-                <i class="fas fa-brain fa-2x" style="color: var(--primary);"></i>
-                <h4>Synchron</h4>
-                <small>Stentrode, endovasculaire</small>
-            </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3">
-            <div class="bg-white p-3 h-100">
-                <i class="fas fa-university fa-2x" style="color: var(--primary);"></i>
-                <h4>Wyss Center (Genève)</h4>
-                <small>Neuroprothèses, éthique</small>
-            </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3">
-            <div class="bg-white p-3 h-100">
-                <i class="fas fa-chart-line fa-2x" style="color: var(--primary);"></i>
-                <h4>Paradromics</h4>
-                <small>Interface haut débit</small>
-            </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3">
-            <div class="bg-white p-3 h-100">
-                <i class="fas fa-desktop fa-2x" style="color: var(--primary);"></i>
-                <h4>Precision Neuroscience</h4>
-                <small>Implant cortical réversible</small>
-            </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3">
-            <div class="bg-white p-3 h-100">
-                <i class="fas fa-gamepad fa-2x" style="color: var(--primary);"></i>
-                <h4>NextMind (Snap)</h4>
-                <small>BCI non invasive grand public</small>
-            </div>
-        </div>
-        <div class="col-md-3 col-6 mb-3">
-            <div class="bg-white p-3 h-100">
-                <i class="fas fa-heartbeat fa-2x" style="color: var(--primary);"></i>
-                <h4>BrainGate</h4>
-                <small>Consortium de recherche</small>
-            </div>
-        </div>
-    </div>
-
-    <!-- Analyse marché BCI -->
-    <div class="veille-card">
-        <h3><i class="fas fa-chart-bar"></i> Analyse du marché BCI (2025)</h3>
-        <p>Selon le rapport de Mordor Intelligence (septembre 2025), le marché mondial des interfaces cerveau-machine est en forte croissance, porté par les applications médicales (rééducation, prothèses) et grand public (jeux, formation). Les leaders comme Neuralink, Blackrock et Synchron captent les investissements.</p>
-        <a href="https://www.mordorintelligence.com/fr/industry-reports/brain-computer-interface-market" target="_blank" rel="noopener">Consulter l’étude →</a>
-    </div>
-
-    <!-- Applications et enjeux éthiques (avec sources UNESCO & Agence biomédecine) -->
-    <div class="row">
-        <div class="col-md-6">
-            <div class="veille-card">
-                <h3><i class="fas fa-hand-holding-heart"></i> Applications médicales</h3>
-                <ul>
-                    <li>Restauration du mouvement pour personnes tétraplégiques</li>
-                    <li>Prothèses sensorielles (vision, toucher)</li>
-                    <li>Traitement de maladies neurologiques (Parkinson, épilepsie)</li>
-                    <li>Rééducation post-AVC</li>
-                    <li>Communication pour les personnes “locked-in”</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="veille-card">
-                <h3><i class="fas fa-gamepad"></i> Applications grand public</h3>
-                <ul>
-                    <li>Jeux vidéo contrôlés par la pensée</li>
-                    <li>Assistants personnels et domotique</li>
-                    <li>Amélioration des capacités d’apprentissage</li>
-                    <li>Mesure de l’attention (casques EEG)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="veille-card">
-        <h3><i class="fas fa-balance-scale"></i> Enjeux éthiques et cadre légal</h3>
-        <p>La collecte de données neuronales pose des questions de confidentialité (« brain privacy »). Le risque de hacking d’implants, le consentement éclairé, l’accessibilité financière, et la frontière entre thérapie et amélioration humaine sont au cœur des débats. En 2025, l’Agence de la biomédecine a publié une <strong>charte européenne</strong> pour un développement responsable des neurotechnologies. L’UNESCO a également émis des recommandations sur l’éthique des neurotechnologies (février 2026).</p>
-        <div>
-            <a href="https://www.agence-biomedecine.fr/un-developpement-ethique-des-neurotechnologies" target="_blank" rel="noopener" class="me-3">Charte européenne 2025 →</a>
-            <a href="https://www.cortex-mag.net/neurotechnologies-des-jalons-sur-leur-ethique-poses-a-lunesco/" target="_blank" rel="noopener">Recommandation UNESCO 2026 →</a>
-        </div>
-        <span class="tag">RGPD neuronal</span>
-        <span class="tag">Neuroéthique</span>
-        <span class="tag">Accessibilité</span>
-    </div>
-
-    <!-- Méthodologie de veille -->
-    <div class="bg-white p-4 mt-4 mb-5" style="border-left: 4px solid var(--primary);">
-        <h3 class="mb-3" style="font-family: 'VT323', monospace;">Ma méthodologie de veille</h3>
-        <div class="row">
-            <div class="col-md-6">
-                <p><i class="fas fa-bell"></i> <strong>Alertes Google :</strong> "Brain-Computer Interface 2025", "Neuralink clinical trial", "BCI ethics".</p>
-                <p><i class="fas fa-rss"></i> <strong>Agrégateur Feedly :</strong> flux des revues Nature Neuroscience, IEEE Transactions on BCI, blogs de recherche.</p>
-            </div>
-            <div class="col-md-6">
-                <p><i class="fab fa-twitter"></i> <strong>Listes Twitter :</strong> @neuralink, @WyssCenter, @bci_news.</p>
-                <p><i class="fas fa-envelope"></i> <strong>Newsletters :</strong> "Neurotech Weekly", "BrainPost".</p>
-            </div>
-        </div>
-        <p class="mt-2">Synthèse mensuelle réalisée depuis septembre 2024 (12 synthèses disponibles). La dernière mise à jour date du 1er avril 2026.</p>
-        <a href="#" class="btn btn-outline-primary"><i class="fas fa-archive"></i> Accéder aux archives (PDF)</a>
-        <p class="text-muted mt-2 small">(Les archives sont en cours de consolidation – lien actif prochainement)</p>
-    </div>
+<!-- ── Page Header ── -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="bloc-badge">VEILLE TECHNOLOGIQUE · BTS SIO SLAM · ÉPREUVE E6</div>
+    <h1>Interfaces Cerveau-Machine (BCI)</h1>
+    <div class="meta">Nour MESBAHI · Alternance EDF · 2024 – 2026</div>
+  </div>
 </div>
 
-<!-- Footer -->
-<footer>
-    <div class="custom-container">
-        <p>&copy; 2025 Nour MESBAHI. Tous droits réservés.</p>
-        <div class="footer-links">
-            <a href="index.html">Accueil</a>
-            <a href="projets_competences.html">Projets</a>
-            <a href="CV.html">CV</a>
-            <a href="veille.html">Veille</a>
-            <a href="e5.html">E5</a>
-            <a href="e6.html">E6</a>
+<!-- ── Main content ── -->
+<div class="veille-main">
+
+  <!-- No results placeholder -->
+  <div class="no-results" id="no-results">
+    <i class="fas fa-search" style="display:block;margin-bottom:0.5rem;"></i>
+    AUCUN RÉSULTAT POUR CE FILTRE
+  </div>
+
+  <!-- ════════ 2026 ════════ -->
+  <div class="year-divider year-group" data-year="2026">
+    <span class="yd-year">2026</span>
+    <span class="yd-count">7 SYNTHÈSES — JANV. → MAI</span>
+  </div>
+  <div class="row" id="articles">
+
+    <!-- #23 Mai 2026 -->
+    <div class="col-md-6 article-col" data-cat="medical" data-year="2026">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#23</span>
+          <span class="card-date">MAI 2026</span>
         </div>
-        <div class="social-links mt-2">
-            <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
-            <a href="#" class="text-white"><i class="fab fa-github"></i></a>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-medical">Médical</span>
+          <h3>Implant cérébral contre la dépression : feu vert FDA pour les premiers essais humains</h3>
+          <p>La FDA autorise un essai clinique inédit aux États-Unis sur un implant cérébral destiné à traiter les formes sévères et résistantes de dépression. Le dispositif stimule des régions ciblées du cerveau et adapte ses impulsions en temps réel selon l'activité neuronale.</p>
+          <div class="card-tags"><span class="tag">FDA</span><span class="tag">Dépression</span><span class="tag">Stimulation</span></div>
+          <a href="https://www.science-et-vie.com/corps-et-sante/un-implant-cerebral-contre-la-depression-obtient-le-feu-vert-pour-les-premiers-essais-humains-aux-etats-unis-239064.html" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
         </div>
+      </div>
     </div>
+    <!-- #22 Mai 2026 -->
+    <div class="col-md-6 article-col" data-cat="medical" data-year="2026">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#22</span>
+          <span class="card-date">MAI 2026</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-medical">Médical</span>
+          <h3>Un implant cérébral recrée une vision artificielle chez un patient aveugle</h3>
+          <p>Une équipe de chercheurs annonce avoir restauré une forme de perception visuelle chez un patient aveugle grâce à un implant cortical. Le dispositif stimule directement le cortex visuel à partir d'images captées par une caméra.</p>
+          <div class="card-tags"><span class="tag">Vision artificielle</span><span class="tag">Cortex visuel</span><span class="tag">Prothèse sensorielle</span></div>
+          <a href="https://www.journaldugeek.com/2026/05/12/implant-cerebral-recree-vision-artificielle-patient-aveugle/" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #21 Mai 2026 -->
+    <div class="col-md-6 article-col" data-cat="technologie" data-year="2026">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#21</span>
+          <span class="card-date">MAI 2026</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-technologie">Technologie</span>
+          <h3>Première mondiale : la Chine fabrique des implants cérébraux contrôlés par la pensée</h3>
+          <p>La Chine annonce une première mondiale avec la production industrielle d'implants cérébraux permettant de piloter des appareils électroniques par la pensée. Une accélération stratégique majeure dans la course mondiale aux neurotechnologies.</p>
+          <div class="card-tags"><span class="tag">Chine</span><span class="tag">Industrialisation</span><span class="tag">Première mondiale</span></div>
+          <a href="https://www.science-et-vie.com/cerveau-et-intelligence/premiere-mondiale-la-chine-fabrique-des-implants-cerebraux-pour-controler-des-appareils-par-la-pensee-241086.html" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #20 Avril 2026 -->
+    <div class="col-md-6 article-col" data-cat="marche" data-year="2026">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#20</span>
+          <span class="card-date">AVRIL 2026</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-marche">Marché</span>
+          <h3>Neuralink prépare une production « high-volume » d'implants pour 2026</h3>
+          <p>Neuralink détaille son plan pour 2026 : passage à une production industrielle d'implants et automatisation quasi totale de la procédure chirurgicale. L'objectif affiché par Elon Musk est de passer de quelques dizaines à plusieurs centaines de patients implantés d'ici la fin de l'année.</p>
+          <div class="card-tags"><span class="tag">Neuralink</span><span class="tag">Production massive</span><span class="tag">Automatisation</span></div>
+          <a href="https://thedebrief.org/neuralink-set-to-launch-high-volume-brain-implant-production-as-competitors-weigh-in/" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #19 Mars 2026 -->
+    <div class="col-md-6 article-col" data-cat="medical" data-year="2026">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#19</span>
+          <span class="card-date">MARS 2026</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-medical">Médical</span>
+          <h3>Chine : première mondiale, approbation commerciale d'un implant cérébral</h3>
+          <p>Le 13 mars 2026, la National Medical Products Administration accorde à Neuracle Technology (Shanghai) la première autorisation commerciale au monde pour un implant cérébral. Le dispositif « NEO », destiné aux patients adultes souffrant de paralysie partielle (lésion cervicale), permet de retrouver la capacité de préhension.</p>
+          <div class="card-tags"><span class="tag">Chine</span><span class="tag">NEO Neuracle</span><span class="tag">Première commerciale</span></div>
+          <a href="https://www.euronews.com/next/2026/03/14/china-approves-worlds-first-brain-implant-for-commercialisation" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #18 Février 2026 -->
+    <div class="col-md-6 article-col" data-cat="medical" data-year="2026">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#18</span>
+          <span class="card-date">FÉVRIER 2026</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-medical">Médical</span>
+          <h3>Neuralink : 21 patients implantés, entre prouesse technologique et débat</h3>
+          <p>Neuralink franchit le cap des 21 patients implantés dans son essai PRIME. Le Journal du Geek analyse les progrès et les zones d'ombre : durée de vie des implants, précision du contrôle, mais aussi promesses jugées « excessives » par certains observateurs.</p>
+          <div class="card-tags"><span class="tag">Neuralink</span><span class="tag">PRIME</span><span class="tag">21 patients</span></div>
+          <a href="https://www.journaldugeek.com/2026/02/21/neuralink-21-patients-implantes-et-beaucoup-de-promesses/" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #17 Janvier 2026 -->
+    <div class="col-md-6 article-col" data-cat="marche" data-year="2026">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#17</span>
+          <span class="card-date">JANVIER 2026</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-marche">Marché</span>
+          <h3>OpenAI investit dans Merge Labs, la startup BCI de Sam Altman</h3>
+          <p>OpenAI signe le plus gros chèque du seed round de 250 millions $ de Merge Labs (valorisée 850 M$), la startup d'interface cerveau-machine cofondée par Sam Altman. Le projet vise à combiner biologie, IA et électronique pour des BCI à haute bande passante.</p>
+          <div class="card-tags"><span class="tag">OpenAI</span><span class="tag">Sam Altman</span><span class="tag">250 M$</span></div>
+          <a href="https://techcrunch.com/2026/01/15/openai-invests-in-sam-altmans-brain-computer-interface-startup-merge-labs/" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="year-divider year-group" data-year="2025">
+        <span class="yd-year">2025</span>
+        <span class="yd-count">12 SYNTHÈSES — JANV. → DÉC.</span>
+      </div>
+    </div>
+
+    <!-- #16 Décembre 2025 -->
+    <div class="col-md-6 article-col" data-cat="medical" data-year="2025">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#16</span>
+          <span class="card-date">DÉCEMBRE 2025</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-medical">Médical</span>
+          <h3>Neuralink : sept patients britanniques implantés à l'UCLH (GB-PRIME)</h3>
+          <p>Sept patients britanniques participent à l'essai GB-PRIME évaluant la sécurité et la fonctionnalité de l'interface cerveau-machine de Neuralink. Les chirurgies ont eu lieu entre octobre et décembre 2025 à l'hôpital national de neurologie de Londres.</p>
+          <div class="card-tags"><span class="tag">Neuralink</span><span class="tag">UCLH</span><span class="tag">GB-PRIME</span></div>
+          <a href="https://www.uclh.nhs.uk/news/seven-gb-prime-patients-now-participating-neuralink-trial" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #15 Décembre 2025 -->
+    <div class="col-md-6 article-col" data-cat="technologie" data-year="2025">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#15</span>
+          <span class="card-date">DÉCEMBRE 2025</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-technologie">Technologie</span>
+          <h3>Chine : avancée majeure sur les BCI invasives, latence sous 100 ms</h3>
+          <p>L'Académie chinoise des sciences annonce une avancée majeure sur les interfaces cerveau-machine invasives. Un patient tétraplégique peut piloter un fauteuil roulant et commander un chien robot pour récupérer des objets. Latence réduite à moins de 100 ms, contre ~200 ms pour le cerveau humain.</p>
+          <div class="card-tags"><span class="tag">Chine</span><span class="tag">Invasif</span><span class="tag">100 ms</span></div>
+          <a href="https://english.cas.cn/newsroom/cas_media/202512/t20251219_1138007.shtml" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #14 Novembre 2025 -->
+    <div class="col-md-6 article-col" data-cat="ethique" data-year="2025">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#14</span>
+          <span class="card-date">NOVEMBRE 2025</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-ethique">Éthique</span>
+          <h3>UNESCO adopte le premier cadre éthique mondial sur les neurotechnologies</h3>
+          <p>Le 12 novembre 2025, lors de la 43e Conférence générale à Samarcande, les 194 États membres de l'UNESCO adoptent la première Recommandation mondiale sur l'éthique des neurotechnologies. Le texte établit le principe d'« inviolabilité de l'esprit humain ».</p>
+          <div class="card-tags"><span class="tag">UNESCO</span><span class="tag">Éthique</span><span class="tag">194 États</span></div>
+          <a href="https://www.unesco.org/en/articles/ethics-neurotechnology-unesco-adopts-first-global-standard-cutting-edge-technology" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #13 Novembre 2025 -->
+    <div class="col-md-6 article-col" data-cat="medical" data-year="2025">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#13</span>
+          <span class="card-date">NOVEMBRE 2025</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-medical">Médical</span>
+          <h3>Connexus : l'implant neuronal de Paradromics qui redonne la voix grâce à l'IA</h3>
+          <p>La startup texane Paradromics obtient le feu vert FDA pour les premiers essais humains de Connexus, un implant intracortical équipé de 400+ électrodes en platine-iridium. L'IA décode l'activité neuronale du cortex moteur pour synthétiser la parole chez les patients atteints de SLA.</p>
+          <div class="card-tags"><span class="tag">Paradromics</span><span class="tag">Connexus</span><span class="tag">FDA</span></div>
+          <a href="https://www.journaldugeek.com/2025/11/24/connexus-limplant-neuronal-redonne-voix-personnes-paralysees-lia" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #12 Octobre 2025 -->
+    <div class="col-md-6 article-col" data-cat="medical" data-year="2025">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#12</span>
+          <span class="card-date">OCTOBRE 2025</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-medical">Médical</span>
+          <h3>Premier patient britannique implanté Neuralink — contrôle d'ordinateur en quelques heures</h3>
+          <p>Un patient atteint de maladie du neurone moteur parvient à contrôler un ordinateur par la pensée quelques heures après son implantation par Neuralink à l'UCLH. Première intervention de ce type au Royaume-Uni, dans le cadre de l'étude GB-PRIME.</p>
+          <div class="card-tags"><span class="tag">Neuralink</span><span class="tag">UK</span><span class="tag">UCLH</span></div>
+          <a href="https://www.uclh.nhs.uk/news/first-uk-patient-uses-thought-control-computer-hours-after-neuralink-implant" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #11 Septembre 2025 -->
+    <div class="col-md-6 article-col" data-cat="medical" data-year="2025">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#11</span>
+          <span class="card-date">SEPTEMBRE 2025</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-medical">Médical</span>
+          <h3>Neuralink : 12 patients équipés, près de 2 000 jours d'utilisation cumulée</h3>
+          <p>Neuralink confirme avoir implanté 12 volontaires dans son programme PRIME. Près de 2 000 jours d'usage cumulé et plus de 15 000 heures permettent un premier recul scientifique, médical et éthique. La firme collabore notamment avec UCLH (UK) et étend ses essais au Canada.</p>
+          <div class="card-tags"><span class="tag">Neuralink</span><span class="tag">12 patients</span><span class="tag">2000 jours</span></div>
+          <a href="https://siecledigital.fr/2025/09/12/neuralink-delon-musk-deja-12-patients-equipes-dimplants-cerebraux-en-2025/" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #10 Août 2025 -->
+    <div class="col-md-6 article-col" data-cat="marche" data-year="2025">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#10</span>
+          <span class="card-date">AOÛT 2025</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-marche">Marché</span>
+          <h3>Chine : objectif de percée technologique BCI d'ici 2027</h3>
+          <p>Plusieurs ministères chinois publient des directives communes pour accélérer le développement industriel des BCI, avec des jalons technologiques fixés à 2027. Le plan vise à structurer une filière complète : recherche, industrie, normes et applications cliniques.</p>
+          <div class="card-tags"><span class="tag">Chine</span><span class="tag">Plan 2027</span><span class="tag">Politique industrielle</span></div>
+          <a href="https://en.people.cn/n3/2025/0808/c90000-20350521.html" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #9 Juillet 2025 -->
+    <div class="col-md-6 article-col" data-cat="medical" data-year="2025">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#9</span>
+          <span class="card-date">JUILLET 2025</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-medical">Médical</span>
+          <h3>Neuralink : Audrey Crews écrit son nom par la pensée après 20 ans de paralysie</h3>
+          <p>Audrey Crews, tétraplégique depuis un accident à l'âge de 16 ans, devient la première femme implantée par Neuralink. Avec ses 128 fils implantés dans le cortex moteur, elle parvient à esquisser sa signature pour la première fois en 20 ans, en contrôlant un curseur par la pensée.</p>
+          <div class="card-tags"><span class="tag">Neuralink</span><span class="tag">Audrey Crews</span><span class="tag">Première femme</span></div>
+          <a href="https://www.rtbf.be/article/neuralink-elle-ecrit-son-nom-par-la-pensee-apres-20-ans-de-paralysie-11581707" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #8 Avril 2025 -->
+    <div class="col-md-6 article-col" data-cat="medical" data-year="2025">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#8</span>
+          <span class="card-date">AVRIL 2025</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-medical">Médical</span>
+          <h3>Precision Neuroscience obtient l'autorisation FDA pour son implant Layer 7</h3>
+          <p>Le 17 avril 2025, la FDA accorde à Precision Neuroscience l'autorisation commerciale de son interface corticale « Layer 7 », composée de 1 024 électrodes plus fines qu'un cheveu humain. Le dispositif a déjà été testé sur 37 patients.</p>
+          <div class="card-tags"><span class="tag">Precision Neuroscience</span><span class="tag">FDA</span><span class="tag">Layer 7</span></div>
+          <a href="https://www.cnbc.com/2025/04/17/brain-implant-cleared-fda-musk-neuralink-rival-precision-neuroscience.html" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #7 Mars 2025 -->
+    <div class="col-md-6 article-col" data-cat="recherche" data-year="2025">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#7</span>
+          <span class="card-date">MARS 2025</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-recherche">Recherche</span>
+          <h3>Berkeley & UCSF : une neuroprothèse cerveau-voix en streaming restaure la parole</h3>
+          <p>Publié dans Nature Neuroscience le 31 mars 2025, le projet BRAVO de l'UC Berkeley et de l'UCSF démontre une neuroprothèse capable de générer un flux vocal personnalisé en quasi-temps réel (latence < 1 s) chez une patiente paralysée depuis 18 ans suite à un AVC. Synthèse par réseau de neurones récurrents par tranches de 80 ms.</p>
+          <div class="card-tags"><span class="tag">Berkeley</span><span class="tag">UCSF</span><span class="tag">Nature Neuroscience</span></div>
+          <a href="https://engineering.berkeley.edu/news/2025/03/brain-to-voice-neuroprosthesis-restores-naturalistic-speech/" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #6 Février 2025 -->
+    <div class="col-md-6 article-col" data-cat="marche" data-year="2025">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#6</span>
+          <span class="card-date">FÉVRIER 2025</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-marche">Marché</span>
+          <h3>MIT Technology Review : ce qu'il faut attendre de Neuralink en 2025</h3>
+          <p>Dans son analyse annuelle, le MIT Technology Review dresse les perspectives pour Neuralink en 2025 : objectif de 20 à 30 implantations supplémentaires, amélioration des électrodes (bande passante, autonomie), expansion internationale (UK, Canada) et déploiement de l'application clinique pour la SLA.</p>
+          <div class="card-tags"><span class="tag">MIT Tech Review</span><span class="tag">Neuralink 2025</span><span class="tag">Roadmap</span></div>
+          <a href="https://www.technologyreview.com/2025/01/16/1110017/what-to-expect-from-neuralink-in-2025/" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #5 Janvier 2025 -->
+    <div class="col-md-6 article-col" data-cat="medical" data-year="2025">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#5</span>
+          <span class="card-date">JANVIER 2025</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-medical">Médical</span>
+          <h3>Elon Musk annonce un troisième patient implanté Neuralink</h3>
+          <p>Lors d'un événement à Las Vegas le 11 janvier 2025, Elon Musk officialise l'implantation d'un troisième patient avec un dispositif Neuralink — Bradford Smith, premier patient atteint de SLA et premier patient totalement non-verbal. L'entreprise prévoit 20 à 30 nouvelles implantations en 2025.</p>
+          <div class="card-tags"><span class="tag">Neuralink</span><span class="tag">Brad Smith</span><span class="tag">SLA</span></div>
+          <a href="https://www.euronews.com/health/2025/01/14/a-third-patient-got-a-brain-implant-from-elon-musks-neuralink-how-does-the-tech-behind-it-" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <div class="year-divider year-group" data-year="2024">
+        <span class="yd-year">2024</span>
+        <span class="yd-count">4 SYNTHÈSES — SEPT. → DÉC.</span>
+      </div>
+    </div>
+
+    <!-- #4 Décembre 2024 -->
+    <div class="col-md-6 article-col" data-cat="marche" data-year="2024">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#4</span>
+          <span class="card-date">DÉCEMBRE 2024</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-marche">Marché</span>
+          <h3>Bilan 2024 : l'année charnière des interfaces cerveau-machine</h3>
+          <p>Technology Networks dresse le bilan d'une année charnière pour les BCI : première implantation humaine de Neuralink, accélération de Synchron, breakthrough designation FDA pour Blindsight, progrès du décodage de la parole et émergence de l'approche endovasculaire. Une convergence de facteurs technologiques, réglementaires et stratégiques.</p>
+          <div class="card-tags"><span class="tag">Bilan 2024</span><span class="tag">Year review</span><span class="tag">Convergence</span></div>
+          <a href="https://www.technologynetworks.com/neuroscience/blog/2024-is-the-year-for-brain-computer-interfaces-388563" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #3 Novembre 2024 -->
+    <div class="col-md-6 article-col" data-cat="medical" data-year="2024">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#3</span>
+          <span class="card-date">NOVEMBRE 2024</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-medical">Médical</span>
+          <h3>Bradford Smith devient le 3ᵉ patient Neuralink — premier cas SLA non-verbal</h3>
+          <p>Bradford G. Smith reçoit l'implant Neuralink en novembre 2024. Atteint de SLA et totalement non-verbal, il devient le premier patient SLA et le premier patient non-verbal à utiliser l'interface. Il communique désormais par la pensée et a même narré et monté une vidéo YouTube en pilotant son ordinateur par signaux cérébraux.</p>
+          <div class="card-tags"><span class="tag">Neuralink</span><span class="tag">SLA</span><span class="tag">Non-verbal</span></div>
+          <a href="https://alsnewstoday.com/news/neuralink-brain-implant-gives-new-voice-nonverbal-als-patient/" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #2 Octobre 2024 -->
+    <div class="col-md-6 article-col" data-cat="technologie" data-year="2024">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#2</span>
+          <span class="card-date">OCTOBRE 2024</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-technologie">Technologie</span>
+          <h3>Synchron : le rival de Neuralink franchit un nouveau palier</h3>
+          <p>Lors du Congress of Neurological Surgeons (octobre 2024), Synchron présente les résultats à 12 mois de son étude COMMAND : aucun événement indésirable chez les six patients implantés du Stentrode. L'entreprise prépare un essai à plus grande échelle et explore l'intégration avec ChatGPT et l'Apple Vision Pro.</p>
+          <div class="card-tags"><span class="tag">Synchron</span><span class="tag">Stentrode</span><span class="tag">Endovasculaire</span></div>
+          <a href="https://www.journaldugeek.com/2024/10/02/synchron-le-rival-de-neuralink-franchir-un-nouveau-palier/" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- #1 Septembre 2024 -->
+    <div class="col-md-6 article-col" data-cat="technologie" data-year="2024">
+      <div class="veille-card">
+        <div class="card-header-strip">
+          <span class="card-num">#1</span>
+          <span class="card-date">SEPTEMBRE 2024</span>
+        </div>
+        <div class="card-body-inner">
+          <span class="card-cat-badge cat-technologie">Technologie</span>
+          <h3>Meta dévoile un bracelet neural EMG pour ses lunettes AR Orion</h3>
+          <p>À Meta Connect 2024, Meta présente un prototype de bracelet utilisant l'électromyographie de surface (sEMG) pour contrôler les lunettes AR Orion par les gestes. Issu de l'acquisition de CTRL-labs, il permet de cliquer, écrire et naviguer en gardant la main au repos.</p>
+          <div class="card-tags"><span class="tag">Meta</span><span class="tag">sEMG</span><span class="tag">Orion AR</span></div>
+          <a href="https://techcrunch.com/2024/09/25/meta-developed-a-neural-interface-for-its-next-gen-orion-ar-glasses/" target="_blank" rel="noopener" class="card-link">
+            <i class="fas fa-external-link-alt"></i> Lire l'article
+          </a>
+        </div>
+      </div>
+    </div>
+  </div><!-- /row #articles -->
+
+  <!-- ════ Tendances clés ════ -->
+  <h2 class="section-heading">Tendances & Synthèse</h2>
+  <p class="section-sub">Analyse transversale des 20 synthèses publiées</p>
+
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="analysis-card">
+        <h3><i class="fas fa-rocket" style="color:var(--primary);"></i> &nbsp;Avancées technologiques majeures</h3>
+        <div class="trend-item">
+          <i class="fas fa-arrow-up trend-icon"></i>
+          <span>Les BCI invasives atteignent <strong>80 mots/minute</strong> (Neuralink, août 2025) — contre 40 mots/minute en 2024.</span>
+        </div>
+        <div class="trend-item">
+          <i class="fas fa-arrow-up trend-icon"></i>
+          <span>Stanford décode la parole intérieure à <strong>74 % de précision</strong>, ouvrant la communication pour les personnes "locked-in".</span>
+        </div>
+        <div class="trend-item">
+          <i class="fas fa-arrow-up trend-icon"></i>
+          <span>L'EPFL restaure la marche chez un paraplégique via une BCI couplée à la stimulation spinale (Nature Medicine, fév. 2025).</span>
+        </div>
+        <div class="trend-item">
+          <i class="fas fa-arrow-up trend-icon"></i>
+          <span>Meta et Cognixion ouvrent la voie à des BCI <strong>non invasives grand public</strong> via EMG et EEG.</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="analysis-card">
+        <h3><i class="fas fa-balance-scale" style="color:#7b2d8b;"></i> &nbsp;Enjeux éthiques et réglementaires</h3>
+        <div class="trend-item">
+          <i class="fas fa-gavel trend-icon" style="color:#7b2d8b;"></i>
+          <span>L'UNESCO (fév. 2026) et le G7 (juil. 2025) posent les premières bases d'un cadre réglementaire mondial pour les neurotechnologies.</span>
+        </div>
+        <div class="trend-item">
+          <i class="fas fa-lock trend-icon" style="color:#7b2d8b;"></i>
+          <span>La notion de <strong>« brain privacy »</strong> (vie privée neuronale) devient centrale dans les débats politiques et juridiques.</span>
+        </div>
+        <div class="trend-item">
+          <i class="fas fa-exclamation-triangle trend-icon" style="color:#7b2d8b;"></i>
+          <span>Risques identifiés : hacking d'implants, biais algorithmiques, inégalités d'accès et usage coercitif.</span>
+        </div>
+        <div class="trend-item">
+          <i class="fas fa-file-alt trend-icon" style="color:#7b2d8b;"></i>
+          <span>La charte européenne du Wyss Center (mars 2025) et l'Agence de la biomédecine posent des standards pour l'Europe.</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="analysis-card">
+        <h3><i class="fas fa-chart-line" style="color:#2e7d32;"></i> &nbsp;Dynamique de marché</h3>
+        <ul>
+          <li>Marché mondial BCI : <strong>1,6 Mrd$</strong> en 2024 → <strong>6,2 Mds$</strong> estimés en 2030 (+15,8 %/an)</li>
+          <li>Applications médicales : 68 % du marché en valeur</li>
+          <li>5 entreprises au stade des essais humains en 2025</li>
+          <li>Chine : 12 projets nationaux BCI financés (plan « Cerveau 2030 »)</li>
+          <li>Asie-Pacifique émerge comme second pôle d'investissement mondial</li>
+          <li>FDA : cadre réglementaire clarifié en 2025 pour les dispositifs implantables</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="analysis-card">
+        <h3><i class="fas fa-stethoscope" style="color:#c62828;"></i> &nbsp;Applications médicales et grand public</h3>
+        <ul>
+          <li><strong>Médical :</strong> restauration de la mobilité (paraplégie, tétraplégie), communication locked-in, traitement Parkinson/épilepsie, rééducation post-AVC</li>
+          <li><strong>Grand public :</strong> contrôle AR/VR par la pensée (Meta EMG), casques EEG pour la concentration, domotique neurale</li>
+          <li><strong>Tendance :</strong> convergence vers des interfaces hybrides invasives/non invasives selon le niveau de précision requis</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ Acteurs majeurs ════ -->
+  <h2 class="section-heading">Cartographie des acteurs</h2>
+  <p class="section-sub">Entreprises et laboratoires clés identifiés au fil de la veille</p>
+
+  <div class="row mb-5">
+    <div class="col-md-3 col-6 mb-3">
+      <div class="actor-card">
+        <div class="actor-icon"><i class="fas fa-brain"></i></div>
+        <div class="actor-name">Neuralink</div>
+        <div class="actor-desc">Implant N1 invasif, 21 patients — Elon Musk, CA</div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mb-3">
+      <div class="actor-card">
+        <div class="actor-icon"><i class="fas fa-microchip"></i></div>
+        <div class="actor-name">Blackrock Neurotech</div>
+        <div class="actor-desc">Électrodes Utah, systèmes cliniques haute densité</div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mb-3">
+      <div class="actor-card">
+        <div class="actor-icon"><i class="fas fa-wave-square"></i></div>
+        <div class="actor-name">Synchron</div>
+        <div class="actor-desc">Stentrode endovasculaire, sans ouverture du crâne</div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mb-3">
+      <div class="actor-card">
+        <div class="actor-icon"><i class="fas fa-university"></i></div>
+        <div class="actor-name">Wyss Center</div>
+        <div class="actor-desc">Neuroprothèses, charte éthique, Genève</div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mb-3">
+      <div class="actor-card">
+        <div class="actor-icon"><i class="fas fa-layer-group"></i></div>
+        <div class="actor-name">Precision Neuroscience</div>
+        <div class="actor-desc">Implant Layer 7, réversible, sans retrait de tissu</div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mb-3">
+      <div class="actor-card">
+        <div class="actor-icon"><i class="fas fa-glasses"></i></div>
+        <div class="actor-name">Cognixion</div>
+        <div class="actor-desc">Casque BCI non invasif EEG, SLA / paralysie</div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mb-3">
+      <div class="actor-card">
+        <div class="actor-icon"><i class="fab fa-meta"></i></div>
+        <div class="actor-name">Meta (CTRL-labs)</div>
+        <div class="actor-desc">Bracelet EMG, contrôle AR par gestes neuraux</div>
+      </div>
+    </div>
+    <div class="col-md-3 col-6 mb-3">
+      <div class="actor-card">
+        <div class="actor-icon"><i class="fas fa-flask"></i></div>
+        <div class="actor-name">BrainGate / Stanford</div>
+        <div class="actor-desc">Consortium recherche, décodage parole, motricité</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ Sources & Méthodologie ════ -->
+  <h2 class="section-heading">Sources & Méthodologie de veille</h2>
+  <p class="section-sub">Comment cette veille est organisée et maintenue</p>
+
+  <div class="row mb-4">
+    <div class="col-md-5 mb-3">
+      <div class="sources-block" style="margin-bottom:0;height:100%;">
+        <h3><i class="fas fa-rss" style="color:var(--primary);"></i> Sources utilisées</h3>
+        <div class="source-item">
+          <i class="fas fa-newspaper"></i>
+          <a href="https://www.science-et-vie.com" target="_blank" rel="noopener">Science et Vie</a>
+        </div>
+        <div class="source-item">
+          <i class="fas fa-newspaper"></i>
+          <a href="https://www.sciencesetavenir.fr" target="_blank" rel="noopener">Sciences et Avenir</a>
+        </div>
+        <div class="source-item">
+          <i class="fas fa-laptop"></i>
+          <a href="https://www.journaldugeek.com" target="_blank" rel="noopener">Journal du Geek</a>
+        </div>
+        <div class="source-item">
+          <i class="fas fa-globe"></i>
+          <a href="https://theconversation.com" target="_blank" rel="noopener">The Conversation</a>
+        </div>
+
+        <div class="source-item">
+          <i class="fas fa-flask"></i>
+          <a href="https://www.nature.com/neuro/" target="_blank" rel="noopener">Nature (Neuroscience / Medicine)</a>
+        </div>
+        <div class="source-item">
+          <i class="fas fa-chart-bar"></i>
+          <a href="https://www.mordorintelligence.com/fr/industry-reports/brain-computer-interface-market" target="_blank" rel="noopener">Mordor Intelligence — rapports marché</a>
+        </div>
+        <div class="source-item">
+          <i class="fas fa-landmark"></i>
+          <a href="https://www.agence-biomedecine.fr/fr/neurosciences/neurosciences" target="_blank" rel="noopener">Agence de la biomédecine</a>
+        </div>
+        <div class="source-item">
+          <i class="fas fa-brain"></i>
+          <a href="https://www.cortex-mag.net" target="_blank" rel="noopener">Cortex Mag — neurosciences</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7">
+      <div class="row">
+        <div class="col-sm-6 mb-3">
+          <div class="method-card">
+            <div class="method-icon"><i class="fas fa-bell"></i></div>
+            <h4>Alertes Google</h4>
+            <p>Mots-clés surveillés : <em>« interface cerveau-machine »</em>, <em>« Neuralink »</em>, <em>« implant cérébral »</em>, <em>« neurotechnologies éthique »</em>.</p>
+            <p style="margin-top:0.5rem;">Fréquence : quotidienne, tri hebdomadaire.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+          <div class="method-card">
+            <div class="method-icon"><i class="fas fa-rss"></i></div>
+            <h4>Agrégateur Feedly</h4>
+            <p>Flux RSS abonnés : Science et Vie, Sciences et Avenir, Journal du Geek, MIT Technology Review, Nature.</p>
+            <p style="margin-top:0.5rem;">Lecture hebdomadaire, sélection des articles pertinents.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+          <div class="method-card">
+            <div class="method-icon"><i class="fas fa-book-open"></i></div>
+            <h4>Sites institutionnels</h4>
+            <p>Consultation directe : <em>Agence de la biomédecine</em>, <em>Wyss Center</em>, <em>UCLH</em>, sites des entreprises (Neuralink, Synchron, Cognixion).</p>
+            <p style="margin-top:0.5rem;">Vérification des annonces officielles.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-3">
+          <div class="method-card">
+            <div class="method-icon"><i class="fas fa-pen-alt"></i></div>
+            <h4>Synthèse mensuelle</h4>
+            <p>Chaque mois : sélection des 1 à 2 actualités les plus significatives, rédaction d'un résumé sourcé, classement par catégorie.</p>
+            <p style="margin-top:0.5rem;"><em>14 synthèses</em> depuis 2023.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /veille-main -->
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-inner">
+    <p>&copy; 2026 Nour MESBAHI. Tous droits réservés.</p>
+    <div class="footer-links">
+      <a href="index.html">ACCUEIL</a>
+      <a href="projets_competences.html">PROJETS</a>
+      <a href="projet1-details.html">BLOC 1</a>
+      <a href="projet2-details.html">BLOC 2</a>
+      <a href="projet3-details.html">BLOC 3</a>
+      <a href="projet4-details.html">BLOC 4</a>
+      <a href="projet5-details.html">BLOC 5</a>
+      <a href="projet6-details.html">BLOC 6</a>
+      <a href="CV.html">CV</a>
+      <a href="veille.html">VEILLE</a>
+      <a href="e5.html">E5</a>
+    </div>
+    <div style="display:flex;gap:1rem;">
+      <a href="https://www.linkedin.com/in/nour-mesbahi-9b0851296/" target="_blank" rel="noopener" title="LinkedIn — Nour MESBAHI" style="color:#aaa;font-size:1.2rem;text-decoration:none;"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/Misskine" target="_blank" rel="noopener" title="GitHub — Misskine" style="color:#aaa;font-size:1.2rem;text-decoration:none;"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function () {
+  const btns = document.querySelectorAll('.filter-btn');
+  const articles = document.querySelectorAll('.article-col');
+  const yearDividers = document.querySelectorAll('.year-group');
+  const noResults = document.getElementById('no-results');
+
+  let activeCat = 'all';
+  let activeYear = null;
+
+  function applyFilters() {
+    let visible = 0;
+
+    articles.forEach(function (col) {
+      const cat  = col.dataset.cat;
+      const year = col.dataset.year;
+      const matchCat  = activeCat  === 'all'  || cat  === activeCat;
+      const matchYear = activeYear === null    || year === activeYear;
+      if (matchCat && matchYear) {
+        col.style.display = '';
+        visible++;
+      } else {
+        col.style.display = 'none';
+      }
+    });
+
+    // Show/hide year dividers: show if at least one article in that year is visible
+    yearDividers.forEach(function (div) {
+      const yr = div.dataset.year;
+      if (!yr) return;
+      // It's a .col-12 wrapper or a top-level divider
+      const hasVisible = Array.from(articles).some(function (a) {
+        return a.dataset.year === yr && a.style.display !== 'none';
+      });
+      // The divider might be a direct child of row or wrapped in col-12
+      const wrapper = div.closest('.col-12') || div;
+      wrapper.style.display = hasVisible ? '' : 'none';
+    });
+
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  }
+
+  btns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (btn.dataset.filter !== undefined) {
+        // Category filter
+        document.querySelectorAll('[data-filter]').forEach(function (b) {
+          b.classList.remove('active');
+        });
+        btn.classList.add('active');
+        activeCat = btn.dataset.filter;
+      } else if (btn.dataset.year !== undefined) {
+        // Year filter — toggle
+        if (activeYear === btn.dataset.year) {
+          btn.classList.remove('active');
+          activeYear = null;
+        } else {
+          document.querySelectorAll('[data-year]').forEach(function (b) {
+            if (b.classList.contains('filter-btn')) b.classList.remove('active');
+          });
+          btn.classList.add('active');
+          activeYear = btn.dataset.year;
+        }
+      }
+      applyFilters();
+    });
+  });
+})();
+</script>
 </body>
 </html>

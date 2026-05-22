@@ -444,7 +444,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <li class="nav-item"><a class="nav-link" href="CV.html">CV</a></li>
                 <li class="nav-item"><a class="nav-link" href="veille.html">VEILLE</a></li>
                 <li class="nav-item"><a class="nav-link" href="e5.html">E5</a></li>
-                <li class="nav-item"><a class="nav-link" href="e6.html">E6</a></li>
+                
             </ul>
         </div>
     </div>
@@ -497,12 +497,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </p>
             </div>
             <div class="col-md-6 text-center">
-                <img src="images/k.png" alt="Cavalier d'échecs – cliquez pour jouer !" class="img-fluid"
-                     onclick="openChess()" title="♞ Cliquez pour jouer aux échecs !"
-                     style="cursor:pointer;transition:transform .2s,filter .2s;"
-                     onmouseover="this.style.transform='scale(1.05)';this.style.filter='drop-shadow(0 0 12px #FF5722)'"
-                     onmouseout="this.style.transform='';this.style.filter=''">
-                <div style="font-family:'VT323',monospace;color:#FF5722;font-size:1rem;margin-top:0.5rem;letter-spacing:2px;">▶ CLIQUER POUR JOUER</div>
+                <!-- ═══ EASTER EGG : cavalier discret, cliquez pour jouer ═══ -->
+                <img src="images/k.png" alt="" class="img-fluid"
+                     id="chessEgg" onclick="openChess()"
+                     style="opacity:0.25;cursor:pointer;transition:opacity .4s,filter .3s,transform .3s;max-width:200px;"
+                     onmouseover="this.style.opacity='1';this.style.filter='drop-shadow(0 0 12px #FF5722)';this.style.transform='scale(1.05)';"
+                     onmouseout="this.style.opacity='0.25';this.style.filter='';this.style.transform='';">
             </div>
         </div>
     </div>
@@ -687,46 +687,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 </section>
 
-<!-- Contact Section -->
-<section class="main-content" id="contact">
-    <div class="custom-container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="section-title vt323-regular">CONTACT</div>
-                <h2 class="content-heading vt323-regular">Me contacter</h2>
-                <p class="content-text">
-                    N'hésitez pas à me contacter pour discuter de projets, opportunités ou simplement échanger sur des sujets techniques.
-                </p>
-                <ul class="content-text" style="list-style-type: none; padding-left: 0;">
-                    <li>• Email: nour.mesbahi.0@gmail.com</li>
-                    <li>• LinkedIn: linkedin.com/in/nourmesbahi</li>
-                    <li>• GitHub: github.com/nourmesbahi</li>
-                </ul>
-            </div>
-            <div class="col-md-6">
-                <form>
-                    <div class="mb-3">
-                        <input type="text" class="form-control" placeholder="Nom" style="background-color: var(--beige); border: none; padding: 0.8rem;">
-                    </div>
-                    <div class="mb-3">
-                        <input type="email" class="form-control" placeholder="Email" style="background-color: var(--beige); border: none; padding: 0.8rem;">
-                    </div>
-                    <div class="mb-3">
-                        <textarea class="form-control" rows="5" placeholder="Message" style="background-color: var(--beige); border: none; padding: 0.8rem;"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary vt323-regular">ENVOYER</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Footer -->
 <footer>
     <div class="custom-container">
         <div class="row">
             <div class="col-md-6">
-                <p>&copy; 2025 Nour MESBAHI. Tous droits réservés.</p>
             </div>
             <div class="col-md-6 d-flex justify-content-md-end">
                 <div class="footer-links me-4">
@@ -738,11 +703,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <a href="CV.html">CV</a>
                     <a href="veille.html">Veille</a>
                     <a href="e5.html">E5</a>
-                    <a href="e6.html">E6</a>
+                    
                 </div>
                 <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/nour-mesbahi-9b0851296/" target="_blank" rel="noopener" title="LinkedIn — Nour MESBAHI"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Misskine" target="_blank" rel="noopener" title="GitHub — Misskine"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>
@@ -917,6 +882,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     window.closeChess=function(){document.getElementById('chessModal').style.display='none';document.body.style.overflow='';};
     window.resetChess=function(){init();};
     document.addEventListener('keydown',function(e){if(e.key==='Escape')closeChess();});
+
+    // ═══════════ EASTER EGG bonus : tapez "chess" au clavier ═══════════
+    var buf = '';
+    document.addEventListener('keydown', function (e) {
+        if (e.key && e.key.length === 1) {
+            buf = (buf + e.key.toLowerCase()).slice(-5);
+            if (buf === 'chess') { buf = ''; window.openChess(); }
+        }
+    });
 })();
 </script>
 <script>
